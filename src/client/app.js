@@ -41,13 +41,27 @@ function updateBadge() {
   const badge = $("#cart-count");
   if (badge) { badge.textContent = n; badge.hidden = n === 0; }
 }
+// Returns how many pieces were added. Trial products (the sample kit) are limited to one per customer.
 function addToCart(id, finish, qty) {
+  if (C?.products[id]?.trial) {
+    if (cart.some(l => l.id === id)) return 0;
+    cart.push({ id, finish, qty: 1 });
+    saveCart();
+    return 1;
+  }
   const line = cart.find(l => l.id === id && l.finish === finish);
   if (line) line.qty = Math.min(9999, line.qty + qty); else cart.push({ id, finish, qty });
   saveCart();
+  return qty;
 }
 function cartLines() {
-  cart = cart.filter(l => C.products[l.id] && C.products[l.id].finishes.includes(l.finish) && l.qty > 0);
+  const trials = new Set();
+  cart = cart.filter(l => {
+    const p = C.products[l.id];
+    if (!p || !p.finishes.includes(l.finish) || !(l.qty > 0)) return false;
+    if (p.trial) { if (trials.has(l.id)) return false; trials.add(l.id); l.qty = 1; }
+    return true;
+  });
   return cart.map(l => {
     const p = C.products[l.id], unit = price(p, l.finish, l.qty);
     return { ...l, p, unit, total: round(unit * l.qty) };
@@ -118,13 +132,21 @@ function setBusy(form, busy) {
 // ---------- header ----------
 function initHeader() {
   const btn = $("#menu-btn");
-  btn?.addEventListener("click", () => {
-    const open = document.body.classList.toggle("menu-open");
-    btn.setAttribute("aria-expanded", String(open));
-  });
+  const setMenu = open => { document.body.classList.toggle("menu-open", open); btn?.setAttribute("aria-expanded", String(open)); };
+  btn?.addEventListener("click", () => setMenu(!document.body.classList.contains("menu-open")));
   const lang = $(".lang");
   document.addEventListener("click", e => { if (lang?.open && !lang.contains(e.target)) lang.open = false; });
-  document.addEventListener("keydown", e => { if (e.key === "Escape" && lang?.open) { lang.open = false; lang.querySelector("summary").focus(); } });
+  document.addEventListener("keydown", e => {
+    if (e.key !== "Escape") return;
+    if (lang?.open) { lang.open = false; lang.querySelector("summary").focus(); }
+    else if (document.body.classList.contains("menu-open")) { setMenu(false); btn.focus(); }
+  });
+  // On the home page's first screen the floating WhatsApp button would cover the hero buttons or the trust bar,
+  // so it steps aside while the hero buttons are visible (see .wa-float.is-away in styles.css).
+  const heroActions = $(".hero .actions"), wa = $(".wa-float");
+  if (heroActions && wa && "IntersectionObserver" in window) {
+    new IntersectionObserver(([entry]) => wa.classList.toggle("is-away", entry.isIntersecting)).observe(heroActions);
+  }
 }
 
 // ---------- catalogue page: search and sort ----------
@@ -179,7 +201,7 @@ function initProduct() {
     const unit = price(p, finish, qty);
     $("#unit").textContent = money(unit);
     tierRows(p, finish, qty);
-    const nt = nextTier(C.tiers, qty);
+    const nt = p.trial ? null : nextTier(C.tiers, qty);
     $("#line-total").textContent = t("pdp.lineTotal", { qty, unit: money(unit), total: money(round(unit * qty)) }) +
       (nt ? `. ${t("pdp.nextTier", { n: nt.min - qty, pct: Math.round(nt.off * 100) })}` : "");
   }
@@ -193,10 +215,21 @@ function initProduct() {
   form.addEventListener("submit", e => {
     e.preventDefault();
     const { finish, qty } = read();
-    addToCart(p.id, finish, qty);
-    toast(t("pdp.added", { qty, name: `${p.name} (${t("finish." + finish)})` }), site.urls.cart, t("pdp.viewCart"));
+    const added = addToCart(p.id, finish, qty);
+    toast(added ? t("pdp.added", { qty: added, name: `${p.name} (${t("finish." + finish)})` }) : t("kit.inCart"), site.urls.cart, t("pdp.viewCart"));
   });
   update();
+}
+
+// "Add to cart" buttons outside a product page, such as the sample kit on the home page.
+function initAddButtons() {
+  $$("[data-add]").forEach(b => b.addEventListener("click", async () => {
+    await loadCatalog();
+    const p = C?.products[b.dataset.add];
+    if (!p) return;
+    const added = addToCart(p.id, p.def, 1);
+    toast(added ? t("pdp.added", { qty: added, name: `${p.name} (${t("finish." + p.def)})` }) : t("kit.inCart"), site.urls.cart, t("pdp.viewCart"));
+  }));
 }
 
 function initGallery() {
@@ -236,7 +269,7 @@ function initCart() {
     const more = ship.zone?.freeAbove && ship.price ? round(C.shipping.freeFrom - subtotal) : 0;
     root.innerHTML = `<div class="cart">
       <ul class="lines">${lines.map((l, i) => {
-        const nt = nextTier(C.tiers, l.qty);
+        const nt = l.p.trial ? null : nextTier(C.tiers, l.qty);
         return `<li class="line">
           <a class="line-draw" href="${l.p.url}" tabindex="-1" aria-hidden="true">${l.p.thumb}</a>
           <div class="line-info">
@@ -244,11 +277,11 @@ function initCart() {
             <span class="muted">${esc(l.p.sku)}, ${esc(t("finish." + l.finish))}, ${t("cart.each", { price: money(l.unit) })}</span>
             ${nt ? `<span class="nudge">${t("cart.nudge", { n: nt.min - l.qty, pct: Math.round(nt.off * 100) })}</span>` : ""}
           </div>
-          <div class="stepper small" role="group" aria-label="${esc(t("cart.qtyFor", { name: l.p.name }))}">
+          ${l.p.trial ? `<span class="qty-fixed"><strong>1</strong> <small class="muted">${esc(t("kit.one"))}</small></span>` : `<div class="stepper small" role="group" aria-label="${esc(t("cart.qtyFor", { name: l.p.name }))}">
             <button type="button" data-line="${i}" data-step="-1" aria-label="${esc(t("pdp.dec"))}">−</button>
             <input type="number" min="1" max="9999" value="${l.qty}" data-line="${i}" aria-label="${esc(t("pdp.qty"))}">
             <button type="button" data-line="${i}" data-step="1" aria-label="${esc(t("pdp.inc"))}">+</button>
-          </div>
+          </div>`}
           <strong class="line-total">${money(l.total)}</strong>
           <button type="button" class="link" data-remove="${i}">${t("cart.remove")}</button>
         </li>`;
@@ -269,7 +302,7 @@ function initCart() {
 
   root.addEventListener("click", e => {
     const step = e.target.closest("[data-step]"), rm = e.target.closest("[data-remove]");
-    if (step) { const l = cart[step.dataset.line]; l.qty = Math.max(1, Math.min(9999, l.qty + Number(step.dataset.step))); render(); $(`[data-line="${step.dataset.line}"][data-step="${step.dataset.step}"]`)?.focus(); }
+    if (step) { const l = cart[step.dataset.line]; l.qty = Math.max(1, Math.min(C.products[l.id].trial ? 1 : 9999, l.qty + Number(step.dataset.step))); render(); $(`[data-line="${step.dataset.line}"][data-step="${step.dataset.step}"]`)?.focus(); }
     if (rm) { cart.splice(Number(rm.dataset.remove), 1); render(); }
   });
   root.addEventListener("change", e => {
@@ -285,6 +318,9 @@ function initCart() {
     vatInput.required = eu;
     vatLabel.innerHTML = eu ? esc(vatLabel.dataset.vat) : `${esc(vatLabel.dataset.tax)} <small class="muted">${esc(vatLabel.dataset.optional)}</small>`;
     vatHint.textContent = eu ? vatHint.dataset.hint.replace("{example}", vatExample(c)) : "";
+    // An error for the previous country's format no longer applies; it's checked again on submit.
+    $("#err-vat").textContent = "";
+    vatInput.removeAttribute("aria-invalid");
     store.set("ferrin-country", c);
     render();
   }
@@ -360,6 +396,8 @@ function initQuickOrder() {
   const form = $("#quick");
   if (!form) return;
   const rows = $$("tr[data-id]", form);
+  const bar = $(".quick-bar", form);
+  if (bar && "ResizeObserver" in window) new ResizeObserver(() => document.documentElement.style.setProperty("--quickbar-h", bar.offsetHeight + "px")).observe(bar);
   const qty = row => Math.max(0, Math.min(9999, parseInt(row.querySelector("input").value, 10) || 0));
   function update() {
     let n = 0, sum = 0;
@@ -380,7 +418,7 @@ function initQuickOrder() {
     e.preventDefault();
     const chosen = rows.filter(r => qty(r) > 0);
     if (!chosen.length) { $("#quick-err").textContent = t("qo.none"); return; }
-    chosen.forEach(r => addToCart(r.dataset.id, r.querySelector("select").value, qty(r)));
+    chosen.forEach(r => { addToCart(r.dataset.id, r.querySelector("select").value, qty(r)); });
     chosen.forEach(r => { r.querySelector("input").value = ""; });
     update();
     toast(t("qo.added", { n: chosen.length }), site.urls.cart, t("pdp.viewCart"));
@@ -420,7 +458,9 @@ $("[data-print]")?.addEventListener("click", () => window.print());
 initShop();
 initGallery();
 
-const needsCatalog = ["#buy", "#cart-root", "#sent-root", "#quick", "#quote", "#contact"].some(s => $(s));
+initAddButtons();
+
+const needsCatalog = ["#buy", "#cart-root", "#sent-root", "#quick", "#quote", "#contact", "[data-add]"].some(s => $(s));
 if (needsCatalog) {
   loadCatalog().then(cat => {
     C = cat;

@@ -39,7 +39,8 @@ async function write(rel, content) {
 }
 const hash = s => createHash("sha1").update(s).digest("hex").slice(0, 8);
 
-function makeCtx(lang, photos, version) {
+function makeCtx(lang, media, version) {
+  const { photos, images, credits } = media;
   const d = dicts[lang], en = dicts[cfg.defaultLanguage];
   const t = (key, vars = {}) => {
     let s = d.ui[key];
@@ -65,8 +66,11 @@ function makeCtx(lang, photos, version) {
   const def = DEFAULT_COUNTRY[lang];
   countries.sort((a, b) => (a.code === def ? -1 : b.code === def ? 1 : 0));
   const base = cfg.basePath;
+  const digits = s => String(s || "").replace(/\D/g, "");
   return {
-    lang, cfg, t, photos, version, buildDate, countries,
+    lang, cfg, t, photos, images, credits, version, buildDate, countries,
+    wa: cfg.whatsapp ? `https://wa.me/${digits(cfg.whatsapp)}` : "",
+    tel: cfg.phone ? `tel:+${digits(cfg.phone)}` : "",
     faq: d.faq || en.faq,
     products: prods, cats,
     byId: id => prods.find(p => p.id === id),
@@ -82,21 +86,22 @@ function makeCtx(lang, photos, version) {
 }
 
 // ---------- images ----------
+// Atelier palette: charcoal lines on white, brass accents.
 const OG_STYLE = `
-  .o{fill:#F6F7F8;stroke:#1C2A3A;stroke-width:1.6;stroke-linejoin:round}
-  .b{fill:none;stroke:#1C2A3A;stroke-width:10px;stroke-linecap:round}
-  .bi{fill:none;stroke:#F6F7F8;stroke-width:6.6px;stroke-linecap:round}
-  .a{fill:none;stroke:#2E4FA3;stroke-width:2;stroke-linecap:round}.edge{stroke-width:3}
-  .hatch{stroke:#66727E;stroke-width:1}.teeth{fill:none;stroke:#1C2A3A;stroke-width:1.2}
-  .stitch{fill:none;stroke:#66727E;stroke-dasharray:4 4}
-  .dim line{stroke:#66727E;stroke-width:1}.dim path{fill:#66727E}.dim-bg{fill:#F6F7F8}
-  .dim text{font:600 12px sans-serif;fill:#66727E;text-anchor:middle}`;
+  .o{fill:#FFFFFF;stroke:#22211F;stroke-width:1.6;stroke-linejoin:round}
+  .b{fill:none;stroke:#22211F;stroke-width:10px;stroke-linecap:round}
+  .bi{fill:none;stroke:#FFFFFF;stroke-width:6.6px;stroke-linecap:round}
+  .a{fill:none;stroke:#8A6A2F;stroke-width:2;stroke-linecap:round}.edge{stroke-width:3}
+  .hatch{stroke:#5E5A53;stroke-width:1}.teeth{fill:none;stroke:#22211F;stroke-width:1.2}
+  .stitch{fill:none;stroke:#5E5A53;stroke-dasharray:4 4}
+  .dim line{stroke:#5E5A53;stroke-width:1}.dim path{fill:#5E5A53}.dim-bg{fill:#FFFFFF}
+  .dim text{font:600 12px sans-serif;fill:#5E5A53;text-anchor:middle}`;
 
 function sheetSvg(drawSvg, w, h) {
   const inner = drawSvg.replace('<svg class="drawing"', `<svg x="${w * 0.1}" y="${h * 0.1}" width="${w * 0.8}" height="${h * 0.8}"`);
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">
-    <defs><pattern id="g" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#1C2A3A" stroke-opacity=".07"/></pattern><style>${OG_STYLE}</style></defs>
-    <rect width="${w}" height="${h}" fill="#F6F7F8"/><rect width="${w}" height="${h}" fill="url(#g)"/>
+    <defs><pattern id="g" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#22211F" stroke-opacity=".06"/></pattern><style>${OG_STYLE}</style></defs>
+    <rect width="${w}" height="${h}" fill="#FFFFFF"/><rect width="${w}" height="${h}" fill="url(#g)"/>
     ${inner}</svg>`;
 }
 
@@ -129,6 +134,60 @@ async function processPhotos() {
   return out;
 }
 
+// Site imagery (hero, craft steps, category photos) from public/images/<name>.jpg.
+// Each file becomes WebP + JPG at 800 and 1600 px wide, never upscaled. Missing files are fine:
+// templates fall back to the technical drawings.
+const SITE_IMAGES = ["hero", "craft-1", "craft-2", "craft-3", "craft-4", "nails", "barber", "grooming", "flatlay", "shears"];
+
+async function processSiteImages() {
+  const dir = path.join(ROOT, "public", "images");
+  const out = {};
+  if (!existsSync(dir)) return out;
+  const files = (await readdir(dir)).filter(f => /\.(jpe?g|png|webp)$/i.test(f)).sort();
+  for (const f of files) {
+    const name = f.replace(/\.(jpe?g|png|webp)$/i, "").toLowerCase();
+    if (!/^[a-z0-9-]+$/.test(name)) { warnings.add(`image "${f}": use lowercase letters, numbers and hyphens only`); continue; }
+    if (out[name]) { warnings.add(`image "${f}": more than one file named "${name}"`); continue; }
+    if (!SITE_IMAGES.includes(name) && !categories.some(c => c.id === name)) warnings.add(`image "${f}" isn't used by any page (expected ${SITE_IMAGES.join(", ")})`);
+    const file = path.join(dir, f);
+    const meta = await sharp(file).metadata();
+    const rotated = (meta.orientation || 1) >= 5;
+    const origW = rotated ? meta.height : meta.width;
+    const widths = [...new Set([800, 1600].map(w => Math.min(w, origW)))];
+    const srcs = [];
+    let width, height;
+    for (const w of widths) {
+      const pipeline = () => sharp(file).rotate().resize({ width: w, withoutEnlargement: true });
+      const webp = await pipeline().webp({ quality: 76 }).toBuffer({ resolveWithObject: true });
+      const jpg = await pipeline().flatten({ background: "#ffffff" }).jpeg({ quality: 80, mozjpeg: true }).toBuffer();
+      await write(`assets/images/${name}-${w}.webp`, webp.data);
+      await write(`assets/images/${name}-${w}.jpg`, jpg);
+      srcs.push({ w: webp.info.width, webp: `${cfg.basePath}/assets/images/${name}-${w}.webp`, jpg: `${cfg.basePath}/assets/images/${name}-${w}.jpg` });
+      width = webp.info.width; height = webp.info.height;
+    }
+    out[name] = { srcs, width, height };
+  }
+  return out;
+}
+
+// Optional public/images/credits.json: [{ file, photographer, source, url, license }].
+async function readCredits() {
+  const file = path.join(ROOT, "public", "images", "credits.json");
+  if (!existsSync(file)) return [];
+  let list;
+  try { list = JSON.parse(await readFile(file, "utf8")); } catch (e) { warnings.add(`credits.json isn't valid JSON (${e.message})`); return []; }
+  if (!Array.isArray(list)) { warnings.add("credits.json should be an array"); return []; }
+  return list.filter(c => {
+    const ok = c && c.file && c.photographer && c.source && /^https?:\/\//.test(c.url || "");
+    if (!ok) warnings.add(`credits.json: entry ${JSON.stringify(c)} needs file, photographer, source and an http(s) url`);
+    else if (!existsSync(path.join(ROOT, "public", "images", c.file)) && !existsSync(path.join(ROOT, "public", "photos", c.file))) {
+      warnings.add(`credits.json: "${c.file}" isn't in public/images or public/photos, so its credit isn't shown`);
+      return false;
+    }
+    return ok;
+  });
+}
+
 async function renderImages() {
   for (const p of products) {
     const svg = sheetSvg(drawTool(p.draw, p.length, ""), 1200, 630);
@@ -148,15 +207,15 @@ function catalog(ctx) {
     const ph = ctx.photos[p.sku]?.[0];
     items[p.id] = {
       id: p.id, sku: p.sku, name: p.name, price: p.price, finishes: p.finishes, def: baseFinish(p, cfg.finishes),
-      url: ctx.url(`product/${p.id}`), cat: p.cat, moq: cfg.privateLabelMinimum[p.cat],
-      thumb: ph ? `<img src="${ph.src[400].jpg}" alt="" loading="lazy">` : drawTool(Object.assign({ nodim: true }, p.draw), 0, "")
+      url: ctx.url(`product/${p.id}`), cat: p.cat, moq: cfg.privateLabelMinimum[p.cat], line: p.line, trial: Boolean(p.trial),
+      thumb: ph ? `<img src="${ph.src[400].jpg}" alt="" loading="lazy">` : drawTool(Object.assign({ nodim: true }, p.draw), 0, false)
     };
   }
   const ui = {};
   for (const k of Object.keys(dicts[cfg.defaultLanguage].ui)) ui[k] = ctx.t(k);
   return {
     lang: ctx.lang, locale: cfg.locales[ctx.lang], currency: cfg.currency, brand: cfg.brand,
-    orderEmail: cfg.orderEmail, web3formsKey: cfg.web3formsKey,
+    orderEmail: cfg.orderEmail, web3formsKey: cfg.web3formsKey, whatsapp: ctx.wa,
     tiers: cfg.tiers, finishes: cfg.finishes, shipping: cfg.shipping,
     countries: ctx.countries, ui, products: items
   };
@@ -187,7 +246,7 @@ function rootIndex(ctx) {
       location.replace(base + "/" + pick + "/");
     })();
   </script>
-  <style>body{font:16px/1.5 system-ui,sans-serif;max-width:32rem;margin:15vh auto;padding:0 16px;color:#1C2A3A;background:#E9ECEE}</style>
+  <style>body{font:16px/1.5 system-ui,sans-serif;max-width:32rem;margin:15vh auto;padding:0 16px;color:#22211F;background:#F3F3F1}a{color:#8A6A2F}</style>
 </head>
 <body>
   <h1>${cfg.brand}</h1>
@@ -215,15 +274,19 @@ async function main() {
   await rm(DIST, { recursive: true, force: true });
   await mkdir(DIST, { recursive: true });
 
-  // Styles with the self-hosted font, and browser scripts.
-  const fontDir = path.join(ROOT, "node_modules/@fontsource-variable/archivo/files");
-  const fontCss = ["latin-ext", "latin"].map(set => {
-    const range = { "latin-ext": "U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF",
-      latin: "U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD" }[set];
-    return `@font-face { font-family: "Archivo"; font-style: normal; font-display: swap; font-weight: 100 900; font-stretch: 62% 125%;
-  src: url(fonts/archivo-${set}-wdth-normal.woff2) format("woff2-variations"), url(fonts/archivo-${set}-wdth-normal.woff2) format("woff2"); unicode-range: ${range}; }`;
-  }).join("\n");
-  for (const set of ["latin", "latin-ext"]) await cp(path.join(fontDir, `archivo-${set}-wdth-normal.woff2`), path.join(DIST, `assets/fonts/archivo-${set}-wdth-normal.woff2`));
+  // Styles with the self-hosted fonts (Archivo for text, Bodoni Moda for headings), and browser scripts.
+  // latin-ext covers Polish and the other accented letters.
+  const RANGES = { "latin-ext": "U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF",
+    latin: "U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD" };
+  const FONTS = [
+    { family: "Archivo", pkg: "archivo", file: set => `archivo-${set}-wdth-normal.woff2`, extra: "font-weight: 100 900; font-stretch: 62% 125%;" },
+    { family: "Bodoni Moda", pkg: "bodoni-moda", file: set => `bodoni-moda-${set}-opsz-normal.woff2`, extra: "font-weight: 400 900;" }
+  ];
+  const fontCss = FONTS.flatMap(f => ["latin-ext", "latin"].map(set =>
+    `@font-face { font-family: "${f.family}"; font-style: normal; font-display: swap; ${f.extra}
+  src: url(fonts/${f.file(set)}) format("woff2-variations"), url(fonts/${f.file(set)}) format("woff2"); unicode-range: ${RANGES[set]}; }`)).join("\n");
+  for (const f of FONTS) for (const set of ["latin", "latin-ext"])
+    await cp(path.join(ROOT, `node_modules/@fontsource-variable/${f.pkg}/files`, f.file(set)), path.join(DIST, "assets/fonts", f.file(set)));
   const css = fontCss + "\n" + await readFile(path.join(SRC, "styles.css"), "utf8");
   await write("assets/styles.css", css);
   await cp(path.join(SRC, "client"), path.join(DIST, "assets/js/client"), { recursive: true });
@@ -232,12 +295,14 @@ async function main() {
   const version = hash(css + clientSrc + JSON.stringify(cfg) + JSON.stringify(products) + JSON.stringify(dicts));
 
   const photos = await processPhotos();
+  const images = await processSiteImages();
+  const credits = await readCredits();
   await renderImages();
 
   const sitemapEntries = [];
   let pageCount = 0;
   for (const lang of cfg.languages) {
-    const ctx = makeCtx(lang, photos, version);
+    const ctx = makeCtx(lang, { photos, images, credits }, version);
     const list = [
       pages.home(ctx), pages.shop(ctx),
       ...ctx.cats.map(c => pages.shop(ctx, c)),
@@ -265,14 +330,15 @@ async function main() {
   await write("sitemap.xml", sitemap(sitemapEntries));
   await write(".nojekyll", "");
 
-  // Sanity check: every product and tier price is a real number.
+  // Sanity check: every product and tier price is a real number, and sample kits list real products.
+  for (const p of products) if (p.contains) for (const id of p.contains) if (!products.some(x => x.id === id)) throw new Error(`${p.id} contains unknown product ${id}`);
   for (const p of products) for (const tr of cfg.tiers) {
     const v = unitPrice(p, cfg.finishes, cfg.tiers, baseFinish(p, cfg.finishes), tr.min);
     if (!Number.isFinite(v) || v <= 0) throw new Error(`Bad price for ${p.id}`);
   }
 
   const photoCount = Object.values(photos).reduce((n, a) => n + a.length, 0);
-  console.log(`Built ${pageCount} pages in ${cfg.languages.length} languages, ${photoCount} photos, base path "${cfg.basePath || "/"}" in ${Date.now() - started} ms.`);
+  console.log(`Built ${pageCount} pages in ${cfg.languages.length} languages, ${photoCount} product photos, ${Object.keys(images).length} site images, base path "${cfg.basePath || "/"}" in ${Date.now() - started} ms.`);
   if (warnings.size) console.warn(`\n${warnings.size} warning(s):\n  ` + [...warnings].slice(0, 40).join("\n  "));
 }
 

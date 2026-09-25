@@ -1,86 +1,134 @@
 // One function per page. Each returns { key, path, title, description, body, ... } for layout().
 import { drawTool } from "../shared/drawings.js";
 import { unitPrice, lowestPrice, baseFinish } from "../shared/pricing.js";
-import { esc, sheet, picture, grid, tierTable, tierLabel, field, textarea, honeypot, crumbs, breadcrumbLd, steelLabel } from "./layout.js";
+import { esc, sheet, picture, siteImage, grid, tierTable, tierLabel, field, textarea, honeypot, crumbs, breadcrumbLd, steelLabel, lineBadge, trustItems, waLink } from "./layout.js";
+import { icon } from "./icons.js";
 import { legalPages } from "./legal.js";
 
 export function home(ctx) {
   const { t, cfg } = ctx;
   const hero = ctx.byId(cfg.heroProduct);
-  const maxOff = Math.round(cfg.tiers[cfg.tiers.length - 1].off * 100);
-  const minPL = Math.min(...Object.values(cfg.privateLabelMinimum));
-  const heroPhoto = ctx.photos[hero.sku]?.[0];
+  const kit = ctx.products.find(p => p.trial);
+  const heroPhoto = siteImage(ctx, "hero", t("home.heroAlt"), "(max-width: 899px) 100vw, 50vw", true);
+  const productPhoto = ctx.photos[hero.sku]?.[0];
+  // Without a hero photo, show the hero product: its own photo if there is one, otherwise its drawing on charcoal.
+  const heroAside = heroPhoto ? "" : `<a class="hero-aside" href="${ctx.url(`product/${hero.id}`)}">
+          ${productPhoto ? `<div class="photo">${picture(ctx, productPhoto, hero.name, "(max-width: 899px) 100vw, 560px", true)}</div>` : sheet(ctx, hero, true)}
+          <span class="hero-caption"><span>${esc(hero.name)}</span><strong>${ctx.money(hero.price)}</strong></span>
+        </a>`;
+  const catSizes = "(max-width: 1000px) 50vw, 290px";
+  const craftIcons = ["disc", "sparkles", "scissors", "searchCheck"];
+  const kitParts = kit ? kit.contains.map(id => ctx.byId(id)) : [];
+  const kitSeparately = kitParts.reduce((sum, p) => sum + p.price, 0);
+  const whyPhoto = siteImage(ctx, "shears", "", "(max-width: 899px) 100vw, 560px");
   return {
     key: "home", path: "", description: t("meta.home"),
     jsonld: [
       { "@context": "https://schema.org", "@type": "Organization", name: cfg.brand, url: ctx.abs(ctx.url("")), email: cfg.orderEmail,
-        logo: ctx.abs(ctx.asset("logo.png")) },
+        telephone: cfg.phone, address: cfg.address, logo: ctx.abs(ctx.asset("logo.png")) },
       { "@context": "https://schema.org", "@type": "WebSite", name: cfg.brand, url: ctx.abs(ctx.url("")), inLanguage: ctx.lang }
     ],
     body: `
-    <section class="hero wrap">
-      <div class="hero-copy">
-        <h1>${t("home.h1")}</h1>
-        <p class="lede">${t("home.lede")}</p>
-        <div class="actions">
-          <a class="btn" href="${ctx.url("shop")}">${t("home.ctaShop")}</a>
-          <a class="btn btn-ghost" href="${ctx.url("private-label")}">${t("home.ctaPL")}</a>
+    <section class="hero on-dark${heroPhoto ? " has-photo" : ""}">
+      ${heroPhoto ? `<div class="hero-photo">${heroPhoto}</div>` : ""}
+      <div class="wrap hero-inner">
+        <div class="hero-copy">
+          <h1>${t("home.h1")}</h1>
+          <p class="lede">${t("home.lede")}</p>
+          <div class="actions">
+            <a class="btn" href="${ctx.url("shop")}">${t("home.ctaShop")}${icon("arrowRight")}</a>
+            ${kit ? `<a class="btn btn-ghost" href="#sample-kit">${icon("package")}${t("home.ctaKit")}</a>` : ""}
+          </div>
         </div>
-        <ul class="facts">
-          <li><strong>${t("home.fact1", { pct: maxOff })}</strong> ${t("home.fact1Sub")}</li>
-          <li><strong>${t("home.fact2", { n: minPL })}</strong> ${t("home.fact2Sub")}</li>
-          <li><strong>${t("home.fact3")}</strong> ${t("home.fact3Sub")}</li>
-        </ul>
+        ${heroAside}
       </div>
-      <a class="hero-sheet" href="${ctx.url(`product/${hero.id}`)}" aria-label="${esc(hero.name)}">
-        ${heroPhoto ? `<div class="photo photo-big">${picture(ctx, heroPhoto, hero.name, "(max-width: 820px) 100vw, 560px", true)}</div>` : sheet(ctx, hero, true)}
-        <span class="hero-caption"><span>${esc(hero.name)}</span><strong>${ctx.money(hero.price)}</strong></span>
-      </a>
+    </section>
+
+    <section class="trust" aria-label="${esc(t("trust.label"))}">
+      <ul class="wrap trust-list">${trustItems(ctx).map(i => `
+        <li>${icon(i.icon)}<div><strong>${i.title}</strong><span>${i.text}</span></div></li>`).join("")}
+      </ul>
     </section>
 
     <section class="wrap section">
-      <div class="section-head"><h2>${t("home.shopBy")}</h2><a href="${ctx.url("shop")}">${t("home.seeAll", { n: ctx.products.length })}</a></div>
+      <div class="section-head"><h2>${t("home.shopBy")}</h2><a class="more" href="${ctx.url("shop")}">${t("home.seeAll", { n: ctx.products.length })}${icon("arrowRight")}</a></div>
       <div class="cats">
-        ${ctx.cats.map(c => `<a class="cat" href="${ctx.url(`shop/${c.id}`)}">
-          <div class="cat-draw">${drawTool(Object.assign({ nodim: true }, c.draw), 0, c.name)}</div>
-          <h3>${esc(c.name)}</h3>
-          <p>${t("unit.count", { n: ctx.inCat(c.id).length })}</p>
-        </a>`).join("")}
+        ${ctx.cats.map(c => {
+          const img = siteImage(ctx, ctx.images[c.id] ? c.id : c.image, "", catSizes);
+          return `<a class="cat${img ? " has-photo" : ""}" href="${ctx.url(`shop/${c.id}`)}">
+          <div class="cat-media">${img || drawTool(Object.assign({ nodim: true }, c.draw), 0, false)}</div>
+          <div class="cat-body"><h3>${esc(c.name)}</h3><p>${t("unit.count", { n: ctx.inCat(c.id).length })}</p></div>
+        </a>`;
+        }).join("")}
       </div>
     </section>
 
-    <section class="band">
+    <section class="craft">
+      <div class="wrap section">
+        <div class="section-head stacked"><h2>${t("craft.h")}</h2><p>${t("craft.p")}</p></div>
+        <ol class="craft-steps">${[1, 2, 3, 4].map(i => `
+          <li>
+            <div class="craft-media">${siteImage(ctx, `craft-${i}`, "", "(max-width: 560px) 100vw, (max-width: 1000px) 50vw, 280px", false, `<div class="craft-ph">${icon(craftIcons[i - 1])}</div>`)}</div>
+            <h3><span class="step-no" aria-hidden="true">${String(i).padStart(2, "0")}</span>${t(`craft.s${i}`)}</h3>
+            <p>${t(`craft.s${i}p`)}</p>
+          </li>`).join("")}
+        </ol>
+      </div>
+    </section>
+
+    <section class="wrap section">
+      <div class="section-head"><h2>${t("home.best")}</h2><a class="more" href="${ctx.url("shop")}">${t("home.ctaShop")}${icon("arrowRight")}</a></div>
+      ${grid(ctx, ctx.products.filter(p => p.best && !p.trial).slice(0, 8))}
+    </section>
+
+    ${kit ? `<section class="wrap section" id="sample-kit">
+      <div class="kit">
+        <div class="kit-media">${siteImage(ctx, "flatlay", "", "(max-width: 899px) 100vw, 560px", false, sheet(ctx, kit, true))}</div>
+        <div class="kit-body">
+          <h2>${t("home.kitH")}</h2>
+          <p>${t("home.kitP")}</p>
+          <ul class="kit-list">${kitParts.map(p => `<li>${icon("check")}<a href="${ctx.url(`product/${p.id}`)}">${esc(p.name)}</a></li>`).join("")}</ul>
+          <p class="kit-price"><strong>${ctx.money(kit.price)}</strong> <span>${t("kit.perKit")}</span></p>
+          <p class="muted kit-sep">${t("home.kitSeparately", { price: ctx.money(kitSeparately) })}</p>
+          <div class="actions">
+            <button type="button" class="btn" data-add="${kit.id}">${icon("bag")}${t("home.kitAdd")}</button>
+            <a class="btn btn-ghost" href="${ctx.url(`product/${kit.id}`)}">${t("home.kitDetails")}</a>
+          </div>
+          <p class="muted kit-note">${t("kit.one")}</p>
+        </div>
+      </div>
+    </section>` : ""}
+
+    <section class="band on-dark">
       <div class="wrap pricing">
         <div>
           <h2>${t("home.pricingH")}</h2>
           <p>${t("home.pricingP")}</p>
         </div>
-        ${tierTable(ctx, hero, baseFinish(hero, cfg.finishes), 1)}
+        ${tierTable(ctx, hero, baseFinish(hero, cfg.finishes), 1, `<a href="${ctx.url(`product/${hero.id}`)}">${esc(hero.name)}</a> · ${esc(hero.sku)}`)}
       </div>
-    </section>
-
-    <section class="wrap section">
-      <div class="section-head"><h2>${t("home.best")}</h2><a href="${ctx.url("shop")}">${t("home.ctaShop")}</a></div>
-      ${grid(ctx, ctx.products.filter(p => p.best).slice(0, 8))}
     </section>
 
     <section class="wrap section process">
-      <div class="section-head"><h2>${t("home.plH")}</h2><a href="${ctx.url("private-label")}">${t("home.plLink")}</a></div>
+      <div class="section-head"><h2>${t("home.plH")}</h2><a class="more" href="${ctx.url("private-label")}">${t("home.plLink")}${icon("arrowRight")}</a></div>
       <ol class="steps">${[1, 2, 3, 4].map(i => `<li><h3>${t(`home.step${i}`)}</h3><p>${t(`home.step${i}p`)}</p></li>`).join("")}</ol>
     </section>
 
-    <section class="wrap section workshop">
-      <div>
-        <h2>${t("home.whyH")}</h2>
-        <p>${t("home.why1")}</p>
-        <p>${t("home.why2")}</p>
+    <section class="why">
+      <div class="wrap section why-inner${whyPhoto ? " has-photo" : ""}">
+        ${whyPhoto ? `<div class="why-media">${whyPhoto}</div>` : ""}
+        <div class="why-copy">
+          <h2>${t("home.whyH")}</h2>
+          <p>${t("home.why1")}</p>
+          <p>${t("home.why2")}</p>
+        </div>
+        <dl class="specs">
+          <div><dt>${t("spec.manicureSteel")}</dt><dd>AISI 420 ${t("spec.stainless")}, 52–54 HRC</dd></div>
+          <div><dt>${t("spec.shearSteel")}</dt><dd>440C ${t("spec.stainless")}, 58–60 HRC</dd></div>
+          <div><dt>${t("spec.edges")}</dt><dd>${t("spec.edgesV")}</dd></div>
+          <div><dt>${t("spec.origin")}</dt><dd>${t("spec.originV")}</dd></div>
+        </dl>
       </div>
-      <dl class="specs">
-        <div><dt>${t("spec.manicureSteel")}</dt><dd>AISI 420 ${t("spec.stainless")}, 52–54 HRC</dd></div>
-        <div><dt>${t("spec.shearSteel")}</dt><dd>440C ${t("spec.stainless")}, 58–60 HRC</dd></div>
-        <div><dt>${t("spec.edges")}</dt><dd>${t("spec.edgesV")}</dd></div>
-        <div><dt>${t("spec.origin")}</dt><dd>${t("spec.originV")}</dd></div>
-      </dl>
     </section>`
   };
 }
@@ -113,7 +161,7 @@ export function shop(ctx, cat) {
               <p class="muted">${cat ? esc(cat.blurb) : t("shop.lede")}</p>
             </div>
             <form class="shop-tools" role="search">
-              <label><span class="sr">${t("shop.search")}</span><input type="search" name="q" placeholder="${esc(t("shop.searchPh"))}"></label>
+              <label class="search">${icon("search")}<span class="sr">${t("shop.search")}</span><input type="search" name="q" placeholder="${esc(t("shop.searchPh"))}"></label>
               <label><span class="sr">${t("shop.sort")}</span>
                 <select name="sort">
                   <option value="featured">${t("shop.featured")}</option>
@@ -123,6 +171,13 @@ export function shop(ctx, cat) {
               </label>
             </form>
           </header>
+          ${cat ? "" : `<section class="product-lines" aria-labelledby="lines-h">
+            <h2 id="lines-h" class="h-small">${t("shop.linesH")}</h2>
+            <dl>
+              <div><dt>${lineBadge(ctx, { line: "pro" })}</dt><dd>${t("shop.linePro")}</dd></div>
+              <div><dt>${lineBadge(ctx, { line: "essential" })}</dt><dd>${t("shop.lineEssential")}</dd></div>
+            </dl>
+          </section>`}
           ${grid(ctx, list)}
           <div class="empty" hidden><p>${t("shop.noMatch")}</p><button type="button" class="btn btn-ghost" data-clear>${t("shop.clear")}</button></div>
         </div>
@@ -143,7 +198,7 @@ function gallery(ctx, p) {
     <div class="thumbs" role="group" aria-label="${t("pdp.gallery")}">
       ${photos.map((ph, i) => `<button type="button" data-show="g-${i}" aria-label="${t("pdp.photo", { n: i + 1 })}"${i === 0 ? ' aria-pressed="true"' : ' aria-pressed="false"'}>
         <img src="${ph.src[400].jpg}" alt="" width="${ph.width}" height="${ph.height}" loading="lazy"></button>`).join("")}
-      <button type="button" data-show="g-dim" aria-pressed="false" aria-label="${t("pdp.dimensions")}" class="thumb-dim">${drawTool(Object.assign({ nodim: true }, p.draw), 0, "")}<span>${t("pdp.dimensions")}</span></button>
+      <button type="button" data-show="g-dim" aria-pressed="false" class="thumb-dim">${drawTool(Object.assign({ nodim: true }, p.draw), 0, false)}<span>${t("pdp.dimensions")}</span></button>
     </div>
   </div>`;
 }
@@ -151,30 +206,36 @@ function gallery(ctx, p) {
 export function product(ctx, p) {
   const { t, cfg } = ctx;
   const cat = ctx.catOf(p.cat);
-  const related = ctx.inCat(p.cat).filter(x => x.id !== p.id).slice(0, 4);
+  // A sample kit shows what's in it; other products show more from the same category.
+  const related = p.contains ? p.contains.map(id => ctx.byId(id)) : ctx.inCat(p.cat).filter(x => x.id !== p.id).slice(0, 4);
   const def = baseFinish(p, cfg.finishes);
   const last = cfg.tiers[cfg.tiers.length - 1];
   const photos = ctx.photos[p.sku] || [];
   const images = photos.length ? photos.map(ph => ctx.abs(ph.src[1000].jpg)) : [ctx.abs(ctx.asset(`og/${p.id}.png`))];
+  const single = unitPrice(p, cfg.finishes, cfg.tiers, def, 1);
+  const offer = {
+    "@type": "Offer", url: ctx.abs(ctx.url(`product/${p.id}`)), priceCurrency: cfg.currency,
+    price: single.toFixed(2), availability: "https://schema.org/InStock",
+    itemCondition: "https://schema.org/NewCondition"
+  };
+  offer.priceSpecification = p.trial
+    ? { "@type": "UnitPriceSpecification", priceCurrency: cfg.currency, valueAddedTaxIncluded: false, price: single.toFixed(2) }
+    : cfg.tiers.map(tr => ({
+      "@type": "UnitPriceSpecification", priceCurrency: cfg.currency, valueAddedTaxIncluded: false,
+      price: unitPrice(p, cfg.finishes, cfg.tiers, def, tr.min).toFixed(2),
+      eligibleQuantity: { "@type": "QuantitativeValue", minValue: tr.min, unitCode: "C62" }
+    }));
   return {
     key: "product", path: `product/${p.id}`, nav: "shop", title: p.name, ogType: "product",
     ogImage: photos.length ? photos[0].src[1000].jpg : ctx.asset(`og/${p.id}.png`),
-    description: t("meta.product", { summary: p.summary, sku: p.sku, price: ctx.money(lowestPrice(p, cfg.tiers)), min: last.min }),
+    description: p.trial
+      ? t("meta.productTrial", { summary: p.summary, sku: p.sku, price: ctx.money(single) })
+      : t("meta.product", { summary: p.summary, sku: p.sku, price: ctx.money(lowestPrice(p, cfg.tiers)), min: last.min }),
     jsonld: [
       {
         "@context": "https://schema.org", "@type": "Product", name: p.name, sku: p.sku, mpn: p.sku, description: p.summary,
         image: images, brand: { "@type": "Brand", name: cfg.brand }, category: cat.name,
-        countryOfOrigin: "PK", material: steelLabel(ctx, p),
-        offers: {
-          "@type": "Offer", url: ctx.abs(ctx.url(`product/${p.id}`)), priceCurrency: cfg.currency,
-          price: unitPrice(p, cfg.finishes, cfg.tiers, def, 1).toFixed(2), availability: "https://schema.org/InStock",
-          itemCondition: "https://schema.org/NewCondition",
-          priceSpecification: cfg.tiers.map(tr => ({
-            "@type": "UnitPriceSpecification", priceCurrency: cfg.currency, valueAddedTaxIncluded: false,
-            price: unitPrice(p, cfg.finishes, cfg.tiers, def, tr.min).toFixed(2),
-            eligibleQuantity: { "@type": "QuantitativeValue", minValue: tr.min, unitCode: "C62" }
-          }))
-        }
+        countryOfOrigin: "PK", material: steelLabel(ctx, p), offers: offer
       },
       breadcrumbLd(ctx, [[cat.name, `shop/${cat.id}`], [p.name, `product/${p.id}`]])
     ],
@@ -184,10 +245,11 @@ export function product(ctx, p) {
       <div class="pdp">
         <div class="pdp-media">${gallery(ctx, p)}</div>
         <form class="pdp-info" id="buy" data-id="${p.id}">
-          <p class="muted">${t("pdp.part", { sku: esc(p.sku) })}</p>
+          <p class="pdp-meta">${lineBadge(ctx, p)}<span class="muted">${t("pdp.part", { sku: esc(p.sku) })}</span></p>
           <h1>${esc(p.name)}</h1>
           <p class="lede">${esc(p.summary)}</p>
-          <p class="pdp-price"><span id="unit">${ctx.money(unitPrice(p, cfg.finishes, cfg.tiers, def, 1))}</span> <span class="muted">${t("pdp.perPiece")}</span></p>
+          <p class="pdp-price"><span id="unit">${ctx.money(single)}</span> <span class="muted">${p.trial ? t("kit.perKit") : t("pdp.perPiece")}</span></p>
+          ${p.trial ? `<p class="notice kit-limit">${icon("package")}<span>${t("pdp.trialLimit")}</span></p>` : ""}
 
           <fieldset class="finishes">
             <legend>${t("pdp.finish")}</legend>
@@ -196,29 +258,34 @@ export function product(ctx, p) {
           </fieldset>
 
           <div class="buy-row">
-            <div class="stepper" role="group" aria-label="${t("pdp.qty")}">
+            ${p.trial ? `<input id="qty" name="qty" type="hidden" value="1">` : `<div class="stepper" role="group" aria-label="${t("pdp.qty")}">
               <button type="button" data-step="-1" aria-label="${t("pdp.dec")}">−</button>
               <input id="qty" name="qty" type="number" min="1" max="9999" value="1" inputmode="numeric" aria-label="${t("pdp.qty")}">
               <button type="button" data-step="1" aria-label="${t("pdp.inc")}">+</button>
-            </div>
-            <button class="btn" type="submit">${t("pdp.add")}</button>
+            </div>`}
+            <button class="btn" type="submit">${icon("bag")}${t("pdp.add")}</button>
           </div>
           <p class="muted" id="line-total" aria-live="polite"></p>
+          <ul class="pdp-trust">
+            <li>${icon("shieldCheck")}${t("trust.sharpT")}</li>
+            <li>${icon("truck")}${t("trust.shipT")}</li>
+            ${p.trial ? "" : `<li>${icon("tag")}${t("pdp.trustPL")}</li>`}
+          </ul>
 
-          <div id="tiers">${tierTable(ctx, p, def, 1)}</div>
+          ${p.trial ? "" : `<div id="tiers">${tierTable(ctx, p, def, 1)}</div>`}
 
           <h2 class="h-small">${t("pdp.details")}</h2>
           <ul class="ticks">${p.details.map(d => `<li>${esc(d)}</li>`).join("")}</ul>
           <dl class="specs">
             <div><dt>${t("spec.steel")}</dt><dd>${esc(steelLabel(ctx, p))}</dd></div>
-            <div><dt>${t("spec.length")}</dt><dd>${p.length} mm</dd></div>
+            ${p.length ? `<div><dt>${t("spec.length")}</dt><dd>${p.length} mm</dd></div>` : ""}
             <div><dt>${t("spec.hs")}</dt><dd>${cfg.hsCodes[p.cat]}</dd></div>
             <div><dt>${t("spec.origin")}</dt><dd>${t("spec.originV")}</dd></div>
-            <div><dt>${t("spec.privateLabel")}</dt><dd>${t("spec.fromPcs", { n: cfg.privateLabelMinimum[p.cat] })}. <a href="${ctx.url("private-label")}?product=${p.id}">${t("spec.requestQuote")}</a></dd></div>
+            ${p.trial ? "" : `<div><dt>${t("spec.privateLabel")}</dt><dd>${t("spec.fromPcs", { n: cfg.privateLabelMinimum[p.cat] })}. <a href="${ctx.url("private-label")}?product=${p.id}">${t("spec.requestQuote")}</a></dd></div>`}
           </dl>
         </form>
       </div>
-      ${related.length ? `<div class="section"><div class="section-head"><h2>${t("pdp.related")}</h2><a href="${ctx.url(`shop/${cat.id}`)}">${t("pdp.seeAll")}</a></div>${grid(ctx, related)}</div>` : ""}
+      ${related.length ? `<div class="section"><div class="section-head"><h2>${p.contains ? t("pdp.contains") : t("pdp.related")}</h2>${p.contains ? "" : `<a class="more" href="${ctx.url(`shop/${cat.id}`)}">${t("pdp.seeAll")}${icon("arrowRight")}</a>`}</div>${grid(ctx, related)}</div>` : ""}
     </section>`
   };
 }
@@ -254,10 +321,10 @@ export function cart(ctx) {
           <label class="field"><span>${t("co.country")}</span>
             <select name="country" required autocomplete="country">${countries.map(c => `<option value="${c.code}">${esc(c.name)}</option>`).join("")}</select></label>
           <label class="field"><span id="vat-label" data-vat="${esc(t("co.vat"))}" data-tax="${esc(t("co.taxId"))}" data-optional="${esc(t("co.optional"))}">${t("co.vat")}</span>
-            <input name="vat" type="text" autocomplete="off" aria-describedby="hint-vat" spellcheck="false">
+            <input name="vat" type="text" autocomplete="off" aria-describedby="hint-vat err-vat" spellcheck="false">
             <small class="hint" id="hint-vat" data-hint="${esc(t("co.vatHint"))}"></small><em class="err" id="err-vat"></em></label>
           ${textarea(ctx, "notes", "co.notes", { wide: true, placeholder: t("co.notesPh") })}
-          <label class="check wide"><input type="checkbox" name="b2b" required> <span>${t("co.b2b", { terms })}</span><em class="err" id="err-b2b"></em></label>
+          <label class="check wide"><input type="checkbox" name="b2b" required aria-describedby="err-b2b"> <span>${t("co.b2b", { terms })}</span><em class="err" id="err-b2b"></em></label>
           ${honeypot}
         </div>
         <button class="btn" type="submit" data-sending="${esc(t("co.sending"))}">${t("co.submit")}</button>
@@ -297,7 +364,7 @@ export function quickOrder(ctx) {
         <table class="qo-table">
           <caption>${esc(c.name)}</caption>
           <thead><tr><th scope="col">${t("qo.product")}</th><th scope="col">${t("qo.finish")}</th><th scope="col" class="num">${t("qo.price")}</th><th scope="col" class="num">${t("qo.qty")}</th><th scope="col" class="num">${t("qo.total")}</th></tr></thead>
-          <tbody>${ctx.inCat(c.id).map(p => {
+          <tbody>${ctx.inCat(c.id).filter(p => !p.trial).map(p => {
             const def = baseFinish(p, cfg.finishes);
             return `<tr data-id="${p.id}">
               <th scope="row"><a href="${ctx.url(`product/${p.id}`)}">${esc(p.name)}</a><small class="muted">${esc(p.sku)}</small></th>
@@ -327,21 +394,21 @@ export function priceList(ctx) {
     body: `
     <section class="wrap page">
       ${crumbs(ctx, [[t("pl.title"), null]])}
-      <div class="print-head"><strong>${esc(cfg.brand)}</strong><span>${esc(cfg.orderEmail)} · ${esc(cfg.phone)}</span></div>
+      <div class="print-head"><strong>${esc(cfg.brand)}</strong><span>${esc(cfg.orderEmail)} · ${esc(cfg.phone)}${cfg.whatsapp && cfg.whatsapp !== cfg.phone ? ` · WhatsApp ${esc(cfg.whatsapp)}` : ""}</span></div>
       <div class="page-head">
         <div>
           <h1>${t("pl.title")}</h1>
           <p class="lede">${t("pl.lede", { finishes: others })}</p>
           <p class="muted">${t("pl.valid", { date })} ${t("trade.strip")}</p>
         </div>
-        <button type="button" class="btn btn-ghost no-print" data-print>${t("pl.print")}</button>
+        <button type="button" class="btn btn-ghost no-print" data-print>${icon("printer")}${t("pl.print")}</button>
       </div>
       ${ctx.cats.map(c => `
       <div class="table-scroll"><table class="price-table">
         <caption>${esc(c.name)}</caption>
         <thead><tr><th scope="col">${t("spec.part")}</th><th scope="col">${t("qo.product")}</th><th scope="col" class="num">${t("spec.length")}</th>
           ${cfg.tiers.map((_, i) => `<th scope="col" class="num">${tierLabel(ctx, i)}</th>`).join("")}</tr></thead>
-        <tbody>${ctx.inCat(c.id).map(p => {
+        <tbody>${ctx.inCat(c.id).filter(p => !p.trial).map(p => {
           const def = baseFinish(p, cfg.finishes);
           return `<tr><td>${esc(p.sku)}</td><th scope="row"><a href="${ctx.url(`product/${p.id}`)}">${esc(p.name)}</a></th><td class="num">${p.length} mm</td>
             ${cfg.tiers.map(tr => `<td class="num">${ctx.money(unitPrice(p, cfg.finishes, cfg.tiers, def, tr.min))}</td>`).join("")}</tr>`;
@@ -419,11 +486,13 @@ export function contact(ctx) {
         <div>
           <h1>${t("contact.title")}</h1>
           <p class="lede">${t("contact.lede")}</p>
-          <dl class="specs">
-            <div><dt>${t("contact.email")}</dt><dd><a href="mailto:${esc(cfg.orderEmail)}">${esc(cfg.orderEmail)}</a></dd></div>
-            <div><dt>${t("contact.phone")}</dt><dd>${esc(cfg.phone)}</dd></div>
-            <div><dt>${t("contact.workshop")}</dt><dd>${esc(cfg.address)}</dd></div>
+          <dl class="specs contact-specs">
+            <div><dt>${icon("mail")}${t("contact.email")}</dt><dd><a href="mailto:${esc(cfg.orderEmail)}">${esc(cfg.orderEmail)}</a></dd></div>
+            ${cfg.phone ? `<div><dt>${icon("phone")}${t("contact.phone")}</dt><dd><a href="${ctx.tel}">${esc(cfg.phone)}</a></dd></div>` : ""}
+            ${ctx.wa ? `<div><dt>${icon("whatsapp")}${t("nav.whatsapp")}</dt><dd>${waLink(ctx, esc(cfg.whatsapp))}</dd></div>` : ""}
+            <div><dt>${icon("mapPin")}${t("contact.workshop")}</dt><dd>${esc(cfg.address)}</dd></div>
           </dl>
+          ${ctx.wa ? `<div class="actions">${waLink(ctx, `${icon("whatsapp")}${t("wa.label")}`, "btn")}</div>` : ""}
         </div>
         <form class="panel" id="contact" novalidate data-subject="Website message">
           <h2>${t("contact.formH")}</h2>

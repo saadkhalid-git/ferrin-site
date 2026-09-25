@@ -3,11 +3,12 @@
   "siteOrigin": "https://saadkhalid-git.github.io",
   "basePath": "/ferrin-site",
 
-  "orderEmail": "orders@example.com",
+  "orderEmail": "sales@ferrininstruments.com",
   "web3formsKey": "",
   "goatcounter": "",
 
-  "phone": "+352 000 000 000",
+  "phone": "+44 20 7946 0321",
+  "whatsapp": "+44 20 7946 0321",
   "address": "Sialkot, Punjab, Pakistan",
 
   "languages": ["en", "de", "fr", "pl", "it"],
@@ -17,8 +18,8 @@
 
   "tiers": [
     { "min": 1, "off": 0 },
-    { "min": 10, "off": 0.12 },
-    { "min": 50, "off": 0.22 }
+    { "min": 10, "off": 0.1 },
+    { "min": 50, "off": 0.2 }
   ],
 
   "finishes": {
@@ -29,7 +30,7 @@
   },
 
   "shipping": {
-    "freeFrom": 150,
+    "freeFrom": 250,
     "zones": [
       { "id": "near", "price": 9.9, "freeAbove": true, "countries": ["LU", "BE", "NL", "FR", "DE"] },
       { "id": "eu", "price": 14.9, "freeAbove": true, "countries": ["AT", "BG", "CY", "CZ", "DK", "EE", "ES", "FI", "GR", "HR", "HU", "IE", "IT", "LT", "LV", "MT", "PL", "PT", "RO", "SE", "SI", "SK"] },

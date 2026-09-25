@@ -1,0 +1,11 @@
+[
+  { "file": "hero.jpg", "photographer": "Amr Taha", "source": "Unsplash", "url": "https://unsplash.com/photos/a-person-cutting-a-womans-hair-with-scissors-mScGapABRiA", "license": "Unsplash License" },
+  { "file": "craft-1.jpg", "photographer": "Mahmut Yılmaz", "source": "Pexels", "url": "https://www.pexels.com/photo/close-up-of-artisan-sharpening-blade-with-sparks-35534301/", "license": "Pexels License" },
+  { "file": "craft-2.jpg", "photographer": "Elements Interactive", "source": "Pexels", "url": "https://www.pexels.com/photo/close-up-of-a-man-using-a-grinder-with-sandpaper-16053882/", "license": "Pexels License" },
+  { "file": "craft-3.jpg", "photographer": "Gizem Toprak", "source": "Pexels", "url": "https://www.pexels.com/photo/close-up-of-a-craftsman-sharpening-a-knife-edge-37258058/", "license": "Pexels License" },
+  { "file": "craft-4.jpg", "photographer": "Jacek Dylag", "source": "Unsplash", "url": "https://unsplash.com/photos/person-holding-metal-tool--DvXRvsxagg", "license": "Unsplash License" },
+  { "file": "nails.jpg", "photographer": "Gabriel Puyén", "source": "Pexels", "url": "https://www.pexels.com/photo/woman-making-professional-manicure-6135682/", "license": "Pexels License" },
+  { "file": "barber.jpg", "photographer": "Brian Silva", "source": "Pexels", "url": "https://www.pexels.com/photo/barber-performing-haircut-with-scissors-and-comb-39559306/", "license": "Pexels License" },
+  { "file": "grooming.jpg", "photographer": "Buddy AN", "source": "Unsplash", "url": "https://unsplash.com/photos/a-small-white-dog-being-cut-with-a-pair-of-scissors-LpK2xddrElI", "license": "Unsplash License" },
+  { "file": "shears.jpg", "photographer": "Nikolaos Dimou", "source": "Pexels", "url": "https://www.pexels.com/photo/several-scissors-1319460/", "license": "Pexels License" }
+]

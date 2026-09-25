@@ -111,24 +111,36 @@ function razor(o) {
     ${o.nodim ? "" : dim(32, 380, 206, (o.len || 250) + " mm")}`;
 }
 
-function mini(fn, opts, x, y, w, h) {
-  return `<svg x="${x}" y="${y}" width="${w}" height="${h}" viewBox="0 60 400 130">${fn(Object.assign({ nodim: true }, opts))}</svg>`;
+// Scissors need a taller window than the other tools so their finger rings aren't cut off.
+function mini(fn, opts, x, y, w, h, vb = "0 60 400 130") {
+  return `<svg x="${x}" y="${y}" width="${w}" height="${h}" viewBox="${vb}">${fn(Object.assign({ nodim: true }, opts))}</svg>`;
 }
+const SMALL_SCISSORS_VB = "0 34 400 172", SCISSORS_VB = "0 46 400 170";
 
 function set(o) {
+  // Sample kit: five loose instruments in an open tray.
+  if (o.kit) return `<rect class="o" x="20" y="22" width="360" height="196" rx="10"/>
+    <line class="stitch" x1="200" y1="34" x2="200" y2="148"/><line class="stitch" x1="32" y1="148" x2="368" y2="148"/>
+    ${mini(nipper, { jaw: 5 }, 30, 32, 164, 56)}
+    ${mini(scissors, { small: true, curved: true }, 206, 30, 164, 60, SMALL_SCISSORS_VB)}
+    ${mini(pusher, {}, 30, 90, 164, 56)}
+    ${mini(tweezers, { tip: "slant" }, 206, 90, 164, 56)}
+    ${mini(scissors, {}, 70, 150, 260, 64, SCISSORS_VB)}`;
   return `<rect class="o" x="24" y="30" width="352" height="176" rx="18"/>
     <rect class="stitch" x="36" y="42" width="328" height="152" rx="10"/>
     ${o.zip ? `<path class="a" d="M40 30 H360" stroke-dasharray="3 4"/>` : `<circle class="o" cx="200" cy="206" r="7"/>`}
     ${mini(nipper, { jaw: 5 }, 46, 52, 150, 60)}
-    ${mini(scissors, { small: true, curved: true }, 206, 52, 150, 60)}
+    ${mini(scissors, { small: true, curved: true }, 206, 48, 150, 68, SMALL_SCISSORS_VB)}
     ${mini(tweezers, { tip: "slant" }, 46, 122, 150, 60)}
     ${mini(pusher, {}, 206, 122, 150, 60)}`;
 }
 
 const kinds = { nipper, scissors, tweezers, pusher, file, razor, set };
 
+// label === false marks the drawing as decorative (the product name is already next to it).
 export function drawTool(draw, len, label) {
   const fn = kinds[draw.type] || nipper;
-  return `<svg class="drawing" viewBox="0 0 400 240" role="img" aria-label="${label ? label.replace(/"/g, "&quot;") : "Instrument drawing"}">
+  const a11y = label === false ? 'aria-hidden="true" focusable="false"' : `role="img" aria-label="${label ? label.replace(/"/g, "&quot;") : "Instrument drawing"}"`;
+  return `<svg class="drawing" viewBox="0 0 400 240" ${a11y}>
     ${fn(Object.assign({ len }, draw))}</svg>`;
 }

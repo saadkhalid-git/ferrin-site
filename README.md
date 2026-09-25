@@ -31,14 +31,16 @@ Useful options:
 
 | What | Where |
 |---|---|
-| Brand, order email, phone, address | `src/data/config.json` |
+| Brand, order email, phone, WhatsApp, address | `src/data/config.json` |
 | Web3Forms key (so orders reach your inbox) | `web3formsKey` in `src/data/config.json` |
 | Volume discounts, finish surcharges, shipping zones | `src/data/config.json` |
 | Products: part number, price, length, steel, finishes | `src/data/products.json` |
 | Product names, descriptions, all page text | `src/i18n/en.json`, `de.json`, `fr.json`, `pl.json`, `it.json` |
 | Product photos | `public/photos/` (see the README there) |
+| Hero, craft and category photos, photo credits | `public/images/` (see the README there) |
 | Terms, privacy policy, legal notice | `src/templates/legal.js` |
-| Colours and fonts | `src/styles.css` |
+| Colours and fonts | `src/styles.css` (tokens at the top) |
+| Icons | `src/templates/icons.js` |
 
 When you add a product, add it to `products.json` and add its text to **every** language file. `npm run check` lists anything missing.
 
@@ -56,7 +58,7 @@ No payment is taken on the site. You reply with an invoice.
 ## Before relying on the site
 
 - Create a free Web3Forms account with your business email, and paste the access key into `web3formsKey`.
-- Replace `orders@example.com`, the phone number and the address in `config.json`.
+- Check the email address and address in `config.json`, and replace the phone and WhatsApp number: `+44 20 7946 0321` is a fictional number that can't be reached.
 - Fill in every `[bracketed]` part of the legal pages in `src/templates/legal.js`, and have them checked.
 - Have a native speaker review the German, French, Polish and Italian text.
 - Check prices, delivery times, and the sample, returns and payment policies in the FAQ.
