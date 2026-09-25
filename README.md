@@ -44,6 +44,16 @@ Useful options:
 
 When you add a product, add it to `products.json` and add its text to **every** language file. `npm run check` lists anything missing.
 
+## Which language a visitor sees
+
+The start page (`/`) sends each visitor to a language:
+
+1. If the browser has a saved choice (`ferrin-lang` in local storage), that language is used.
+2. Otherwise the country is taken from the device's time zone (for example `Europe/Rome` is Italy) and the language is saved for next time: Italy → Italian, France → French, Germany and Austria → German, Poland → Polish. In Switzerland, Belgium and Luxembourg the browser's own language decides. Everyone else gets English.
+3. Choosing a language in the menu saves it, so the next visit to the start page opens in that language.
+
+No location permission is asked and nothing is sent to a third party. Links to a specific page (for example `/de/product/...`) always open in the language of that link. The rules are in `src/shared/language.js`; `npm run check` tests them.
+
 ## How ordering works
 
 Only businesses can order. The checkout asks for company, address and VAT number (required and format-checked for EU countries).

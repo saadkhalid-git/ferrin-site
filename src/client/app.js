@@ -1,4 +1,5 @@
 // Browser code. Pages are already rendered at build time; this adds the cart, live prices and forms.
+import { saveLanguage } from "../shared/language.js";
 import { round, tierFor, nextTier, unitPrice, shippingFor, needsVat, vatExample, normaliseVat } from "../shared/pricing.js";
 
 const site = JSON.parse(document.getElementById("site").textContent);
@@ -136,6 +137,8 @@ function initHeader() {
   btn?.addEventListener("click", () => setMenu(!document.body.classList.contains("menu-open")));
   const lang = $(".lang");
   document.addEventListener("click", e => { if (lang?.open && !lang.contains(e.target)) lang.open = false; });
+  // Choosing a language in the menu is remembered for the next visit to the start page.
+  $$(".lang a[hreflang]").forEach(a => a.addEventListener("click", () => saveLanguage(a.getAttribute("hreflang"))));
   document.addEventListener("keydown", e => {
     if (e.key !== "Escape") return;
     if (lang?.open) { lang.open = false; lang.querySelector("summary").focus(); }

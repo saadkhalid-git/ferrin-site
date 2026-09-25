@@ -26,6 +26,8 @@ jobs:
       - run: npm ci
       - name: Check translations
         run: node scripts/check-i18n.mjs
+      - name: Check language detection
+        run: node scripts/check-language.mjs
       - name: Build site
         run: npm run build
       - name: Check links and pages

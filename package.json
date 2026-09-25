@@ -6,7 +6,7 @@
   "description": "Ferrin Instruments: static B2B shop for salon, barber and grooming instruments",
   "scripts": {
     "build": "node build.mjs",
-    "check": "node scripts/check-i18n.mjs && node scripts/check-site.mjs"
+    "check": "node scripts/check-i18n.mjs && node scripts/check-language.mjs && node scripts/check-site.mjs"
   },
   "engines": {
     "node": ">=20"

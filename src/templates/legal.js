@@ -46,7 +46,8 @@ export function legalPages(ctx) {
       ${cfg.goatcounter ? "<li><strong>GoatCounter</strong> counts page visits without cookies and without storing IP addresses.</li>" : ""}
     </ul>
     <h2>Cookies and browser storage</h2>
-    <p>This site doesn't use cookies or tracking. Your cart is saved in your own browser (local storage) and is only sent to us when you send an order request.</p>
+    <p>This site doesn't use cookies or tracking. Your cart and your language choice are saved in your own browser (local storage). The cart is only sent to us when you send an order request.</p>
+    <p>On your first visit, the site picks a language from your device's time zone. This happens in your browser; your location isn't looked up or sent anywhere.</p>
     <h2>How long we keep data</h2>
     <p>Orders and invoices: [10] years, as required by tax law. Other messages and quote requests: [2] years after our last contact.</p>
     <h2>Your rights</h2>

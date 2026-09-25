@@ -10,6 +10,7 @@ import { fileURLToPath } from "node:url";
 import sharp from "sharp";
 import { drawTool } from "./src/shared/drawings.js";
 import { baseFinish, unitPrice } from "./src/shared/pricing.js";
+import { LANGUAGE_KEY, LANGUAGE_RULES, pickLanguage } from "./src/shared/language.js";
 import { layout } from "./src/templates/layout.js";
 import * as pages from "./src/templates/pages.js";
 
@@ -237,13 +238,21 @@ function rootIndex(ctx) {
   <script>
     (function () {
       var base = ${JSON.stringify(cfg.basePath)}, langs = ${JSON.stringify(langs)}, def = ${JSON.stringify(cfg.defaultLanguage)};
+      var KEY = ${JSON.stringify(LANGUAGE_KEY)}, rules = ${JSON.stringify(LANGUAGE_RULES)};
+      var pickLanguage = ${pickLanguage.toString()};
+      // 1. A language saved on an earlier visit, or chosen in the language menu, wins.
+      var lang = null;
+      try { lang = localStorage.getItem(KEY); } catch (e) {}
+      // 2. Otherwise pick one from the device's time zone (country) and remember it.
+      if (langs.indexOf(lang) < 0) {
+        var tz = "";
+        try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ""; } catch (e) {}
+        lang = pickLanguage(tz, navigator.languages || [navigator.language || ""], langs, def, rules);
+        try { localStorage.setItem(KEY, lang); } catch (e) {}
+      }
       // Links from the first version of the site used #/product/..., #/shop/... and so on.
-      var h = location.hash.replace(/^#\\/?/, "").split("?")[0];
-      if (h) { location.replace(base + "/" + def + "/" + h.replace(/\\/$/, "") + "/"); return; }
-      var pick = def;
-      var prefs = navigator.languages || [navigator.language || ""];
-      for (var i = 0; i < prefs.length; i++) { var c = String(prefs[i]).slice(0, 2).toLowerCase(); if (langs.indexOf(c) > -1) { pick = c; break; } }
-      location.replace(base + "/" + pick + "/");
+      var h = location.hash.replace(/^#\\/?/, "").split("?")[0].replace(/\\/$/, "");
+      location.replace(base + "/" + lang + "/" + (h ? h + "/" : ""));
     })();
   </script>
   <style>body{font:16px/1.5 system-ui,sans-serif;max-width:32rem;margin:15vh auto;padding:0 16px;color:#22211F;background:#F3F3F1}a{color:#8A6A2F}</style>
