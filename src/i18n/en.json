@@ -1,0 +1,566 @@
+{
+  "language": "English",
+  "ui": {
+    "meta.tagline": "Salon instruments from Sialkot",
+    "meta.home": "Professional cuticle nippers, manicure scissors, tweezers, barber and grooming shears, hand-finished in Sialkot. Volume prices and private label for salons and resellers in Europe.",
+    "meta.shop": "All {n} instruments with volume prices: cuticle and nail nippers, manicure scissors, tweezers, barber and pet grooming shears.",
+    "meta.product": "{summary} Part {sku}. From {price} per piece at {min}+, excl. VAT.",
+    "nav.skip": "Skip to content",
+    "nav.home": "Home",
+    "nav.catalogue": "Catalogue",
+    "nav.quickOrder": "Quick order",
+    "nav.privateLabel": "Private label",
+    "nav.about": "About",
+    "nav.faq": "FAQ",
+    "nav.contact": "Contact",
+    "nav.cart": "Cart",
+    "nav.menu": "Menu",
+    "nav.language": "Language",
+    "nav.priceList": "Price list",
+    "trade.strip": "Trade customers only. All prices exclude VAT.",
+    "footer.tagline": "Professional beauty, barber and grooming instruments, made in Sialkot, Pakistan.",
+    "footer.shop": "Shop",
+    "footer.company": "Company",
+    "footer.legal": "Legal",
+    "footer.terms": "Terms of sale",
+    "footer.privacy": "Privacy policy",
+    "footer.notice": "Legal notice",
+    "footer.fine": "For cosmetic, salon and grooming use. Not medical devices.",
+    "footer.legalLang": "",
+    "unit.pcs": "{n} pcs",
+    "unit.range": "{from}–{to} pcs",
+    "unit.plus": "{from}+ pcs",
+    "unit.count": "{n} products",
+    "home.h1": "Salon instruments, hand-finished in Sialkot",
+    "home.lede": "Nippers, scissors, tweezers and barber shears from the city that makes most of the world's steel hand instruments. Order a few pieces to test, then buy by the box at volume prices or with your own brand on them.",
+    "home.ctaShop": "Browse the catalogue",
+    "home.ctaPL": "Ask about private label",
+    "home.fact1": "Up to {pct}% off",
+    "home.fact1Sub": "volume prices, applied in the cart",
+    "home.fact2": "From {n} pcs",
+    "home.fact2Sub": "for your own logo",
+    "home.fact3": "4–7 days",
+    "home.fact3Sub": "door-to-door to the EU",
+    "home.shopBy": "Shop by instrument",
+    "home.seeAll": "See all {n} products",
+    "home.pricingH": "The more you order, the less each piece costs",
+    "home.pricingP": "Discounts apply to each product line automatically in the cart. Mix finishes and categories freely. All prices exclude VAT.",
+    "home.best": "Best sellers",
+    "home.plH": "Your brand, made in our workshops",
+    "home.plLink": "Private label details",
+    "home.step1": "Choose your instruments",
+    "home.step1p": "Pick from the catalogue or send us a sample or drawing of what you sell today.",
+    "home.step2": "Approve samples",
+    "home.step2p": "We make samples with your logo and ship them to you. You check them with your own technicians.",
+    "home.step3": "Choose packaging",
+    "home.step3p": "Laser-etched logo, embossed cases, printed boxes and barcodes for retail.",
+    "home.step4": "Production and inspection",
+    "home.step4p": "Every piece is checked by hand and the order is inspected before it ships.",
+    "home.whyH": "Why Sialkot",
+    "home.why1": "Sialkot has made steel hand instruments for more than a century. Thousands of workshops there grind, polish, set and sharpen instruments for salons, clinics and brands around the world.",
+    "home.why2": "We work with a small number of these workshops, specify the steel for each product, and check every nipper, shear and tweezer before it's packed. You get workshop pricing without having to manage the factory yourself.",
+    "spec.part": "Part",
+    "spec.steel": "Steel",
+    "spec.length": "Length",
+    "spec.hs": "HS code",
+    "spec.origin": "Origin",
+    "spec.originV": "Made in Pakistan",
+    "spec.stainless": "stainless",
+    "spec.manicureSteel": "Manicure steel",
+    "spec.shearSteel": "Shear steel",
+    "spec.edges": "Edges",
+    "spec.edgesV": "Hand-sharpened, tested before packing",
+    "spec.privateLabel": "Private label",
+    "spec.fromPcs": "From {n} pcs",
+    "spec.requestQuote": "Request a quote",
+    "tier.qty": "Quantity",
+    "tier.price": "Price per piece",
+    "tier.saving": "Saving",
+    "card.bulk": "{price} each at {n}+",
+    "finish.satin": "Satin",
+    "finish.mirror": "Mirror polish",
+    "finish.black": "Matte black coat",
+    "finish.titanium": "Black titanium coat",
+    "shop.title": "Catalogue",
+    "shop.lede": "Every instrument, with volume prices shown on each product.",
+    "shop.instruments": "Instruments",
+    "shop.all": "All products",
+    "shop.search": "Search",
+    "shop.searchPh": "Search products or part numbers",
+    "shop.sort": "Sort",
+    "shop.featured": "Featured",
+    "shop.priceAsc": "Price, low to high",
+    "shop.priceDesc": "Price, high to low",
+    "shop.noMatch": "No products match your search.",
+    "shop.clear": "Clear search",
+    "pdp.part": "Part {sku}",
+    "pdp.perPiece": "per piece, excl. VAT",
+    "pdp.finish": "Finish",
+    "pdp.qty": "Quantity",
+    "pdp.dec": "Decrease quantity",
+    "pdp.inc": "Increase quantity",
+    "pdp.add": "Add to cart",
+    "pdp.details": "Details",
+    "pdp.seeAll": "See all",
+    "pdp.lineTotal": "{qty} × {unit} = {total}",
+    "pdp.nextTier": "Order {n} more for {pct}% off each",
+    "pdp.added": "Added {qty} × {name} to your cart",
+    "pdp.viewCart": "View cart",
+    "pdp.dimensions": "Dimensions",
+    "pdp.photo": "Photo {n}",
+    "pdp.gallery": "Product images",
+    "cart.title": "Cart",
+    "cart.emptyH": "Your cart is empty",
+    "cart.emptyP": "Add instruments from the catalogue or use quick order. Volume discounts are applied here automatically.",
+    "cart.each": "{price} each",
+    "cart.nudge": "Add {n} more for {pct}% off each",
+    "cart.remove": "Remove",
+    "cart.qtyFor": "Quantity for {name}",
+    "cart.summary": "Order summary",
+    "cart.subtotal": "Subtotal",
+    "cart.shipping": "Shipping",
+    "cart.shippingTo": "Shipping to {country}",
+    "cart.free": "Free",
+    "cart.total": "Total excl. VAT",
+    "cart.freeFrom": "Free shipping within the EU from {min}. Add {more} more.",
+    "cart.noPayment": "No payment is taken on this site. We confirm stock and email an invoice within one working day.",
+    "cart.loading": "Loading your cart…",
+    "cart.noscript": "The cart needs JavaScript. You can also email your order to {email}.",
+    "co.h": "Your business details",
+    "co.name": "Full name",
+    "co.company": "Company or salon",
+    "co.email": "Email",
+    "co.phone": "Phone",
+    "co.street": "Street and number",
+    "co.postcode": "Postcode",
+    "co.city": "City",
+    "co.country": "Country",
+    "co.vat": "VAT number",
+    "co.vatHint": "For EU businesses, e.g. {example}.",
+    "co.taxId": "Company or tax number",
+    "co.notes": "Notes",
+    "co.notesPh": "Delivery times, logo questions, anything else",
+    "co.optional": "optional",
+    "co.b2b": "I'm ordering for a business and accept the {terms}.",
+    "co.termsLink": "terms of sale",
+    "co.submit": "Send order request",
+    "co.sending": "Sending…",
+    "co.help": "We reply with an invoice within one working day.",
+    "err.required": "Fill in this field.",
+    "err.email": "Enter an email address like name@example.com.",
+    "err.vat": "Check the VAT number. It should look like {example}.",
+    "err.b2b": "Confirm that you're ordering for a business.",
+    "err.send": "The form couldn't be sent. Your email app will open with the message instead.",
+    "sent.title": "Order request sent",
+    "sent.p": "We've received order request {ref}. We'll reply to {email} with an invoice within one working day.",
+    "sent.titleEmail": "Send the email to place your order",
+    "sent.pEmail": "Your email app should now show order request {ref}. Press send in your email app to place it.",
+    "sent.copyP": "If your email app didn't open, copy the order below and email it to {email}.",
+    "sent.copy": "Copy order",
+    "sent.copied": "Order copied.",
+    "sent.copyFail": "Select the order text and copy it manually.",
+    "sent.back": "Back to the catalogue",
+    "sent.none": "No recent order",
+    "sent.noneP": "Order requests you send from this browser appear here.",
+    "qo.title": "Quick order",
+    "qo.lede": "Enter quantities for everything you need and add it all to your cart at once. Volume prices apply to each product.",
+    "qo.product": "Product",
+    "qo.finish": "Finish",
+    "qo.price": "Price",
+    "qo.qty": "Qty",
+    "qo.total": "Total",
+    "qo.add": "Add to cart",
+    "qo.added": "Added {n} products to your cart.",
+    "qo.none": "Enter a quantity for at least one product.",
+    "qo.sum": "{n} products, {total}",
+    "qo.noscript": "Quick order needs JavaScript.",
+    "pl.title": "Price list",
+    "pl.lede": "Prices in EUR per piece, excluding VAT, for the standard finish. Other finishes: {finishes}.",
+    "pl.print": "Print or save as PDF",
+    "pl.valid": "Prices valid from {date}.",
+    "pl.contact": "Orders and questions: {email}",
+    "plp.title": "Private label",
+    "plp.h1": "Put your brand on professional instruments",
+    "plp.lede": "For salon suppliers, nail academies, barber brands and online shops. You choose the instruments, finish and packaging. We make samples, then produce and inspect your order.",
+    "plp.moqH": "Minimum order per product",
+    "plp.instrument": "Instrument",
+    "plp.minimum": "Minimum",
+    "plp.lead": "Lead time",
+    "plp.leadShort": "4–5 weeks",
+    "plp.leadLong": "5–6 weeks",
+    "plp.brandH": "Branding options",
+    "plp.brand1": "Laser-etched logo on the instrument",
+    "plp.brand2": "Embossed logo on leather and zip cases",
+    "plp.brand3": "Printed boxes, blister cards and EAN barcodes",
+    "plp.brand4": "Custom finishes: mirror, satin, matte black, coloured titanium",
+    "plp.howH": "How it works",
+    "plp.s1": "Send your request",
+    "plp.s1p": "Tell us the products, quantities and branding you need.",
+    "plp.s2": "Get a quote and samples",
+    "plp.s2p": "Quote within two working days. Branded samples in about two weeks.",
+    "plp.s3": "Approve and pay the deposit",
+    "plp.s3p": "30% to start production, balance before shipping.",
+    "plp.s4": "Inspection and delivery",
+    "plp.s4p": "Independent inspection is available on request before dispatch.",
+    "plp.formH": "Request a quote",
+    "plp.company": "Company",
+    "plp.products": "Products",
+    "plp.productsPh": "e.g. 300 × cuticle nipper, full jaw, matte black",
+    "plp.branding": "Branding and packaging",
+    "plp.brandingPh": "Logo on instrument, printed box, leather case…",
+    "plp.submit": "Send quote request",
+    "form.sent": "Sent. We reply within one working day.",
+    "form.email": "Your email app should open with the message ready to send.",
+    "about.title": "About",
+    "about.h1": "About {brand}",
+    "about.lede": "We sell professional beauty, barber and grooming instruments made in Sialkot, Pakistan, to salons and resellers in Europe.",
+    "about.p1": "Sialkot's workshops make instruments for many well-known brands, but buying there directly means dealing with minimum orders, samples, quality checks and export paperwork. We take care of that. You get instruments at close to workshop prices, in the quantity you need.",
+    "about.qcH": "How we check quality",
+    "about.qc1": "We specify the steel and hardness for every product",
+    "about.qc2": "Nippers are test-cut on cuticle film; shears are test-cut on wet cotton",
+    "about.qc3": "Tweezer tips are checked for alignment under magnification",
+    "about.qc4": "Orders can be inspected independently before they ship",
+    "about.notH": "What we don't sell",
+    "about.notP": "We sell instruments for cosmetic, salon and grooming use only, to businesses. We don't sell surgical or medical devices.",
+    "contact.title": "Contact",
+    "contact.lede": "Questions about products, samples or wholesale accounts. We reply within one working day.",
+    "contact.email": "Email",
+    "contact.phone": "Phone",
+    "contact.workshop": "Workshop",
+    "contact.formH": "Send a message",
+    "contact.message": "Message",
+    "contact.submit": "Send message",
+    "faq.title": "Frequently asked questions",
+    "faq.more": "Still have a question?",
+    "faq.contact": "Contact us",
+    "nf.title": "Page not found",
+    "nf.lede": "The link may be old or mistyped.",
+    "nf.cta": "Go to the catalogue",
+    "legal.draft": "Draft. Fill in the parts in [brackets] and have the text checked before relying on it.",
+    "cart.import": "Orders ship from Pakistan. The courier charges import VAT and any duty on delivery. VAT-registered businesses can usually reclaim import VAT.",
+    "pdp.related": "More in this category"
+  },
+  "faq": [
+    [
+      "Who can order?",
+      "We sell to businesses only: salons, barbers, nail studios, academies, wholesalers and shops. Please give your company name and VAT number when you order."
+    ],
+    [
+      "Do prices include VAT?",
+      "No. Prices exclude VAT and import duty. Orders ship from Pakistan, so the courier charges import VAT, and any duty, when the parcel enters your country. VAT-registered businesses can usually reclaim import VAT."
+    ],
+    [
+      "How do I pay?",
+      "After you send an order request we email an invoice. You pay by bank transfer, and we ship when the payment arrives."
+    ],
+    [
+      "How long does delivery take?",
+      "Stock items ship from Sialkot by express courier and usually arrive in the EU in 4–7 working days."
+    ],
+    [
+      "Will I pay import duty?",
+      "Import duty depends on your country and the product. Many instruments from Pakistan enter the EU duty-free under the GSP+ scheme when the correct origin statement is on the invoice, which we include."
+    ],
+    [
+      "Can I order a sample first?",
+      "Yes. Order a single piece at the normal price. If you then order 50 or more of the same product within 60 days, we credit the sample price."
+    ],
+    [
+      "What if an instrument is faulty?",
+      "Tell us within 30 days of delivery with a photo and we'll replace it or credit it."
+    ],
+    [
+      "Do you resharpen?",
+      "Barber and grooming shears can be sent back for sharpening. Ask us for the current price."
+    ]
+  ],
+  "categories": {
+    "cuticle-nippers": {
+      "name": "Cuticle nippers",
+      "blurb": "Box-joint nippers with a double spring, sharpened and tested on cuticle film before packing."
+    },
+    "nail-nippers": {
+      "name": "Nail nippers",
+      "blurb": "Heavier jaws for fingernails and thick toenails, with lap or barrel springs."
+    },
+    "manicure-scissors": {
+      "name": "Manicure scissors",
+      "blurb": "Fine curved and straight scissors for cuticles and nails, hand-set at the screw."
+    },
+    "pushers-files": {
+      "name": "Pushers & files",
+      "blurb": "Double-ended pushers with a knurled grip and stainless files with a laser-cut surface."
+    },
+    "tweezers": {
+      "name": "Tweezers",
+      "blurb": "Hand-aligned tips that meet along their full edge. Slant, point, flat and lash."
+    },
+    "barber": {
+      "name": "Barber shears & razors",
+      "blurb": "Hair shears in 440C steel with convex edges, plus thinning, texturizing and razors."
+    },
+    "grooming": {
+      "name": "Pet grooming shears",
+      "blurb": "Long straight, curved and chunker shears for grooming salons."
+    },
+    "sets": {
+      "name": "Sets & cases",
+      "blurb": "Ready-to-sell kits in leather or zip cases. Popular for private label."
+    }
+  },
+  "products": {
+    "cuticle-nipper-full-jaw": {
+      "name": "Cuticle nipper, full jaw 5 mm",
+      "summary": "The everyday salon nipper. A 5 mm jaw removes cuticle in fewer cuts.",
+      "details": [
+        "Double spring with a smooth, even return",
+        "Box joint, riveted and hand-adjusted",
+        "Jaw tested on cuticle film before packing",
+        "Supplied with a silicone tip cap"
+      ]
+    },
+    "cuticle-nipper-half-jaw": {
+      "name": "Cuticle nipper, half jaw 3 mm",
+      "summary": "A shorter jaw for more control around the side walls.",
+      "details": [
+        "Double spring",
+        "Box joint, riveted and hand-adjusted",
+        "Jaw tested on cuticle film",
+        "Silicone tip cap"
+      ]
+    },
+    "cuticle-nipper-quarter-jaw": {
+      "name": "Cuticle nipper, quarter jaw 2 mm",
+      "summary": "Precision jaw for Russian and dry manicure techniques.",
+      "details": [
+        "Fine tapered tips",
+        "Double spring",
+        "Hand-sharpened edges",
+        "Silicone tip cap"
+      ]
+    },
+    "cuticle-nipper-single-spring": {
+      "name": "Cuticle nipper, single spring 7 mm",
+      "summary": "An affordable nipper for training kits and resale.",
+      "details": [
+        "Single leaf spring",
+        "Lap joint",
+        "Good choice for student kits"
+      ]
+    },
+    "nail-nipper-straight": {
+      "name": "Nail nipper, straight 12 mm",
+      "summary": "Straight cutting edge for clean, square fingernail shaping.",
+      "details": [
+        "Double spring",
+        "Box joint",
+        "Straight jaw, 12 mm"
+      ]
+    },
+    "nail-nipper-barrel-spring": {
+      "name": "Nail nipper, curved, barrel spring",
+      "summary": "A curved jaw with a barrel spring for a softer, steadier action.",
+      "details": [
+        "Barrel spring",
+        "Box joint",
+        "Curved jaw, 13 mm"
+      ]
+    },
+    "toenail-nipper-thick": {
+      "name": "Toenail nipper, thick nail 14 mm",
+      "summary": "Long handles and a strong jaw for thick toenails in pedicure work.",
+      "details": [
+        "Double spring",
+        "Heavy box joint",
+        "Straight jaw, 14 mm",
+        "For cosmetic pedicure use"
+      ]
+    },
+    "cuticle-scissors-curved": {
+      "name": "Cuticle scissors, curved 9 cm",
+      "summary": "Thin curved blades that follow the cuticle line.",
+      "details": [
+        "Fine curved blades",
+        "Hand-set screw tension",
+        "Arrow-point tips"
+      ]
+    },
+    "nail-scissors-straight": {
+      "name": "Nail scissors, straight 9 cm",
+      "summary": "Straight blades for trimming and shaping nails.",
+      "details": [
+        "Straight blades",
+        "Hand-set screw tension"
+      ]
+    },
+    "combination-scissors": {
+      "name": "Combination scissors, nail and cuticle",
+      "summary": "One blade shaped for nails, one for cuticles. A good travel and retail item.",
+      "details": [
+        "Dual-purpose blades",
+        "Hand-set screw tension"
+      ]
+    },
+    "pusher-spoon-hatchet": {
+      "name": "Cuticle pusher, spoon and hatchet",
+      "summary": "A rounded spoon pushes back cuticle; the hatchet lifts it from the nail plate.",
+      "details": [
+        "Knurled, non-slip grip",
+        "Polished, rounded edges",
+        "Autoclavable"
+      ]
+    },
+    "pusher-spoon-pterygium": {
+      "name": "Cuticle pusher, spoon and pterygium",
+      "summary": "A sharpened pterygium end for removing dead skin from the nail plate.",
+      "details": [
+        "Knurled grip",
+        "Sharpened pterygium end",
+        "Autoclavable"
+      ]
+    },
+    "nail-file-double": {
+      "name": "Stainless nail file, double-ended 15 cm",
+      "summary": "A laser-cut surface that doesn't wear flat like paper files.",
+      "details": [
+        "Laser-cut filing surface",
+        "Pointed cleaner tip",
+        "Washable and autoclavable"
+      ]
+    },
+    "tweezers-slant": {
+      "name": "Slant tweezers, hand-aligned",
+      "summary": "Tips meet along their full edge, so fine hairs grip on the first try.",
+      "details": [
+        "Hand-aligned tips",
+        "Satin grip area",
+        "Protective tip cap"
+      ]
+    },
+    "tweezers-point": {
+      "name": "Point tweezers, fine",
+      "summary": "Needle-fine tips for ingrown and very short hairs.",
+      "details": [
+        "Hand-aligned tips",
+        "Protective tip cap"
+      ]
+    },
+    "tweezers-lash": {
+      "name": "Lash tweezers, curved",
+      "summary": "Curved tips for isolating and placing lash extensions.",
+      "details": [
+        "Anti-magnetic steel",
+        "Curved fine tips",
+        "Tip cap"
+      ]
+    },
+    "tweezers-flat": {
+      "name": "Flat-tip tweezers",
+      "summary": "A broad grip for brows and general salon use.",
+      "details": [
+        "Wide flat tips",
+        "Protective tip cap"
+      ]
+    },
+    "barber-shears-6-offset": {
+      "name": "Barber shears 6.0\", offset handle",
+      "summary": "Convex-edge shears with an offset handle to keep the wrist relaxed.",
+      "details": [
+        "Convex, hand-honed edge",
+        "Adjustable tension screw",
+        "Removable finger rest",
+        "Leather pouch and oil included"
+      ]
+    },
+    "barber-shears-7-straight": {
+      "name": "Barber shears 7.0\", straight handle",
+      "summary": "Longer blades for scissor-over-comb and wide sections.",
+      "details": [
+        "Convex edge",
+        "Adjustable tension screw",
+        "Leather pouch and oil included"
+      ]
+    },
+    "thinning-shears-30": {
+      "name": "Thinning shears 6.0\", 30 teeth",
+      "summary": "Removes about 25–30% of hair per cut for blending.",
+      "details": [
+        "30 V-teeth",
+        "Adjustable tension screw",
+        "Leather pouch included"
+      ]
+    },
+    "texturizing-shears-14": {
+      "name": "Texturizing shears 6.0\", 14 teeth",
+      "summary": "Wide-spaced teeth for chunky texture and removing bulk.",
+      "details": [
+        "14 wide teeth",
+        "Adjustable tension screw",
+        "Leather pouch included"
+      ]
+    },
+    "barber-shears-left": {
+      "name": "Left-handed barber shears 6.0\"",
+      "summary": "Blades are reversed, not just the handle, so left-handed barbers see the cutting line.",
+      "details": [
+        "True left-handed blade set",
+        "Offset handle",
+        "Leather pouch and oil included"
+      ]
+    },
+    "shavette-razor": {
+      "name": "Shavette straight razor, folding",
+      "summary": "Takes standard half double-edge blades. For necklines, fades and beard lines.",
+      "details": [
+        "Fits half DE blades",
+        "Folding handle",
+        "Blades not included"
+      ]
+    },
+    "grooming-shears-8-straight": {
+      "name": "Pet grooming shears 8.0\", straight",
+      "summary": "Long blades for body work and finishing on medium and large breeds.",
+      "details": [
+        "Convex edge",
+        "Offset handle",
+        "Adjustable tension"
+      ]
+    },
+    "grooming-shears-7-curved": {
+      "name": "Pet grooming shears 7.0\", curved",
+      "summary": "A curved blade for rounded heads, feet and tails.",
+      "details": [
+        "Curved convex blades",
+        "Offset handle",
+        "Adjustable tension"
+      ]
+    },
+    "grooming-chunker-42": {
+      "name": "Chunker shears 7.5\", 42 teeth",
+      "summary": "Blends and softens lines without leaving scissor marks.",
+      "details": [
+        "42 T-teeth",
+        "Offset handle",
+        "Adjustable tension"
+      ]
+    },
+    "manicure-set-leather-7": {
+      "name": "Manicure set in leather case, 7 pieces",
+      "summary": "Cuticle nipper, nail clipper, cuticle scissors, slant tweezers, pusher, file and cleaner in a genuine leather case.",
+      "details": [
+        "Genuine leather case, snap closure",
+        "7 instruments",
+        "Logo embossing available for private label"
+      ]
+    },
+    "nail-tech-starter-kit": {
+      "name": "Nail technician starter kit, 5 pieces",
+      "summary": "Full-jaw nipper, curved cuticle scissors, spoon pusher, slant tweezers and file in a zip case. Built for nail academies.",
+      "details": [
+        "Zip case with elastic holders",
+        "5 salon-grade instruments",
+        "Academy pricing from 20 kits"
+      ]
+    }
+  }
+}

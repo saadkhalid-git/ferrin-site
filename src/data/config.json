@@ -1,0 +1,49 @@
+{
+  "brand": "Ferrin Instruments",
+  "siteOrigin": "https://saadkhalid-git.github.io",
+  "basePath": "/ferrin-site",
+
+  "orderEmail": "orders@example.com",
+  "web3formsKey": "",
+  "goatcounter": "",
+
+  "phone": "+352 000 000 000",
+  "address": "Sialkot, Punjab, Pakistan",
+
+  "languages": ["en", "de", "fr", "pl", "it"],
+  "defaultLanguage": "en",
+  "locales": { "en": "en-IE", "de": "de-DE", "fr": "fr-FR", "pl": "pl-PL", "it": "it-IT" },
+  "currency": "EUR",
+
+  "tiers": [
+    { "min": 1, "off": 0 },
+    { "min": 10, "off": 0.12 },
+    { "min": 50, "off": 0.22 }
+  ],
+
+  "finishes": {
+    "satin": 0,
+    "mirror": 0.05,
+    "black": 0.1,
+    "titanium": 0.15
+  },
+
+  "shipping": {
+    "freeFrom": 150,
+    "zones": [
+      { "id": "near", "price": 9.9, "freeAbove": true, "countries": ["LU", "BE", "NL", "FR", "DE"] },
+      { "id": "eu", "price": 14.9, "freeAbove": true, "countries": ["AT", "BG", "CY", "CZ", "DK", "EE", "ES", "FI", "GR", "HR", "HU", "IE", "IT", "LT", "LV", "MT", "PL", "PT", "RO", "SE", "SI", "SK"] },
+      { "id": "nonEu", "price": 24.9, "freeAbove": false, "countries": ["CH", "GB", "NO"] }
+    ]
+  },
+
+  "hsCodes": {
+    "cuticle-nippers": "8214.20", "nail-nippers": "8214.20", "manicure-scissors": "8213.00", "pushers-files": "8214.20",
+    "tweezers": "8203.20", "barber": "8213.00", "grooming": "8213.00", "sets": "8214.20"
+  },
+  "privateLabelMinimum": {
+    "cuticle-nippers": 100, "nail-nippers": 100, "manicure-scissors": 100, "pushers-files": 200,
+    "tweezers": 200, "barber": 50, "grooming": 50, "sets": 50
+  },
+  "heroProduct": "cuticle-nipper-full-jaw"
+}

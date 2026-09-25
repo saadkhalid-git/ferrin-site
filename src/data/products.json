@@ -1,0 +1,539 @@
+{
+  "categories": [
+    {
+      "id": "cuticle-nippers",
+      "draw": {
+        "type": "nipper",
+        "jaw": 5
+      }
+    },
+    {
+      "id": "nail-nippers",
+      "draw": {
+        "type": "nipper",
+        "jaw": 12,
+        "heavy": true
+      }
+    },
+    {
+      "id": "manicure-scissors",
+      "draw": {
+        "type": "scissors",
+        "small": true
+      }
+    },
+    {
+      "id": "pushers-files",
+      "draw": {
+        "type": "pusher"
+      }
+    },
+    {
+      "id": "tweezers",
+      "draw": {
+        "type": "tweezers",
+        "tip": "slant"
+      }
+    },
+    {
+      "id": "barber",
+      "draw": {
+        "type": "scissors"
+      }
+    },
+    {
+      "id": "grooming",
+      "draw": {
+        "type": "scissors",
+        "long": true,
+        "curved": true
+      }
+    },
+    {
+      "id": "sets",
+      "draw": {
+        "type": "set"
+      }
+    }
+  ],
+  "products": [
+    {
+      "id": "cuticle-nipper-full-jaw",
+      "sku": "FN-C05",
+      "cat": "cuticle-nippers",
+      "price": 16.9,
+      "length": 105,
+      "steel": "AISI 420",
+      "hrc": "52–54 HRC",
+      "finishes": [
+        "satin",
+        "mirror",
+        "black"
+      ],
+      "draw": {
+        "type": "nipper",
+        "jaw": 5
+      },
+      "best": true
+    },
+    {
+      "id": "cuticle-nipper-half-jaw",
+      "sku": "FN-C03",
+      "cat": "cuticle-nippers",
+      "price": 16.9,
+      "length": 105,
+      "steel": "AISI 420",
+      "hrc": "52–54 HRC",
+      "finishes": [
+        "satin",
+        "mirror",
+        "black"
+      ],
+      "draw": {
+        "type": "nipper",
+        "jaw": 3
+      }
+    },
+    {
+      "id": "cuticle-nipper-quarter-jaw",
+      "sku": "FN-C02",
+      "cat": "cuticle-nippers",
+      "price": 17.9,
+      "length": 100,
+      "steel": "AISI 420",
+      "hrc": "52–54 HRC",
+      "finishes": [
+        "satin",
+        "mirror"
+      ],
+      "draw": {
+        "type": "nipper",
+        "jaw": 2
+      }
+    },
+    {
+      "id": "cuticle-nipper-single-spring",
+      "sku": "FN-C07",
+      "cat": "cuticle-nippers",
+      "price": 13.5,
+      "length": 110,
+      "steel": "AISI 410",
+      "finishes": [
+        "satin",
+        "black"
+      ],
+      "draw": {
+        "type": "nipper",
+        "jaw": 7,
+        "single": true
+      }
+    },
+    {
+      "id": "nail-nipper-straight",
+      "sku": "FN-N12",
+      "cat": "nail-nippers",
+      "price": 19.9,
+      "length": 120,
+      "steel": "AISI 420",
+      "hrc": "52–54 HRC",
+      "finishes": [
+        "satin",
+        "mirror"
+      ],
+      "draw": {
+        "type": "nipper",
+        "jaw": 12,
+        "heavy": true
+      },
+      "best": true
+    },
+    {
+      "id": "nail-nipper-barrel-spring",
+      "sku": "FN-N13",
+      "cat": "nail-nippers",
+      "price": 22.5,
+      "length": 125,
+      "steel": "AISI 420",
+      "hrc": "52–54 HRC",
+      "finishes": [
+        "satin",
+        "mirror",
+        "black"
+      ],
+      "draw": {
+        "type": "nipper",
+        "jaw": 13,
+        "heavy": true,
+        "barrel": true
+      }
+    },
+    {
+      "id": "toenail-nipper-thick",
+      "sku": "FN-N14",
+      "cat": "nail-nippers",
+      "price": 24.9,
+      "length": 135,
+      "steel": "AISI 420",
+      "hrc": "52–54 HRC",
+      "finishes": [
+        "satin"
+      ],
+      "draw": {
+        "type": "nipper",
+        "jaw": 14,
+        "heavy": true
+      }
+    },
+    {
+      "id": "cuticle-scissors-curved",
+      "sku": "FS-C09",
+      "cat": "manicure-scissors",
+      "price": 11.9,
+      "length": 90,
+      "steel": "AISI 420",
+      "finishes": [
+        "satin",
+        "mirror",
+        "black"
+      ],
+      "draw": {
+        "type": "scissors",
+        "small": true,
+        "curved": true
+      },
+      "best": true
+    },
+    {
+      "id": "nail-scissors-straight",
+      "sku": "FS-N09",
+      "cat": "manicure-scissors",
+      "price": 10.9,
+      "length": 90,
+      "steel": "AISI 420",
+      "finishes": [
+        "satin",
+        "mirror"
+      ],
+      "draw": {
+        "type": "scissors",
+        "small": true
+      }
+    },
+    {
+      "id": "combination-scissors",
+      "sku": "FS-X09",
+      "cat": "manicure-scissors",
+      "price": 12.5,
+      "length": 95,
+      "steel": "AISI 420",
+      "finishes": [
+        "satin",
+        "mirror"
+      ],
+      "draw": {
+        "type": "scissors",
+        "small": true,
+        "curved": true
+      }
+    },
+    {
+      "id": "pusher-spoon-hatchet",
+      "sku": "FP-SH",
+      "cat": "pushers-files",
+      "price": 6.9,
+      "length": 125,
+      "steel": "AISI 410",
+      "finishes": [
+        "satin",
+        "mirror",
+        "black"
+      ],
+      "draw": {
+        "type": "pusher"
+      },
+      "best": true
+    },
+    {
+      "id": "pusher-spoon-pterygium",
+      "sku": "FP-SP",
+      "cat": "pushers-files",
+      "price": 6.9,
+      "length": 125,
+      "steel": "AISI 410",
+      "finishes": [
+        "satin",
+        "mirror"
+      ],
+      "draw": {
+        "type": "pusher",
+        "pointed": true
+      }
+    },
+    {
+      "id": "nail-file-double",
+      "sku": "FF-15",
+      "cat": "pushers-files",
+      "price": 5.9,
+      "length": 150,
+      "steel": "AISI 420",
+      "finishes": [
+        "satin"
+      ],
+      "draw": {
+        "type": "file"
+      }
+    },
+    {
+      "id": "tweezers-slant",
+      "sku": "FT-SL",
+      "cat": "tweezers",
+      "price": 9.9,
+      "length": 95,
+      "steel": "AISI 420",
+      "finishes": [
+        "satin",
+        "mirror",
+        "black"
+      ],
+      "draw": {
+        "type": "tweezers",
+        "tip": "slant"
+      },
+      "best": true
+    },
+    {
+      "id": "tweezers-point",
+      "sku": "FT-PT",
+      "cat": "tweezers",
+      "price": 9.9,
+      "length": 95,
+      "steel": "AISI 420",
+      "finishes": [
+        "satin",
+        "mirror"
+      ],
+      "draw": {
+        "type": "tweezers",
+        "tip": "point"
+      }
+    },
+    {
+      "id": "tweezers-lash",
+      "sku": "FT-LC",
+      "cat": "tweezers",
+      "price": 11.5,
+      "length": 115,
+      "steel": "AISI 420",
+      "finishes": [
+        "satin",
+        "titanium"
+      ],
+      "draw": {
+        "type": "tweezers",
+        "tip": "curve"
+      }
+    },
+    {
+      "id": "tweezers-flat",
+      "sku": "FT-FL",
+      "cat": "tweezers",
+      "price": 8.9,
+      "length": 95,
+      "steel": "AISI 420",
+      "finishes": [
+        "satin",
+        "mirror"
+      ],
+      "draw": {
+        "type": "tweezers",
+        "tip": "flat"
+      }
+    },
+    {
+      "id": "barber-shears-6-offset",
+      "sku": "FB-60",
+      "cat": "barber",
+      "price": 64,
+      "length": 152,
+      "steel": "440C",
+      "hrc": "58–60 HRC",
+      "finishes": [
+        "mirror",
+        "satin",
+        "titanium"
+      ],
+      "draw": {
+        "type": "scissors"
+      },
+      "best": true
+    },
+    {
+      "id": "barber-shears-7-straight",
+      "sku": "FB-70",
+      "cat": "barber",
+      "price": 72,
+      "length": 178,
+      "steel": "440C",
+      "hrc": "58–60 HRC",
+      "finishes": [
+        "mirror",
+        "satin",
+        "titanium"
+      ],
+      "draw": {
+        "type": "scissors",
+        "long": true
+      }
+    },
+    {
+      "id": "thinning-shears-30",
+      "sku": "FB-T30",
+      "cat": "barber",
+      "price": 69,
+      "length": 152,
+      "steel": "440C",
+      "hrc": "58–60 HRC",
+      "finishes": [
+        "mirror",
+        "satin",
+        "titanium"
+      ],
+      "draw": {
+        "type": "scissors",
+        "teeth": 30
+      }
+    },
+    {
+      "id": "texturizing-shears-14",
+      "sku": "FB-T14",
+      "cat": "barber",
+      "price": 69,
+      "length": 152,
+      "steel": "440C",
+      "hrc": "58–60 HRC",
+      "finishes": [
+        "satin",
+        "mirror",
+        "titanium"
+      ],
+      "draw": {
+        "type": "scissors",
+        "teeth": 14
+      }
+    },
+    {
+      "id": "barber-shears-left",
+      "sku": "FB-60L",
+      "cat": "barber",
+      "price": 68,
+      "length": 152,
+      "steel": "440C",
+      "hrc": "58–60 HRC",
+      "finishes": [
+        "mirror",
+        "satin"
+      ],
+      "draw": {
+        "type": "scissors",
+        "flip": true
+      }
+    },
+    {
+      "id": "shavette-razor",
+      "sku": "FR-SV",
+      "cat": "barber",
+      "price": 18.5,
+      "length": 250,
+      "steel": "AISI 420",
+      "finishes": [
+        "satin",
+        "black"
+      ],
+      "draw": {
+        "type": "razor"
+      }
+    },
+    {
+      "id": "grooming-shears-8-straight",
+      "sku": "FG-80",
+      "cat": "grooming",
+      "price": 48,
+      "length": 203,
+      "steel": "440C",
+      "finishes": [
+        "satin",
+        "titanium"
+      ],
+      "draw": {
+        "type": "scissors",
+        "long": true
+      },
+      "best": true
+    },
+    {
+      "id": "grooming-shears-7-curved",
+      "sku": "FG-70C",
+      "cat": "grooming",
+      "price": 52,
+      "length": 178,
+      "steel": "440C",
+      "finishes": [
+        "satin",
+        "titanium"
+      ],
+      "draw": {
+        "type": "scissors",
+        "long": true,
+        "curved": true
+      }
+    },
+    {
+      "id": "grooming-chunker-42",
+      "sku": "FG-CH42",
+      "cat": "grooming",
+      "price": 55,
+      "length": 190,
+      "steel": "440C",
+      "finishes": [
+        "satin",
+        "titanium"
+      ],
+      "draw": {
+        "type": "scissors",
+        "long": true,
+        "teeth": 42
+      }
+    },
+    {
+      "id": "manicure-set-leather-7",
+      "sku": "FK-L7",
+      "cat": "sets",
+      "price": 39,
+      "length": 140,
+      "steel": "AISI 420",
+      "finishes": [
+        "satin",
+        "mirror"
+      ],
+      "draw": {
+        "type": "set"
+      },
+      "best": true
+    },
+    {
+      "id": "nail-tech-starter-kit",
+      "sku": "FK-S5",
+      "cat": "sets",
+      "price": 44,
+      "length": 180,
+      "steel": "AISI 420",
+      "finishes": [
+        "satin"
+      ],
+      "draw": {
+        "type": "set",
+        "zip": true
+      }
+    }
+  ]
+}
