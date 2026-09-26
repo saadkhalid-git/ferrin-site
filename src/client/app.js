@@ -42,19 +42,31 @@ function updateBadge() {
   const badge = $("#cart-count");
   if (badge) { badge.textContent = n; badge.hidden = n === 0; }
 }
-// Returns how many pieces were added. Trial products (the sample kit) are limited to one per customer.
+// Pieces of a product still available once the cart is counted (Infinity when stock isn't known).
+function stockLeft(id) {
+  const stock = C?.products[id]?.stock;
+  if (typeof stock !== "number") return Infinity;
+  return Math.max(0, stock - cart.filter(l => l.id === id).reduce((n, l) => n + l.qty, 0));
+}
+
+// Returns how many pieces were added. Trial products (the sample kit) are limited to one per customer;
+// nothing goes beyond the stock in the shop.
 function addToCart(id, finish, qty) {
+  const left = stockLeft(id);
   if (C?.products[id]?.trial) {
-    if (cart.some(l => l.id === id)) return 0;
+    if (cart.some(l => l.id === id) || left < 1) return 0;
     cart.push({ id, finish, qty: 1 });
     saveCart();
     return 1;
   }
+  const n = Math.min(qty, left);
+  if (n < 1) return 0;
   const line = cart.find(l => l.id === id && l.finish === finish);
-  if (line) line.qty = Math.min(9999, line.qty + qty); else cart.push({ id, finish, qty });
+  if (line) line.qty = Math.min(9999, line.qty + n); else cart.push({ id, finish, qty: n });
   saveCart();
-  return qty;
+  return n;
 }
+const capped = new Set(); // products whose cart quantity was lowered to the stock
 function cartLines() {
   const trials = new Set();
   cart = cart.filter(l => {
@@ -62,6 +74,16 @@ function cartLines() {
     if (!p || !p.finishes.includes(l.finish) || !(l.qty > 0)) return false;
     if (p.trial) { if (trials.has(l.id)) return false; trials.add(l.id); l.qty = 1; }
     return true;
+  });
+  // Keep each product within its stock (lines are checked in order; empty lines are dropped).
+  const used = {};
+  cart = cart.filter(l => {
+    const stock = C.products[l.id].stock;
+    if (typeof stock !== "number") return true;
+    const room = stock - (used[l.id] || 0);
+    if (l.qty > room) { l.qty = room; capped.add(l.id); }
+    used[l.id] = (used[l.id] || 0) + Math.max(0, l.qty);
+    return l.qty > 0;
   });
   return cart.map(l => {
     const p = C.products[l.id], unit = price(p, l.finish, l.qty);
@@ -204,7 +226,9 @@ function initProduct() {
     const unit = price(p, finish, qty);
     $("#unit").textContent = money(unit);
     tierRows(p, finish, qty);
-    const nt = p.trial ? null : nextTier(C.tiers, qty);
+    const tier = p.trial ? null : nextTier(C.tiers, qty);
+    // Only suggest a bigger quantity if there's enough stock to reach it.
+    const nt = tier && (typeof p.stock !== "number" || tier.min <= p.stock) ? tier : null;
     $("#line-total").textContent = t("pdp.lineTotal", { qty, unit: money(unit), total: money(round(unit * qty)) }) +
       (nt ? `. ${t("pdp.nextTier", { n: nt.min - qty, pct: Math.round(nt.off * 100) })}` : "");
   }
@@ -219,7 +243,9 @@ function initProduct() {
     e.preventDefault();
     const { finish, qty } = read();
     const added = addToCart(p.id, finish, qty);
-    toast(added ? t("pdp.added", { qty: added, name: `${p.name} (${t("finish." + finish)})` }) : t("kit.inCart"), site.urls.cart, t("pdp.viewCart"));
+    const msg = added ? t("pdp.added", { qty: added, name: `${p.name} (${t("finish." + finish)})` })
+      : p.trial && cart.some(l => l.id === p.id) ? t("kit.inCart") : t("cart.capped", { n: p.stock ?? 0 });
+    toast(added && added < qty ? `${msg} ${t("cart.capped", { n: p.stock })}` : msg, site.urls.cart, t("pdp.viewCart"));
   });
   update();
 }
@@ -231,7 +257,8 @@ function initAddButtons() {
     const p = C?.products[b.dataset.add];
     if (!p) return;
     const added = addToCart(p.id, p.def, 1);
-    toast(added ? t("pdp.added", { qty: added, name: `${p.name} (${t("finish." + p.def)})` }) : t("kit.inCart"), site.urls.cart, t("pdp.viewCart"));
+    toast(added ? t("pdp.added", { qty: added, name: `${p.name} (${t("finish." + p.def)})` })
+      : cart.some(l => l.id === p.id) ? t("kit.inCart") : t("stock.out"), site.urls.cart, t("pdp.viewCart"));
   }));
 }
 
@@ -272,17 +299,19 @@ function initCart() {
     const more = ship.zone?.freeAbove && ship.price ? round(C.shipping.freeFrom - subtotal) : 0;
     root.innerHTML = `<div class="cart">
       <ul class="lines">${lines.map((l, i) => {
-        const nt = l.p.trial ? null : nextTier(C.tiers, l.qty);
+        const tier = l.p.trial ? null : nextTier(C.tiers, l.qty);
+        const nt = tier && (typeof l.p.stock !== "number" || tier.min <= l.p.stock) ? tier : null;
         return `<li class="line">
           <a class="line-draw" href="${l.p.url}" tabindex="-1" aria-hidden="true">${l.p.thumb}</a>
           <div class="line-info">
             <a href="${l.p.url}"><strong>${esc(l.p.name)}</strong></a>
             <span class="muted">${esc(l.p.sku)}, ${esc(t("finish." + l.finish))}, ${t("cart.each", { price: money(l.unit) })}</span>
             ${nt ? `<span class="nudge">${t("cart.nudge", { n: nt.min - l.qty, pct: Math.round(nt.off * 100) })}</span>` : ""}
+            ${capped.has(l.id) ? `<span class="nudge is-warn">${t("cart.capped", { n: l.p.stock })}</span>` : ""}
           </div>
           ${l.p.trial ? `<span class="qty-fixed"><strong>1</strong> <small class="muted">${esc(t("kit.one"))}</small></span>` : `<div class="stepper small" role="group" aria-label="${esc(t("cart.qtyFor", { name: l.p.name }))}">
             <button type="button" data-line="${i}" data-step="-1" aria-label="${esc(t("pdp.dec"))}">−</button>
-            <input type="number" min="1" max="9999" value="${l.qty}" data-line="${i}" aria-label="${esc(t("pdp.qty"))}">
+            <input type="number" min="1" max="${typeof l.p.stock === "number" ? l.qty + stockLeft(l.id) : 9999}" value="${l.qty}" data-line="${i}" aria-label="${esc(t("pdp.qty"))}">
             <button type="button" data-line="${i}" data-step="1" aria-label="${esc(t("pdp.inc"))}">+</button>
           </div>`}
           <strong class="line-total">${money(l.total)}</strong>
@@ -305,12 +334,13 @@ function initCart() {
 
   root.addEventListener("click", e => {
     const step = e.target.closest("[data-step]"), rm = e.target.closest("[data-remove]");
-    if (step) { const l = cart[step.dataset.line]; l.qty = Math.max(1, Math.min(C.products[l.id].trial ? 1 : 9999, l.qty + Number(step.dataset.step))); render(); $(`[data-line="${step.dataset.line}"][data-step="${step.dataset.step}"]`)?.focus(); }
+    if (step) { const l = cart[step.dataset.line]; const max = C.products[l.id].trial ? 1 : Math.min(9999, l.qty + stockLeft(l.id)); l.qty = Math.max(1, Math.min(max, l.qty + Number(step.dataset.step))); render(); $(`[data-line="${step.dataset.line}"][data-step="${step.dataset.step}"]`)?.focus(); }
     if (rm) { cart.splice(Number(rm.dataset.remove), 1); render(); }
   });
   root.addEventListener("change", e => {
     if (e.target.dataset.line === undefined) return;
-    cart[e.target.dataset.line].qty = Math.max(1, Math.min(9999, parseInt(e.target.value, 10) || 1));
+    const l = cart[e.target.dataset.line];
+    l.qty = Math.max(1, Math.min(9999, l.qty + stockLeft(l.id), parseInt(e.target.value, 10) || 1));
     render();
   });
 
@@ -356,6 +386,7 @@ function initCart() {
       `Language: ${site.lang}`, "", `Notes: ${d.notes || "-"}`
     ].join("\n");
     const subject = `Order request ${ref}, ${d.company}`;
+    if (site.ordersApi) return submitToServer(d, lines);
     setBusy(form, true);
     const sent = await sendForm(form, subject, {
       name: d.name, company: d.company, email: d.email, phone: d.phone || "", country: countryName, vat: vat || "",
@@ -369,6 +400,64 @@ function initCart() {
     setTimeout(() => location.assign(site.urls.sent), sent ? 0 : 400);
   });
 
+  // The server prices the order from its own database, takes the stock and saves it.
+  // Only product ids, finishes and quantities are sent; prices from the browser would be ignored anyway.
+  async function submitToServer(d, lines) {
+    const errBox = $("#checkout-error");
+    errBox.hidden = true;
+    setBusy(form, true);
+    let res, data = {};
+    try {
+      res = await fetch(site.ordersApi, {
+        method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          language: site.lang, botcheck: form.elements.botcheck?.checked || undefined,
+          customer: { name: d.name, company: d.company, email: d.email, phone: d.phone, street: d.street, postcode: d.postcode, city: d.city, country: d.country, vat: d.vat || "", notes: d.notes || "" },
+          items: lines.map(l => ({ productId: l.p.pid, finish: l.finish, quantity: l.qty }))
+        })
+      });
+      data = await res.json().catch(() => ({}));
+    } catch { res = null; }
+    setBusy(form, false);
+    if (res?.status === 201) {
+      const summary = [
+        ...data.items.map(i => `${i.quantity} × ${i.name} [${i.sku}, ${t("finish." + i.finish)}] @ ${money(Number(i.unitPrice))} = ${money(Number(i.lineTotal))}`), "",
+        `${t("cart.subtotal")}: ${money(Number(data.subtotal))}`, `${t("cart.shipping")}: ${Number(data.shipping) ? money(Number(data.shipping)) : t("cart.free")}`,
+        `${t("cart.total")}: ${money(Number(data.total))}`
+      ].join("\n");
+      store.set("ferrin-last-order", { ref: data.orderNumber, body: summary, email: d.email, via: "api" }, true);
+      cart = [];
+      saveCart();
+      location.assign(site.urls.sent);
+      return;
+    }
+    // Stock or availability changed since the page loaded: refresh the catalogue and show which lines.
+    if (res && (data.code === "stock" || data.code === "unavailable")) {
+      catalogPromise = null;
+      C = await loadCatalog();
+      const byPid = pid => Object.values(C.products).find(p => p.pid === pid);
+      errBox.innerHTML = (data.products || []).map(x => {
+        const p = byPid(x.productId);
+        return esc(data.code === "stock" ? t("err.stock", { n: x.available, name: p?.name || x.name }) : t("err.unavailable", { name: p?.name || x.name || "" }));
+      }).join("<br>") || esc(t("err.order"));
+      errBox.hidden = false;
+      render();
+      errBox.scrollIntoView({ block: "center" });
+      return;
+    }
+    if (res && data.fields) {
+      let first = null;
+      for (const name of Object.keys(data.fields)) {
+        const el = form.elements[name], err = $(`#err-${name}`);
+        if (err) err.textContent = name === "vat" ? t("err.vat", { example: vatExample(d.country) }) : name === "email" ? t("err.email") : t("err.required");
+        if (el) { el.setAttribute("aria-invalid", "true"); first = first || el; }
+      }
+      if (first) { first.focus(); return; }
+    }
+    errBox.textContent = t("err.order");
+    errBox.hidden = false;
+  }
+
   render();
 }
 
@@ -378,7 +467,8 @@ function initOrderSent() {
   const o = store.get("ferrin-last-order", null, true);
   if (!o) return;
   const mail = `<a href="mailto:${esc(C.orderEmail)}">${esc(C.orderEmail)}</a>`;
-  root.innerHTML = o.via === "form"
+  const confirmed = o.via === "form" || o.via === "api";
+  root.innerHTML = confirmed
     ? `<h1>${t("sent.title")}</h1>
        <p class="lede">${t("sent.p", { ref: `<strong>${esc(o.ref)}</strong>`, email: esc(o.email) })}</p>
        <pre class="order-text">${esc(o.body)}</pre>
@@ -388,7 +478,7 @@ function initOrderSent() {
        <p>${t("sent.copyP", { email: mail })}</p>
        <pre class="order-text">${esc(o.body)}</pre>
        <div class="actions"><button class="btn" type="button" id="copy-order">${t("sent.copy")}</button><a class="btn btn-ghost" href="${site.urls.shop}">${t("sent.back")}</a></div>`;
-  document.title = `${o.via === "form" ? t("sent.title") : t("sent.titleEmail")} | ${C.brand}`;
+  document.title = `${confirmed ? t("sent.title") : t("sent.titleEmail")} | ${C.brand}`;
   $("#copy-order")?.addEventListener("click", () => {
     navigator.clipboard.writeText(o.body).then(() => toast(t("sent.copied")), () => toast(t("sent.copyFail")));
   });

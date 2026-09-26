@@ -5,7 +5,6 @@
     "meta.home": "Pinces à envies, ciseaux de manucure, pinces à épiler, ciseaux de coiffure et de toilettage professionnels, finis à la main à Sialkot. Prix dégressifs et marque blanche pour les salons et revendeurs en Europe.",
     "meta.shop": "Les {n} instruments avec prix dégressifs : pinces à envies et à ongles, ciseaux de manucure, pinces à épiler, ciseaux de coiffure et de toilettage.",
     "meta.product": "{summary} Réf. {sku}. À partir de {price} la pièce dès {min} pièces, HT.",
-
     "nav.skip": "Aller au contenu",
     "nav.home": "Accueil",
     "nav.catalogue": "Catalogue",
@@ -19,7 +18,6 @@
     "nav.language": "Langue",
     "nav.priceList": "Tarifs",
     "trade.strip": "Réservé aux professionnels. Tous les prix sont hors TVA.",
-
     "footer.tagline": "Instruments professionnels de beauté, de barbier et de toilettage, fabriqués à Sialkot, au Pakistan.",
     "footer.shop": "Boutique",
     "footer.company": "Entreprise",
@@ -29,12 +27,10 @@
     "footer.notice": "Mentions légales",
     "footer.fine": "Usage cosmétique, salon et toilettage. Ce ne sont pas des dispositifs médicaux.",
     "footer.legalLang": "Les pages légales sont en anglais.",
-
     "unit.pcs": "{n} pièces",
     "unit.range": "{from}–{to} pièces",
     "unit.plus": "{from}+ pièces",
     "unit.count": "{n} produits",
-
     "home.h1": "Instruments de salon, finis à la main à Sialkot",
     "home.lede": "Pinces, ciseaux, pinces à épiler et ciseaux de barbier venus de Sialkot, l'un des principaux centres mondiaux d'instruments manuels en acier. Commandez quelques pièces pour tester, puis par carton à prix dégressifs ou avec votre propre marque.",
     "home.ctaShop": "Voir le catalogue",
@@ -56,7 +52,6 @@
     "home.whyH": "Pourquoi Sialkot",
     "home.why1": "Sialkot fabrique des instruments en acier depuis plus d'un siècle. Des milliers d'ateliers y meulent, polissent, ajustent et affûtent des instruments pour des salons, des cliniques et des marques du monde entier.",
     "home.why2": "Nous travaillons avec quelques-uns de ces ateliers, définissons l'acier de chaque produit et vérifions chaque pince, ciseau et pince à épiler avant l'emballage. Vous obtenez des prix d'atelier sans gérer vous-même la fabrication.",
-
     "spec.part": "Réf.",
     "spec.steel": "Acier",
     "spec.length": "Longueur",
@@ -71,17 +66,14 @@
     "spec.privateLabel": "Marque blanche",
     "spec.fromPcs": "Dès {n} pièces",
     "spec.requestQuote": "Demander un devis",
-
     "tier.qty": "Quantité",
     "tier.price": "Prix unitaire",
     "tier.saving": "Remise",
     "card.bulk": "{price} la pièce dès {n}",
-
     "finish.satin": "Satiné",
     "finish.mirror": "Poli miroir",
     "finish.black": "Revêtement noir mat",
     "finish.titanium": "Revêtement titane noir",
-
     "shop.title": "Catalogue",
     "shop.lede": "Tous les instruments, avec les prix dégressifs indiqués sur chaque produit.",
     "shop.instruments": "Instruments",
@@ -94,7 +86,6 @@
     "shop.priceDesc": "Prix décroissant",
     "shop.noMatch": "Aucun produit ne correspond à votre recherche.",
     "shop.clear": "Effacer la recherche",
-
     "pdp.part": "Réf. {sku}",
     "pdp.perPiece": "la pièce, HT",
     "pdp.finish": "Finition",
@@ -112,7 +103,6 @@
     "pdp.dimensions": "Dimensions",
     "pdp.photo": "Photo {n}",
     "pdp.gallery": "Images du produit",
-
     "cart.title": "Panier",
     "cart.emptyH": "Votre panier est vide",
     "cart.emptyP": "Ajoutez des instruments depuis le catalogue ou la commande rapide. Les remises sur quantité s'appliquent ici automatiquement.",
@@ -131,7 +121,6 @@
     "cart.loading": "Chargement du panier…",
     "cart.noscript": "Le panier nécessite JavaScript. Vous pouvez aussi envoyer votre commande à {email}.",
     "cart.import": "Les commandes sont expédiées depuis le Pakistan. Le transporteur perçoit la TVA à l'importation et les droits éventuels à la livraison. Les entreprises assujetties peuvent généralement récupérer la TVA à l'importation.",
-
     "co.h": "Vos coordonnées professionnelles",
     "co.name": "Nom complet",
     "co.company": "Société ou salon",
@@ -152,13 +141,11 @@
     "co.submit": "Envoyer la demande de commande",
     "co.sending": "Envoi…",
     "co.help": "Nous répondons avec une facture sous un jour ouvré.",
-
     "err.required": "Remplissez ce champ.",
     "err.email": "Saisissez une adresse e-mail du type nom@exemple.fr.",
     "err.vat": "Vérifiez le numéro de TVA. Il doit ressembler à {example}.",
     "err.b2b": "Confirmez que vous commandez pour une entreprise.",
     "err.send": "Le formulaire n'a pas pu être envoyé. Votre messagerie va s'ouvrir avec le message.",
-
     "sent.title": "Demande de commande envoyée",
     "sent.p": "Nous avons bien reçu la demande de commande {ref}. Nous répondrons à {email} avec une facture sous un jour ouvré.",
     "sent.titleEmail": "Envoyez l'e-mail pour passer commande",
@@ -170,7 +157,6 @@
     "sent.back": "Retour au catalogue",
     "sent.none": "Aucune commande récente",
     "sent.noneP": "Les demandes de commande envoyées depuis ce navigateur apparaissent ici.",
-
     "qo.title": "Commande rapide",
     "qo.lede": "Saisissez les quantités de tout ce dont vous avez besoin et ajoutez tout au panier en une fois. Les prix dégressifs s'appliquent à chaque produit.",
     "qo.product": "Produit",
@@ -183,13 +169,11 @@
     "qo.none": "Saisissez une quantité pour au moins un produit.",
     "qo.sum": "Produits sélectionnés : {n}. Total : {total}",
     "qo.noscript": "La commande rapide nécessite JavaScript.",
-
     "pl.title": "Tarifs",
     "pl.lede": "Prix en EUR par pièce, hors TVA, pour la finition standard. Autres finitions : {finishes}.",
     "pl.print": "Imprimer ou enregistrer en PDF",
     "pl.valid": "Prix valables à partir du {date}.",
     "pl.contact": "Commandes et questions : {email}",
-
     "plp.title": "Marque blanche",
     "plp.h1": "Votre marque sur des instruments professionnels",
     "plp.lede": "Pour les fournisseurs de salons, les académies d'ongles, les marques de barbier et les boutiques en ligne. Vous choisissez les instruments, la finition et l'emballage. Nous fabriquons des échantillons, puis produisons et contrôlons votre commande.",
@@ -220,10 +204,8 @@
     "plp.branding": "Personnalisation et emballage",
     "plp.brandingPh": "Logo sur l'instrument, boîte imprimée, étui en cuir…",
     "plp.submit": "Envoyer la demande de devis",
-
     "form.sent": "Envoyé. Nous répondons sous un jour ouvré.",
     "form.email": "Votre messagerie devrait s'ouvrir avec le message prêt à envoyer.",
-
     "about.title": "À propos",
     "about.h1": "À propos de {brand}",
     "about.lede": "Nous vendons des instruments professionnels de beauté, de barbier et de toilettage fabriqués à Sialkot, au Pakistan, aux salons et revendeurs en Europe.",
@@ -235,7 +217,6 @@
     "about.qc4": "Les commandes peuvent être contrôlées par un organisme indépendant avant l'expédition",
     "about.notH": "Ce que nous ne vendons pas",
     "about.notP": "Nous vendons uniquement des instruments à usage cosmétique, de salon et de toilettage, et uniquement aux entreprises. Nous ne vendons pas d'instruments chirurgicaux ni de dispositifs médicaux.",
-
     "contact.title": "Contact",
     "contact.lede": "Questions sur les produits, les échantillons ou les comptes revendeurs. Nous répondons sous un jour ouvré.",
     "contact.email": "E-mail",
@@ -244,17 +225,13 @@
     "contact.formH": "Envoyer un message",
     "contact.message": "Message",
     "contact.submit": "Envoyer le message",
-
     "faq.title": "Questions fréquentes",
     "faq.more": "Une autre question ?",
     "faq.contact": "Contactez-nous",
-
     "nf.title": "Page introuvable",
     "nf.lede": "Le lien est peut-être ancien ou mal saisi.",
     "nf.cta": "Aller au catalogue",
-
     "legal.draft": "Brouillon. Complétez les parties entre [crochets] et faites vérifier le texte avant de vous y fier.",
-
     "nav.main": "Menu principal",
     "nav.whatsapp": "WhatsApp",
     "wa.label": "Écrivez-nous sur WhatsApp",
@@ -296,86 +273,345 @@
     "shop.linePro": "Pinces à double ressort affûtées à la main, ciseaux en acier 440C et instruments de précision pour le travail quotidien des salons et des barbiers.",
     "shop.lineEssential": "Des instruments plus simples à un prix plus bas, pour les kits élèves, la vente au détail et le stock de réserve.",
     "meta.productTrial": "{summary} Réf. {sku}. {price} le kit, HT.",
-    "footer.credits": "Crédits photo"
+    "footer.credits": "Crédits photo",
+    "stock.in": "En stock",
+    "stock.low": "Plus que {n} en stock",
+    "stock.out": "Épuisé",
+    "cart.capped": "Seulement {n} en stock.",
+    "err.stock": "Seulement {n} × {name} disponible(s). Réduisez la quantité pour continuer.",
+    "err.unavailable": "{name} n'est plus disponible. Retirez-le pour continuer.",
+    "err.order": "La commande n'a pas pu être envoyée. Vérifiez vos coordonnées et réessayez, ou contactez-nous."
   },
   "faq": [
-    ["Qui peut commander ?", "Nous vendons uniquement aux entreprises : salons, barbiers, onglerie, académies, grossistes et boutiques. Indiquez le nom de votre société et votre numéro de TVA lors de la commande."],
-    ["Les prix incluent-ils la TVA ?", "Non. Les prix sont hors TVA et hors droits de douane. Les commandes partent du Pakistan : le transporteur perçoit donc la TVA à l'importation, et les droits éventuels, à l'entrée dans votre pays. Les entreprises assujetties peuvent généralement récupérer la TVA à l'importation."],
-    ["Comment payer ?", "Après votre demande de commande, nous vous envoyons une facture par e-mail. Vous payez par virement bancaire et nous expédions dès réception du paiement."],
-    ["Quel est le délai de livraison ?", "Les articles en stock partent de Sialkot par transporteur express et arrivent généralement dans l'UE en 4 à 7 jours ouvrés."],
-    ["Vais-je payer des droits de douane ?", "Cela dépend de votre pays et du produit. De nombreux instruments du Pakistan entrent dans l'UE sans droits de douane grâce au SPG+ lorsque la bonne déclaration d'origine figure sur la facture, ce que nous faisons."],
-    ["Puis-je d'abord commander un échantillon ?", "Oui. Commandez une pièce au prix normal. Si vous commandez ensuite 50 pièces ou plus du même produit sous 60 jours, nous déduisons le prix de l'échantillon."],
-    ["Et si un instrument est défectueux ?", "Signalez-le-nous dans les 30 jours suivant la livraison avec une photo : nous le remplaçons ou vous faisons un avoir."],
-    ["Proposez-vous l'affûtage ?", "Les ciseaux de coiffure et de toilettage peuvent nous être renvoyés pour affûtage. Demandez-nous le tarif en vigueur."]
+    [
+      "Qui peut commander ?",
+      "Nous vendons uniquement aux entreprises : salons, barbiers, onglerie, académies, grossistes et boutiques. Indiquez le nom de votre société et votre numéro de TVA lors de la commande."
+    ],
+    [
+      "Les prix incluent-ils la TVA ?",
+      "Non. Les prix sont hors TVA et hors droits de douane. Les commandes partent du Pakistan : le transporteur perçoit donc la TVA à l'importation, et les droits éventuels, à l'entrée dans votre pays. Les entreprises assujetties peuvent généralement récupérer la TVA à l'importation."
+    ],
+    [
+      "Comment payer ?",
+      "Après votre demande de commande, nous vous envoyons une facture par e-mail. Vous payez par virement bancaire et nous expédions dès réception du paiement."
+    ],
+    [
+      "Quel est le délai de livraison ?",
+      "Les articles en stock partent de Sialkot par transporteur express et arrivent généralement dans l'UE en 4 à 7 jours ouvrés."
+    ],
+    [
+      "Vais-je payer des droits de douane ?",
+      "Cela dépend de votre pays et du produit. De nombreux instruments du Pakistan entrent dans l'UE sans droits de douane grâce au SPG+ lorsque la bonne déclaration d'origine figure sur la facture, ce que nous faisons."
+    ],
+    [
+      "Puis-je d'abord commander un échantillon ?",
+      "Oui. Commandez une pièce au prix normal. Si vous commandez ensuite 50 pièces ou plus du même produit sous 60 jours, nous déduisons le prix de l'échantillon."
+    ],
+    [
+      "Et si un instrument est défectueux ?",
+      "Signalez-le-nous dans les 30 jours suivant la livraison avec une photo : nous le remplaçons ou vous faisons un avoir."
+    ],
+    [
+      "Proposez-vous l'affûtage ?",
+      "Les ciseaux de coiffure et de toilettage peuvent nous être renvoyés pour affûtage. Demandez-nous le tarif en vigueur."
+    ]
   ],
   "categories": {
-    "cuticle-nippers": { "name": "Pinces à envies", "blurb": "Pinces à articulation fermée et double ressort, affûtées et testées sur film à cuticules avant l'emballage." },
-    "nail-nippers": { "name": "Pinces à ongles", "blurb": "Des mors plus robustes pour les ongles des mains et les ongles épais des pieds, avec ressort à lame ou à spirale." },
-    "manicure-scissors": { "name": "Ciseaux de manucure", "blurb": "Ciseaux fins, courbes ou droits, pour cuticules et ongles, ajustés à la main au niveau de la vis." },
-    "pushers-files": { "name": "Repousse-cuticules et limes", "blurb": "Repousse-cuticules double à manche moleté et limes inox à surface découpée au laser." },
-    "tweezers": { "name": "Pinces à épiler", "blurb": "Pointes alignées à la main qui se rejoignent sur toute la longueur. Biseautées, pointues, plates et pour cils." },
-    "barber": { "name": "Ciseaux de coiffure et rasoirs", "blurb": "Ciseaux en acier 440C à tranchant convexe, ciseaux sculpteurs, texturiseurs et rasoirs." },
-    "grooming": { "name": "Ciseaux de toilettage", "blurb": "Ciseaux droits, courbes et chunkers longs pour les salons de toilettage." },
-    "sets": { "name": "Coffrets et étuis", "blurb": "Kits prêts à vendre en étui cuir ou zippé. Très demandés en marque blanche." }
+    "cuticle-nippers": {
+      "name": "Pinces à envies",
+      "blurb": "Pinces à articulation fermée et double ressort, affûtées et testées sur film à cuticules avant l'emballage."
+    },
+    "nail-nippers": {
+      "name": "Pinces à ongles",
+      "blurb": "Des mors plus robustes pour les ongles des mains et les ongles épais des pieds, avec ressort à lame ou à spirale."
+    },
+    "manicure-scissors": {
+      "name": "Ciseaux de manucure",
+      "blurb": "Ciseaux fins, courbes ou droits, pour cuticules et ongles, ajustés à la main au niveau de la vis."
+    },
+    "pushers-files": {
+      "name": "Repousse-cuticules et limes",
+      "blurb": "Repousse-cuticules double à manche moleté et limes inox à surface découpée au laser."
+    },
+    "tweezers": {
+      "name": "Pinces à épiler",
+      "blurb": "Pointes alignées à la main qui se rejoignent sur toute la longueur. Biseautées, pointues, plates et pour cils."
+    },
+    "barber": {
+      "name": "Ciseaux de coiffure et rasoirs",
+      "blurb": "Ciseaux en acier 440C à tranchant convexe, ciseaux sculpteurs, texturiseurs et rasoirs."
+    },
+    "grooming": {
+      "name": "Ciseaux de toilettage",
+      "blurb": "Ciseaux droits, courbes et chunkers longs pour les salons de toilettage."
+    },
+    "sets": {
+      "name": "Coffrets et étuis",
+      "blurb": "Kits prêts à vendre en étui cuir ou zippé. Très demandés en marque blanche."
+    }
   },
   "products": {
-    "cuticle-nipper-full-jaw": { "name": "Pince à envies, mors complet 5 mm", "summary": "La pince de salon de tous les jours. Le mors de 5 mm retire les cuticules en moins de coupes.",
-      "details": ["Double ressort au retour doux et régulier", "Articulation fermée, rivetée et ajustée à la main", "Mors testé sur film à cuticules avant l'emballage", "Livrée avec capuchon en silicone"] },
-    "cuticle-nipper-half-jaw": { "name": "Pince à envies, demi-mors 3 mm", "summary": "Un mors plus court pour plus de contrôle le long des bords latéraux.",
-      "details": ["Double ressort", "Articulation fermée, rivetée et ajustée à la main", "Mors testé sur film à cuticules", "Capuchon en silicone"] },
-    "cuticle-nipper-quarter-jaw": { "name": "Pince à envies, quart de mors 2 mm", "summary": "Mors de précision pour la manucure russe et la manucure à sec.",
-      "details": ["Pointes fines et effilées", "Double ressort", "Tranchants affûtés à la main", "Capuchon en silicone"] },
-    "cuticle-nipper-single-spring": { "name": "Pince à envies, ressort simple 7 mm", "summary": "Une pince abordable pour les kits de formation et la revente.",
-      "details": ["Ressort à lame simple", "Articulation superposée", "Idéale pour les kits élèves"] },
-    "nail-nipper-straight": { "name": "Pince à ongles, droite 12 mm", "summary": "Tranchant droit pour des ongles nets et carrés.",
-      "details": ["Double ressort", "Articulation fermée", "Mors droit, 12 mm"] },
-    "nail-nipper-barrel-spring": { "name": "Pince à ongles, courbe, ressort spirale", "summary": "Un mors courbe avec ressort spirale pour une action plus douce et plus stable.",
-      "details": ["Ressort spirale", "Articulation fermée", "Mors courbe, 13 mm"] },
-    "toenail-nipper-thick": { "name": "Pince pour ongles épais des pieds 14 mm", "summary": "Longues branches et mors robuste pour les ongles épais en pédicure.",
-      "details": ["Double ressort", "Articulation fermée renforcée", "Mors droit, 14 mm", "Pour la pédicure esthétique"] },
-    "cuticle-scissors-curved": { "name": "Ciseaux à cuticules, courbes 9 cm", "summary": "Lames fines et courbes qui suivent la ligne des cuticules.",
-      "details": ["Lames fines et courbes", "Tension de la vis réglée à la main", "Pointes en flèche"] },
-    "nail-scissors-straight": { "name": "Ciseaux à ongles, droits 9 cm", "summary": "Lames droites pour couper et façonner les ongles.",
-      "details": ["Lames droites", "Tension de la vis réglée à la main"] },
-    "combination-scissors": { "name": "Ciseaux mixtes ongles et cuticules", "summary": "Une lame pour les ongles, une pour les cuticules. Idéal en voyage et pour la vente.",
-      "details": ["Lames à double usage", "Tension de la vis réglée à la main"] },
-    "pusher-spoon-hatchet": { "name": "Repousse-cuticules, cuillère et hachette", "summary": "La cuillère arrondie repousse les cuticules, la hachette les décolle de la plaque de l'ongle.",
-      "details": ["Manche moleté antidérapant", "Bords polis et arrondis", "Autoclavable"] },
-    "pusher-spoon-pterygium": { "name": "Repousse-cuticules, cuillère et ptérygion", "summary": "Une extrémité ptérygion affûtée pour retirer les peaux mortes de la plaque de l'ongle.",
-      "details": ["Manche moleté", "Extrémité ptérygion affûtée", "Autoclavable"] },
-    "nail-file-double": { "name": "Lime à ongles inox, double face 15 cm", "summary": "Une surface découpée au laser qui ne s'use pas comme les limes en papier.",
-      "details": ["Surface de limage découpée au laser", "Pointe de nettoyage", "Lavable et autoclavable"] },
-    "tweezers-slant": { "name": "Pince à épiler biseautée, alignée à la main", "summary": "Les pointes se rejoignent sur toute la longueur : les poils fins sont saisis du premier coup.",
-      "details": ["Pointes alignées à la main", "Zone de prise satinée", "Capuchon de protection"] },
-    "tweezers-point": { "name": "Pince à épiler pointue, fine", "summary": "Pointes très fines pour les poils incarnés et très courts.",
-      "details": ["Pointes alignées à la main", "Capuchon de protection"] },
-    "tweezers-lash": { "name": "Pince à cils, courbe", "summary": "Pointes courbes pour isoler et poser les extensions de cils.",
-      "details": ["Acier antimagnétique", "Pointes fines et courbes", "Capuchon"] },
-    "tweezers-flat": { "name": "Pince à épiler à bout plat", "summary": "Une prise large pour les sourcils et l'usage courant en salon.",
-      "details": ["Pointes larges et plates", "Capuchon de protection"] },
-    "barber-shears-6-offset": { "name": "Ciseaux de coiffure 6,0\", anneaux décalés", "summary": "Ciseaux à tranchant convexe et anneaux décalés pour garder le poignet détendu.",
-      "details": ["Tranchant convexe, affilé à la main", "Vis de tension réglable", "Repose-doigt amovible", "Étui en cuir et huile inclus"] },
-    "barber-shears-7-straight": { "name": "Ciseaux de coiffure 7,0\", anneaux droits", "summary": "Des lames plus longues pour la coupe ciseaux sur peigne et les grandes sections.",
-      "details": ["Tranchant convexe", "Vis de tension réglable", "Étui en cuir et huile inclus"] },
-    "thinning-shears-30": { "name": "Ciseaux sculpteurs 6,0\", 30 dents", "summary": "Retirent environ 25 à 30 % des cheveux à chaque coupe, pour fondre les dégradés.",
-      "details": ["30 dents en V", "Vis de tension réglable", "Étui en cuir inclus"] },
-    "texturizing-shears-14": { "name": "Ciseaux texturiseurs 6,0\", 14 dents", "summary": "Des dents espacées pour une texture marquée et retirer du volume.",
-      "details": ["14 dents larges", "Vis de tension réglable", "Étui en cuir inclus"] },
-    "barber-shears-left": { "name": "Ciseaux de coiffure gaucher 6,0\"", "summary": "Les lames sont inversées, pas seulement les anneaux, pour que les gauchers voient la ligne de coupe.",
-      "details": ["Vraies lames pour gaucher", "Anneaux décalés", "Étui en cuir et huile inclus"] },
-    "shavette-razor": { "name": "Rasoir shavette, pliant", "summary": "Accepte les demi-lames double tranchant standard. Pour la nuque, les dégradés et les contours de barbe.",
-      "details": ["Pour demi-lames double tranchant", "Manche pliant", "Lames non incluses"] },
-    "grooming-shears-8-straight": { "name": "Ciseaux de toilettage 8,0\", droits", "summary": "Longues lames pour le corps et les finitions des races moyennes et grandes.",
-      "details": ["Tranchant convexe", "Anneaux décalés", "Tension réglable"] },
-    "grooming-shears-7-curved": { "name": "Ciseaux de toilettage 7,0\", courbes", "summary": "Une lame courbe pour les têtes arrondies, les pattes et les queues.",
-      "details": ["Lames courbes à tranchant convexe", "Anneaux décalés", "Tension réglable"] },
-    "grooming-chunker-42": { "name": "Ciseaux chunker 7,5\", 42 dents", "summary": "Fondent et adoucissent les lignes sans laisser de marques de ciseaux.",
-      "details": ["42 dents en T", "Anneaux décalés", "Tension réglable"] },
-    "manicure-set-leather-7": { "name": "Trousse de manucure en cuir, 7 pièces", "summary": "Pince à envies, coupe-ongles, ciseaux à cuticules, pince à épiler biseautée, repousse-cuticules, lime et cure-ongles dans un étui en cuir véritable.",
-      "details": ["Étui en cuir véritable à bouton-pression", "7 instruments", "Logo embossé possible en marque blanche"] },
-    "nail-tech-starter-kit": { "name": "Kit de démarrage prothésiste ongulaire, 5 pièces", "summary": "Pince à envies à mors complet, ciseaux à cuticules courbes, repousse-cuticules cuillère, pince à épiler biseautée et lime dans un étui zippé. Conçu pour les académies d'ongles.",
-      "details": ["Étui zippé avec élastiques de maintien", "5 instruments de salon", "Tarif académie dès 20 kits"] },
-    "sample-kit": { "name": "Kit d'essai, 5 meilleures ventes", "summary": "Un exemplaire de chacun de nos cinq instruments les plus vendus, à tester dans votre salon ou votre barbershop avant de commander par carton.",
-      "details": ["Pince à envies à mors complet, ciseaux à cuticules courbes, repousse-cuticules cuillère et hachette, pince à épiler biseautée et ciseaux de coiffure 6,0\" à anneaux décalés", "Chaque instrument en finition satinée", "Un kit par client"] }
+    "cuticle-nipper-full-jaw": {
+      "name": "Pince à envies, mors complet 5 mm",
+      "summary": "La pince de salon de tous les jours. Le mors de 5 mm retire les cuticules en moins de coupes.",
+      "details": [
+        "Double ressort au retour doux et régulier",
+        "Articulation fermée, rivetée et ajustée à la main",
+        "Mors testé sur film à cuticules avant l'emballage",
+        "Livrée avec capuchon en silicone"
+      ]
+    },
+    "cuticle-nipper-half-jaw": {
+      "name": "Pince à envies, demi-mors 3 mm",
+      "summary": "Un mors plus court pour plus de contrôle le long des bords latéraux.",
+      "details": [
+        "Double ressort",
+        "Articulation fermée, rivetée et ajustée à la main",
+        "Mors testé sur film à cuticules",
+        "Capuchon en silicone"
+      ]
+    },
+    "cuticle-nipper-quarter-jaw": {
+      "name": "Pince à envies, quart de mors 2 mm",
+      "summary": "Mors de précision pour la manucure russe et la manucure à sec.",
+      "details": [
+        "Pointes fines et effilées",
+        "Double ressort",
+        "Tranchants affûtés à la main",
+        "Capuchon en silicone"
+      ]
+    },
+    "cuticle-nipper-single-spring": {
+      "name": "Pince à envies, ressort simple 7 mm",
+      "summary": "Une pince abordable pour les kits de formation et la revente.",
+      "details": [
+        "Ressort à lame simple",
+        "Articulation superposée",
+        "Idéale pour les kits élèves"
+      ]
+    },
+    "nail-nipper-straight": {
+      "name": "Pince à ongles, droite 12 mm",
+      "summary": "Tranchant droit pour des ongles nets et carrés.",
+      "details": [
+        "Double ressort",
+        "Articulation fermée",
+        "Mors droit, 12 mm"
+      ]
+    },
+    "nail-nipper-barrel-spring": {
+      "name": "Pince à ongles, courbe, ressort spirale",
+      "summary": "Un mors courbe avec ressort spirale pour une action plus douce et plus stable.",
+      "details": [
+        "Ressort spirale",
+        "Articulation fermée",
+        "Mors courbe, 13 mm"
+      ]
+    },
+    "toenail-nipper-thick": {
+      "name": "Pince pour ongles épais des pieds 14 mm",
+      "summary": "Longues branches et mors robuste pour les ongles épais en pédicure.",
+      "details": [
+        "Double ressort",
+        "Articulation fermée renforcée",
+        "Mors droit, 14 mm",
+        "Pour la pédicure esthétique"
+      ]
+    },
+    "cuticle-scissors-curved": {
+      "name": "Ciseaux à cuticules, courbes 9 cm",
+      "summary": "Lames fines et courbes qui suivent la ligne des cuticules.",
+      "details": [
+        "Lames fines et courbes",
+        "Tension de la vis réglée à la main",
+        "Pointes en flèche"
+      ]
+    },
+    "nail-scissors-straight": {
+      "name": "Ciseaux à ongles, droits 9 cm",
+      "summary": "Lames droites pour couper et façonner les ongles.",
+      "details": [
+        "Lames droites",
+        "Tension de la vis réglée à la main"
+      ]
+    },
+    "combination-scissors": {
+      "name": "Ciseaux mixtes ongles et cuticules",
+      "summary": "Une lame pour les ongles, une pour les cuticules. Idéal en voyage et pour la vente.",
+      "details": [
+        "Lames à double usage",
+        "Tension de la vis réglée à la main"
+      ]
+    },
+    "pusher-spoon-hatchet": {
+      "name": "Repousse-cuticules, cuillère et hachette",
+      "summary": "La cuillère arrondie repousse les cuticules, la hachette les décolle de la plaque de l'ongle.",
+      "details": [
+        "Manche moleté antidérapant",
+        "Bords polis et arrondis",
+        "Autoclavable"
+      ]
+    },
+    "pusher-spoon-pterygium": {
+      "name": "Repousse-cuticules, cuillère et ptérygion",
+      "summary": "Une extrémité ptérygion affûtée pour retirer les peaux mortes de la plaque de l'ongle.",
+      "details": [
+        "Manche moleté",
+        "Extrémité ptérygion affûtée",
+        "Autoclavable"
+      ]
+    },
+    "nail-file-double": {
+      "name": "Lime à ongles inox, double face 15 cm",
+      "summary": "Une surface découpée au laser qui ne s'use pas comme les limes en papier.",
+      "details": [
+        "Surface de limage découpée au laser",
+        "Pointe de nettoyage",
+        "Lavable et autoclavable"
+      ]
+    },
+    "tweezers-slant": {
+      "name": "Pince à épiler biseautée, alignée à la main",
+      "summary": "Les pointes se rejoignent sur toute la longueur : les poils fins sont saisis du premier coup.",
+      "details": [
+        "Pointes alignées à la main",
+        "Zone de prise satinée",
+        "Capuchon de protection"
+      ]
+    },
+    "tweezers-point": {
+      "name": "Pince à épiler pointue, fine",
+      "summary": "Pointes très fines pour les poils incarnés et très courts.",
+      "details": [
+        "Pointes alignées à la main",
+        "Capuchon de protection"
+      ]
+    },
+    "tweezers-lash": {
+      "name": "Pince à cils, courbe",
+      "summary": "Pointes courbes pour isoler et poser les extensions de cils.",
+      "details": [
+        "Acier antimagnétique",
+        "Pointes fines et courbes",
+        "Capuchon"
+      ]
+    },
+    "tweezers-flat": {
+      "name": "Pince à épiler à bout plat",
+      "summary": "Une prise large pour les sourcils et l'usage courant en salon.",
+      "details": [
+        "Pointes larges et plates",
+        "Capuchon de protection"
+      ]
+    },
+    "barber-shears-6-offset": {
+      "name": "Ciseaux de coiffure 6,0\", anneaux décalés",
+      "summary": "Ciseaux à tranchant convexe et anneaux décalés pour garder le poignet détendu.",
+      "details": [
+        "Tranchant convexe, affilé à la main",
+        "Vis de tension réglable",
+        "Repose-doigt amovible",
+        "Étui en cuir et huile inclus"
+      ]
+    },
+    "barber-shears-7-straight": {
+      "name": "Ciseaux de coiffure 7,0\", anneaux droits",
+      "summary": "Des lames plus longues pour la coupe ciseaux sur peigne et les grandes sections.",
+      "details": [
+        "Tranchant convexe",
+        "Vis de tension réglable",
+        "Étui en cuir et huile inclus"
+      ]
+    },
+    "thinning-shears-30": {
+      "name": "Ciseaux sculpteurs 6,0\", 30 dents",
+      "summary": "Retirent environ 25 à 30 % des cheveux à chaque coupe, pour fondre les dégradés.",
+      "details": [
+        "30 dents en V",
+        "Vis de tension réglable",
+        "Étui en cuir inclus"
+      ]
+    },
+    "texturizing-shears-14": {
+      "name": "Ciseaux texturiseurs 6,0\", 14 dents",
+      "summary": "Des dents espacées pour une texture marquée et retirer du volume.",
+      "details": [
+        "14 dents larges",
+        "Vis de tension réglable",
+        "Étui en cuir inclus"
+      ]
+    },
+    "barber-shears-left": {
+      "name": "Ciseaux de coiffure gaucher 6,0\"",
+      "summary": "Les lames sont inversées, pas seulement les anneaux, pour que les gauchers voient la ligne de coupe.",
+      "details": [
+        "Vraies lames pour gaucher",
+        "Anneaux décalés",
+        "Étui en cuir et huile inclus"
+      ]
+    },
+    "shavette-razor": {
+      "name": "Rasoir shavette, pliant",
+      "summary": "Accepte les demi-lames double tranchant standard. Pour la nuque, les dégradés et les contours de barbe.",
+      "details": [
+        "Pour demi-lames double tranchant",
+        "Manche pliant",
+        "Lames non incluses"
+      ]
+    },
+    "grooming-shears-8-straight": {
+      "name": "Ciseaux de toilettage 8,0\", droits",
+      "summary": "Longues lames pour le corps et les finitions des races moyennes et grandes.",
+      "details": [
+        "Tranchant convexe",
+        "Anneaux décalés",
+        "Tension réglable"
+      ]
+    },
+    "grooming-shears-7-curved": {
+      "name": "Ciseaux de toilettage 7,0\", courbes",
+      "summary": "Une lame courbe pour les têtes arrondies, les pattes et les queues.",
+      "details": [
+        "Lames courbes à tranchant convexe",
+        "Anneaux décalés",
+        "Tension réglable"
+      ]
+    },
+    "grooming-chunker-42": {
+      "name": "Ciseaux chunker 7,5\", 42 dents",
+      "summary": "Fondent et adoucissent les lignes sans laisser de marques de ciseaux.",
+      "details": [
+        "42 dents en T",
+        "Anneaux décalés",
+        "Tension réglable"
+      ]
+    },
+    "manicure-set-leather-7": {
+      "name": "Trousse de manucure en cuir, 7 pièces",
+      "summary": "Pince à envies, coupe-ongles, ciseaux à cuticules, pince à épiler biseautée, repousse-cuticules, lime et cure-ongles dans un étui en cuir véritable.",
+      "details": [
+        "Étui en cuir véritable à bouton-pression",
+        "7 instruments",
+        "Logo embossé possible en marque blanche"
+      ]
+    },
+    "nail-tech-starter-kit": {
+      "name": "Kit de démarrage prothésiste ongulaire, 5 pièces",
+      "summary": "Pince à envies à mors complet, ciseaux à cuticules courbes, repousse-cuticules cuillère, pince à épiler biseautée et lime dans un étui zippé. Conçu pour les académies d'ongles.",
+      "details": [
+        "Étui zippé avec élastiques de maintien",
+        "5 instruments de salon",
+        "Tarif académie dès 20 kits"
+      ]
+    },
+    "sample-kit": {
+      "name": "Kit d'essai, 5 meilleures ventes",
+      "summary": "Un exemplaire de chacun de nos cinq instruments les plus vendus, à tester dans votre salon ou votre barbershop avant de commander par carton.",
+      "details": [
+        "Pince à envies à mors complet, ciseaux à cuticules courbes, repousse-cuticules cuillère et hachette, pince à épiler biseautée et ciseaux de coiffure 6,0\" à anneaux décalés",
+        "Chaque instrument en finition satinée",
+        "Un kit par client"
+      ]
+    }
   }
 }

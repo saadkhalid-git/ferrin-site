@@ -1,7 +1,7 @@
 // One function per page. Each returns { key, path, title, description, body, ... } for layout().
 import { drawTool } from "../shared/drawings.js";
 import { unitPrice, lowestPrice, baseFinish } from "../shared/pricing.js";
-import { esc, sheet, picture, siteImage, grid, tierTable, tierLabel, field, textarea, honeypot, crumbs, breadcrumbLd, steelLabel, lineBadge, trustItems, waLink } from "./layout.js";
+import { esc, sheet, picture, siteImage, grid, tierTable, tierLabel, field, textarea, honeypot, crumbs, breadcrumbLd, steelLabel, lineBadge, trustItems, waLink, availability, externalImage } from "./layout.js";
 import { icon } from "./icons.js";
 import { legalPages } from "./legal.js";
 
@@ -18,7 +18,7 @@ export function home(ctx) {
         </a>`;
   const catSizes = "(max-width: 1000px) 50vw, 290px";
   const craftIcons = ["disc", "sparkles", "scissors", "searchCheck"];
-  const kitParts = kit ? kit.contains.map(id => ctx.byId(id)) : [];
+  const kitParts = kit ? kit.contains.map(id => ctx.byId(id)).filter(Boolean) : [];
   const kitSeparately = kitParts.reduce((sum, p) => sum + p.price, 0);
   const whyPhoto = siteImage(ctx, "shears", "", "(max-width: 899px) 100vw, 560px");
   return {
@@ -188,8 +188,18 @@ export function shop(ctx, cat) {
 
 function gallery(ctx, p) {
   const photos = ctx.photos[p.sku] || [];
-  if (!photos.length) return sheet(ctx, p, true);
   const t = ctx.t;
+  if (p.imageUrl) return `<div class="gallery" data-gallery>
+    <div class="gallery-main">
+      <figure class="gallery-panel is-external" id="g-ext">${externalImage(p, p.name, true)}</figure>
+      <figure class="gallery-panel" id="g-dim">${sheet(ctx, p, true)}</figure>
+    </div>
+    <div class="thumbs" role="group" aria-label="${t("pdp.gallery")}">
+      <button type="button" data-show="g-ext" aria-pressed="true" aria-label="${t("pdp.photo", { n: 1 })}"><img src="${esc(p.imageUrl)}" alt="" loading="lazy" referrerpolicy="no-referrer"></button>
+      <button type="button" data-show="g-dim" aria-pressed="false" class="thumb-dim">${drawTool(Object.assign({ nodim: true }, p.draw), 0, false)}<span>${t("pdp.dimensions")}</span></button>
+    </div>
+  </div>`;
+  if (!photos.length) return sheet(ctx, p, true);
   return `<div class="gallery" data-gallery>
     <div class="gallery-main">
       ${photos.map((ph, i) => `<figure class="gallery-panel" id="g-${i}">${picture(ctx, ph, `${p.name}, ${t("pdp.photo", { n: i + 1 })}`, "(max-width: 820px) 100vw, 600px", i === 0)}</figure>`).join("")}
@@ -207,15 +217,20 @@ export function product(ctx, p) {
   const { t, cfg } = ctx;
   const cat = ctx.catOf(p.cat);
   // A sample kit shows what's in it; other products show more from the same category.
-  const related = p.contains ? p.contains.map(id => ctx.byId(id)) : ctx.inCat(p.cat).filter(x => x.id !== p.id).slice(0, 4);
+  const kit = Boolean(p.trial && p.contains?.length);
+  const related = kit ? p.contains.map(id => ctx.byId(id)).filter(Boolean) : ctx.inCat(p.cat).filter(x => x.id !== p.id).slice(0, 4);
+  const stockKnown = typeof p.quantity === "number", soldOut = stockKnown && p.quantity <= 0;
+  const maxQty = stockKnown ? Math.max(1, Math.min(9999, p.quantity)) : 9999;
   const def = baseFinish(p, cfg.finishes);
   const last = cfg.tiers[cfg.tiers.length - 1];
   const photos = ctx.photos[p.sku] || [];
-  const images = photos.length ? photos.map(ph => ctx.abs(ph.src[1000].jpg)) : [ctx.abs(ctx.asset(`og/${p.id}.png`))];
+  const ogFile = ctx.hasOg ? ctx.hasOg(p.id) : true;
+  const fallbackOg = ctx.asset(ogFile ? `og/${p.id}.png` : "og/default.png");
+  const images = p.imageUrl ? [p.imageUrl] : photos.length ? photos.map(ph => ctx.abs(ph.src[1000].jpg)) : [ctx.abs(fallbackOg)];
   const single = unitPrice(p, cfg.finishes, cfg.tiers, def, 1);
   const offer = {
     "@type": "Offer", url: ctx.abs(ctx.url(`product/${p.id}`)), priceCurrency: cfg.currency,
-    price: single.toFixed(2), availability: "https://schema.org/InStock",
+    price: single.toFixed(2), availability: soldOut ? "https://schema.org/OutOfStock" : "https://schema.org/InStock",
     itemCondition: "https://schema.org/NewCondition"
   };
   offer.priceSpecification = p.trial
@@ -227,7 +242,7 @@ export function product(ctx, p) {
     }));
   return {
     key: "product", path: `product/${p.id}`, nav: "shop", title: p.name, ogType: "product",
-    ogImage: photos.length ? photos[0].src[1000].jpg : ctx.asset(`og/${p.id}.png`),
+    ogImage: p.imageUrl || (photos.length ? photos[0].src[1000].jpg : fallbackOg),
     description: p.trial
       ? t("meta.productTrial", { summary: p.summary, sku: p.sku, price: ctx.money(single) })
       : t("meta.product", { summary: p.summary, sku: p.sku, price: ctx.money(lowestPrice(p, cfg.tiers)), min: last.min }),
@@ -235,7 +250,7 @@ export function product(ctx, p) {
       {
         "@context": "https://schema.org", "@type": "Product", name: p.name, sku: p.sku, mpn: p.sku, description: p.summary,
         image: images, brand: { "@type": "Brand", name: cfg.brand }, category: cat.name,
-        countryOfOrigin: "PK", material: steelLabel(ctx, p), offers: offer
+        countryOfOrigin: "PK", ...(p.steel ? { material: steelLabel(ctx, p) } : {}), offers: offer
       },
       breadcrumbLd(ctx, [[cat.name, `shop/${cat.id}`], [p.name, `product/${p.id}`]])
     ],
@@ -244,11 +259,12 @@ export function product(ctx, p) {
       ${crumbs(ctx, [[cat.name, `shop/${cat.id}`], [p.name, null]])}
       <div class="pdp">
         <div class="pdp-media">${gallery(ctx, p)}</div>
-        <form class="pdp-info" id="buy" data-id="${p.id}">
+        <form class="pdp-info" id="buy" data-id="${p.id}"${stockKnown ? ` data-stock="${p.quantity}"` : ""}>
           <p class="pdp-meta">${lineBadge(ctx, p)}<span class="muted">${t("pdp.part", { sku: esc(p.sku) })}</span></p>
           <h1>${esc(p.name)}</h1>
           <p class="lede">${esc(p.summary)}</p>
           <p class="pdp-price"><span id="unit">${ctx.money(single)}</span> <span class="muted">${p.trial ? t("kit.perKit") : t("pdp.perPiece")}</span></p>
+          ${availability(ctx, p) ? `<p class="pdp-stock">${availability(ctx, p)}</p>` : ""}
           ${p.trial ? `<p class="notice kit-limit">${icon("package")}<span>${t("pdp.trialLimit")}</span></p>` : ""}
 
           <fieldset class="finishes">
@@ -260,10 +276,10 @@ export function product(ctx, p) {
           <div class="buy-row">
             ${p.trial ? `<input id="qty" name="qty" type="hidden" value="1">` : `<div class="stepper" role="group" aria-label="${t("pdp.qty")}">
               <button type="button" data-step="-1" aria-label="${t("pdp.dec")}">−</button>
-              <input id="qty" name="qty" type="number" min="1" max="9999" value="1" inputmode="numeric" aria-label="${t("pdp.qty")}">
+              <input id="qty" name="qty" type="number" min="1" max="${maxQty}" value="1" inputmode="numeric" aria-label="${t("pdp.qty")}"${soldOut ? " disabled" : ""}>
               <button type="button" data-step="1" aria-label="${t("pdp.inc")}">+</button>
             </div>`}
-            <button class="btn" type="submit">${icon("bag")}${t("pdp.add")}</button>
+            <button class="btn" type="submit"${soldOut ? " disabled" : ""}>${icon("bag")}${soldOut ? t("stock.out") : t("pdp.add")}</button>
           </div>
           <p class="muted" id="line-total" aria-live="polite"></p>
           <ul class="pdp-trust">
@@ -275,9 +291,9 @@ export function product(ctx, p) {
           ${p.trial ? "" : `<div id="tiers">${tierTable(ctx, p, def, 1)}</div>`}
 
           <h2 class="h-small">${t("pdp.details")}</h2>
-          <ul class="ticks">${p.details.map(d => `<li>${esc(d)}</li>`).join("")}</ul>
+          ${p.details?.length ? `<ul class="ticks">${p.details.map(d => `<li>${esc(d)}</li>`).join("")}</ul>` : ""}
           <dl class="specs">
-            <div><dt>${t("spec.steel")}</dt><dd>${esc(steelLabel(ctx, p))}</dd></div>
+            ${p.steel ? `<div><dt>${t("spec.steel")}</dt><dd>${esc(steelLabel(ctx, p))}</dd></div>` : ""}
             ${p.length ? `<div><dt>${t("spec.length")}</dt><dd>${p.length} mm</dd></div>` : ""}
             <div><dt>${t("spec.hs")}</dt><dd>${cfg.hsCodes[p.cat]}</dd></div>
             <div><dt>${t("spec.origin")}</dt><dd>${t("spec.originV")}</dd></div>
@@ -285,7 +301,7 @@ export function product(ctx, p) {
           </dl>
         </form>
       </div>
-      ${related.length ? `<div class="section"><div class="section-head"><h2>${p.contains ? t("pdp.contains") : t("pdp.related")}</h2>${p.contains ? "" : `<a class="more" href="${ctx.url(`shop/${cat.id}`)}">${t("pdp.seeAll")}${icon("arrowRight")}</a>`}</div>${grid(ctx, related)}</div>` : ""}
+      ${related.length ? `<div class="section"><div class="section-head"><h2>${kit ? t("pdp.contains") : t("pdp.related")}</h2>${kit ? "" : `<a class="more" href="${ctx.url(`shop/${cat.id}`)}">${t("pdp.seeAll")}${icon("arrowRight")}</a>`}</div>${grid(ctx, related)}</div>` : ""}
     </section>`
   };
 }
@@ -314,7 +330,7 @@ export function cart(ctx) {
           ${field(ctx, "name", "co.name", "text", true, "name")}
           ${field(ctx, "company", "co.company", "text", true, "organization")}
           ${field(ctx, "email", "co.email", "email", true, "email")}
-          ${field(ctx, "phone", "co.phone", "tel", false, "tel")}
+          ${field(ctx, "phone", "co.phone", "tel", true, "tel")}
           ${field(ctx, "street", "co.street", "text", true, "street-address", { wide: true })}
           ${field(ctx, "postcode", "co.postcode", "text", true, "postal-code")}
           ${field(ctx, "city", "co.city", "text", true, "address-level2")}
@@ -327,6 +343,7 @@ export function cart(ctx) {
           <label class="check wide"><input type="checkbox" name="b2b" required aria-describedby="err-b2b"> <span>${t("co.b2b", { terms })}</span><em class="err" id="err-b2b"></em></label>
           ${honeypot}
         </div>
+        <p class="form-error" id="checkout-error" role="alert" hidden></p>
         <button class="btn" type="submit" data-sending="${esc(t("co.sending"))}">${t("co.submit")}</button>
         <p class="muted">${t("co.help")}</p>
       </form>

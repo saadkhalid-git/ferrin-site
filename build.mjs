@@ -2,6 +2,7 @@
 //   node build.mjs                      → uses basePath from src/data/config.json
 //   BASE_PATH="" node build.mjs         → for a custom domain or serving dist/ at the root
 //   LANGS=en node build.mjs             → build only some languages (faster while editing)
+//   node build.mjs --assets             → only fonts, CSS, scripts and images, for the server (npm run build:assets)
 import { readFile, writeFile, mkdir, rm, cp, readdir } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import { createHash } from "node:crypto";
@@ -10,7 +11,7 @@ import { fileURLToPath } from "node:url";
 import sharp from "sharp";
 import { drawTool } from "./src/shared/drawings.js";
 import { baseFinish, unitPrice } from "./src/shared/pricing.js";
-import { LANGUAGE_KEY, LANGUAGE_RULES, pickLanguage } from "./src/shared/language.js";
+import { makeContext, localiseStatic, pageList, catalogFor, rootIndex, sitemap, sitemapEntry } from "./src/site/context.js";
 import { layout } from "./src/templates/layout.js";
 import * as pages from "./src/templates/pages.js";
 
@@ -27,8 +28,7 @@ const { categories, products } = await read("data/products.json");
 const dicts = {};
 for (const l of cfg.languages) dicts[l] = await read(`i18n/${l}.json`);
 
-const DEFAULT_COUNTRY = { en: "LU", de: "DE", fr: "FR", pl: "PL", it: "IT" };
-const COUNTRY_CODES = cfg.shipping.zones.flatMap(z => z.countries);
+const ASSETS_ONLY = process.argv.includes("--assets");
 const buildDate = new Date();
 const warnings = new Set();
 
@@ -41,49 +41,9 @@ async function write(rel, content) {
 const hash = s => createHash("sha1").update(s).digest("hex").slice(0, 8);
 
 function makeCtx(lang, media, version) {
-  const { photos, images, credits } = media;
-  const d = dicts[lang], en = dicts[cfg.defaultLanguage];
-  const t = (key, vars = {}) => {
-    let s = d.ui[key];
-    if (s === undefined) { warnings.add(`${lang}: missing "${key}"`); s = en.ui[key]; }
-    if (s === undefined) { warnings.add(`missing key "${key}"`); return key; }
-    return s.replace(/\{(\w+)\}/g, (m, k) => (vars[k] !== undefined ? vars[k] : m));
-  };
-  const cats = categories.map(c => {
-    const tr = d.categories[c.id] || en.categories[c.id];
-    if (!d.categories[c.id]) warnings.add(`${lang}: missing category ${c.id}`);
-    return { ...c, ...tr };
-  });
-  const prods = products.map(p => {
-    const tr = d.products[p.id] || en.products[p.id];
-    if (!d.products[p.id]) warnings.add(`${lang}: missing product ${p.id}`);
-    return { ...p, ...tr };
-  });
-  const moneyFmt = new Intl.NumberFormat(cfg.locales[lang], { style: "currency", currency: cfg.currency });
-  const regions = new Intl.DisplayNames([cfg.locales[lang]], { type: "region" });
-  const languagesFmt = l => new Intl.DisplayNames([l], { type: "language" }).of(l);
-  const countries = COUNTRY_CODES.map(code => ({ code, name: regions.of(code) }))
-    .sort((a, b) => a.name.localeCompare(b.name, cfg.locales[lang]));
-  const def = DEFAULT_COUNTRY[lang];
-  countries.sort((a, b) => (a.code === def ? -1 : b.code === def ? 1 : 0));
-  const base = cfg.basePath;
-  const digits = s => String(s || "").replace(/\D/g, "");
-  return {
-    lang, cfg, t, photos, images, credits, version, buildDate, countries,
-    wa: cfg.whatsapp ? `https://wa.me/${digits(cfg.whatsapp)}` : "",
-    tel: cfg.phone ? `tel:+${digits(cfg.phone)}` : "",
-    faq: d.faq || en.faq,
-    products: prods, cats,
-    byId: id => prods.find(p => p.id === id),
-    catOf: id => cats.find(c => c.id === id),
-    inCat: id => prods.filter(p => p.cat === id),
-    money: n => moneyFmt.format(n),
-    url: (p = "", l = lang) => `${base}/${l}/${p ? p.replace(/\/$/, "") + "/" : ""}`,
-    asset: p => `${base}/assets/${p}`,
-    abs: u => cfg.siteOrigin + u,
-    langName: l => { const n = languagesFmt(l); return n.charAt(0).toUpperCase() + n.slice(1); },
-    year: buildDate.getFullYear()
-  };
+  const warn = m => warnings.add(m);
+  const prods = localiseStatic(products, dicts, lang, cfg.defaultLanguage, warn);
+  return makeContext({ cfg, dicts, categories, products: prods, lang, media, version, warn, now: buildDate });
 }
 
 // ---------- images ----------
@@ -201,82 +161,6 @@ async function renderImages() {
   await write("assets/logo.png", await sharp(favicon).resize(512, 512).png().toBuffer());
 }
 
-// ---------- catalogue for the browser ----------
-function catalog(ctx) {
-  const items = {};
-  for (const p of ctx.products) {
-    const ph = ctx.photos[p.sku]?.[0];
-    items[p.id] = {
-      id: p.id, sku: p.sku, name: p.name, price: p.price, finishes: p.finishes, def: baseFinish(p, cfg.finishes),
-      url: ctx.url(`product/${p.id}`), cat: p.cat, moq: cfg.privateLabelMinimum[p.cat], line: p.line, trial: Boolean(p.trial),
-      thumb: ph ? `<img src="${ph.src[400].jpg}" alt="" loading="lazy">` : drawTool(Object.assign({ nodim: true }, p.draw), 0, false)
-    };
-  }
-  const ui = {};
-  for (const k of Object.keys(dicts[cfg.defaultLanguage].ui)) ui[k] = ctx.t(k);
-  return {
-    lang: ctx.lang, locale: cfg.locales[ctx.lang], currency: cfg.currency, brand: cfg.brand,
-    orderEmail: cfg.orderEmail, web3formsKey: cfg.web3formsKey, whatsapp: ctx.wa,
-    tiers: cfg.tiers, finishes: cfg.finishes, shipping: cfg.shipping,
-    countries: ctx.countries, ui, products: items
-  };
-}
-
-// ---------- root pages ----------
-function rootIndex(ctx) {
-  const langs = cfg.languages;
-  const links = langs.map(l => `<li><a href="${ctx.url("", l)}" hreflang="${l}" lang="${l}">${ctx.langName(l)}</a></li>`).join("");
-  return `<!doctype html>
-<html lang="${cfg.defaultLanguage}">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>${cfg.brand}</title>
-  ${langs.map(l => `<link rel="alternate" hreflang="${l}" href="${ctx.abs(ctx.url("", l))}">`).join("\n  ")}
-  <link rel="alternate" hreflang="x-default" href="${ctx.abs(ctx.url("", cfg.defaultLanguage))}">
-  <link rel="icon" href="${ctx.asset("favicon.svg")}" type="image/svg+xml">
-  <script>
-    (function () {
-      var base = ${JSON.stringify(cfg.basePath)}, langs = ${JSON.stringify(langs)}, def = ${JSON.stringify(cfg.defaultLanguage)};
-      var KEY = ${JSON.stringify(LANGUAGE_KEY)}, rules = ${JSON.stringify(LANGUAGE_RULES)};
-      var pickLanguage = ${pickLanguage.toString()};
-      // 1. A language saved on an earlier visit, or chosen in the language menu, wins.
-      var lang = null;
-      try { lang = localStorage.getItem(KEY); } catch (e) {}
-      // 2. Otherwise pick one from the device's time zone (country) and remember it.
-      if (langs.indexOf(lang) < 0) {
-        var tz = "";
-        try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ""; } catch (e) {}
-        lang = pickLanguage(tz, navigator.languages || [navigator.language || ""], langs, def, rules);
-        try { localStorage.setItem(KEY, lang); } catch (e) {}
-      }
-      // Links from the first version of the site used #/product/..., #/shop/... and so on.
-      var h = location.hash.replace(/^#\\/?/, "").split("?")[0].replace(/\\/$/, "");
-      location.replace(base + "/" + lang + "/" + (h ? h + "/" : ""));
-    })();
-  </script>
-  <style>body{font:16px/1.5 system-ui,sans-serif;max-width:32rem;margin:15vh auto;padding:0 16px;color:#22211F;background:#F3F3F1}a{color:#8A6A2F}</style>
-</head>
-<body>
-  <h1>${cfg.brand}</h1>
-  <ul>${links}</ul>
-</body>
-</html>
-`;
-}
-
-function sitemap(entries) {
-  const urls = entries.map(e => `  <url>
-    <loc>${e.loc}</loc>
-${e.alts.map(a => `    <xhtml:link rel="alternate" hreflang="${a.lang}" href="${a.href}"/>`).join("\n")}
-  </url>`).join("\n");
-  return `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-${urls}
-</urlset>
-`;
-}
-
 // ---------- main ----------
 async function main() {
   const started = Date.now();
@@ -308,27 +192,24 @@ async function main() {
   const credits = await readCredits();
   await renderImages();
 
+  if (ASSETS_ONLY) {
+    // The server renders pages itself and reads this to find processed images.
+    await write("assets/media.json", JSON.stringify({ photos, images, credits, version }));
+    console.log(`Built assets for the server (${Object.keys(images).length} site images) in ${Date.now() - started} ms.`);
+    if (warnings.size) console.warn(`\n${warnings.size} warning(s):\n  ` + [...warnings].slice(0, 40).join("\n  "));
+    return;
+  }
+
   const sitemapEntries = [];
   let pageCount = 0;
   for (const lang of cfg.languages) {
     const ctx = makeCtx(lang, { photos, images, credits }, version);
-    const list = [
-      pages.home(ctx), pages.shop(ctx),
-      ...ctx.cats.map(c => pages.shop(ctx, c)),
-      ...ctx.products.map(p => pages.product(ctx, p)),
-      pages.cart(ctx), pages.orderSent(ctx), pages.quickOrder(ctx), pages.priceList(ctx),
-      pages.privateLabel(ctx), pages.about(ctx), pages.contact(ctx), pages.faq(ctx),
-      ...(lang === cfg.defaultLanguage ? pages.legal(ctx) : [])
-    ];
-    for (const page of list) {
+    for (const page of pageList(pages, ctx, cfg)) {
       await write(path.join(lang, page.path, "index.html"), layout(ctx, page));
       pageCount++;
-      if (!page.noindex) {
-        const langs = page.langs || cfg.languages;
-        sitemapEntries.push({ loc: ctx.abs(ctx.url(page.path)), alts: langs.length > 1 ? langs.map(l => ({ lang: l, href: ctx.abs(ctx.url(page.path, l)) })) : [] });
-      }
+      if (!page.noindex) sitemapEntries.push(sitemapEntry(ctx, page));
     }
-    await write(`assets/catalog-${lang}.json`, JSON.stringify(catalog(ctx)));
+    await write(`assets/catalog-${lang}.json`, JSON.stringify(catalogFor(ctx, dicts)));
     if (lang === cfg.defaultLanguage) {
       await write("index.html", rootIndex(ctx));
       await write("404.html", layout(ctx, pages.notFound(ctx)));

@@ -1,0 +1,10 @@
+node_modules
+dist
+.serve
+.git
+.github
+.claude
+.env
+deploy/.env
+backups
+*.log

@@ -1,0 +1,127 @@
+// Phase 1 data model: administrators, products (with seeded translations), orders and order items.
+// Money is stored as DECIMAL(10,2); the server calculates in integer cents.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+}
+
+enum OrderStatus {
+  PENDING
+  APPROVED
+  PROCESSING
+  DELIVERED
+  CANCELLED
+}
+
+model AdminUser {
+  id           String   @id @default(cuid())
+  name         String
+  email        String   @unique
+  passwordHash String
+  role         Role     @default(ADMIN)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("admin_users")
+}
+
+model Product {
+  id          String   @id @default(cuid())
+  name        String // English; other languages in ProductTranslation
+  slug        String   @unique
+  description String // English summary
+  price       Decimal  @db.Decimal(10, 2)
+  quantity    Int      @default(0)
+  imageUrl    String?
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Attributes the existing shop already uses
+  sku          String   @unique
+  category     String
+  line         String   @default("pro")
+  details      Json     @default("[]") // English bullet points
+  finishes     String[] @default(["satin"])
+  drawing      Json? // technical drawing spec; null = use the category's drawing
+  lengthMm     Int?
+  steel        String?
+  hardness     String?
+  isBestseller Boolean  @default(false)
+  isTrial      Boolean  @default(false) // sample kit: one per order
+  contains     String[] @default([]) // slugs of products in a kit
+  sortOrder    Int      @default(0)
+
+  translations ProductTranslation[]
+  orderItems   OrderItem[]
+
+  @@index([isActive, category])
+  @@map("products")
+}
+
+model ProductTranslation {
+  id        String  @id @default(cuid())
+  productId String
+  locale    String
+  name      String
+  summary   String
+  details   Json    @default("[]")
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@unique([productId, locale])
+  @@map("product_translations")
+}
+
+model Order {
+  id              String      @id @default(cuid())
+  orderNumber     String      @unique
+  customerName    String
+  customerEmail   String
+  customerPhone   String
+  shippingAddress String
+  status          OrderStatus @default(PENDING)
+  subtotal        Decimal     @db.Decimal(10, 2)
+  total           Decimal     @db.Decimal(10, 2)
+  customerNotes   String?
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+
+  company      String
+  vatNumber    String?
+  country      String // ISO 3166-1 alpha-2
+  language     String
+  shippingCost Decimal @db.Decimal(10, 2)
+
+  items OrderItem[]
+
+  @@index([createdAt])
+  @@index([status])
+  @@map("orders")
+}
+
+model OrderItem {
+  id          String  @id @default(cuid())
+  orderId     String
+  productId   String
+  productName String // snapshot at order time
+  sku         String // snapshot
+  finish      String // snapshot
+  unitPrice   Decimal @db.Decimal(10, 2) // snapshot, after volume discount and finish surcharge
+  quantity    Int
+  lineTotal   Decimal @db.Decimal(10, 2)
+  order       Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  product     Product @relation(fields: [productId], references: [id], onDelete: Restrict)
+
+  @@index([orderId])
+  @@index([productId])
+  @@map("order_items")
+}

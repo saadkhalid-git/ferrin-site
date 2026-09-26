@@ -5,7 +5,6 @@
     "meta.home": "Tronchesine per cuticole, forbicine da manicure, pinzette, forbici da barbiere e da toelettatura professionali, rifinite a mano a Sialkot. Prezzi a scaglioni e private label per saloni e rivenditori in Europa.",
     "meta.shop": "Tutti i {n} strumenti con prezzi a scaglioni: tronchesine per cuticole e unghie, forbicine da manicure, pinzette, forbici da barbiere e da toelettatura.",
     "meta.product": "{summary} Cod. {sku}. Da {price} al pezzo da {min} pezzi, IVA esclusa.",
-
     "nav.skip": "Vai al contenuto",
     "nav.home": "Home",
     "nav.catalogue": "Catalogo",
@@ -19,7 +18,6 @@
     "nav.language": "Lingua",
     "nav.priceList": "Listino prezzi",
     "trade.strip": "Solo per clienti professionali. Tutti i prezzi sono IVA esclusa.",
-
     "footer.tagline": "Strumenti professionali per estetica, barbieri e toelettatura, prodotti a Sialkot, in Pakistan.",
     "footer.shop": "Negozio",
     "footer.company": "Azienda",
@@ -29,12 +27,10 @@
     "footer.notice": "Note legali",
     "footer.fine": "Per uso cosmetico, da salone e toelettatura. Non sono dispositivi medici.",
     "footer.legalLang": "Le pagine legali sono in inglese.",
-
     "unit.pcs": "{n} pz",
     "unit.range": "{from}–{to} pz",
     "unit.plus": "{from}+ pz",
     "unit.count": "{n} prodotti",
-
     "home.h1": "Strumenti da salone, rifiniti a mano a Sialkot",
     "home.lede": "Tronchesine, forbici, pinzette e forbici da barbiere da Sialkot, uno dei principali centri al mondo per gli strumenti manuali in acciaio. Ordina qualche pezzo per provare, poi a cartoni con prezzi a scaglioni o con il tuo marchio.",
     "home.ctaShop": "Sfoglia il catalogo",
@@ -56,7 +52,6 @@
     "home.whyH": "Perché Sialkot",
     "home.why1": "A Sialkot si producono strumenti manuali in acciaio da oltre un secolo. Migliaia di laboratori affilano, lucidano, regolano e rifiniscono strumenti per saloni, cliniche e marchi di tutto il mondo.",
     "home.why2": "Lavoriamo con pochi di questi laboratori, definiamo l'acciaio di ogni prodotto e controlliamo ogni tronchesina, forbice e pinzetta prima dell'imballaggio. Ottieni prezzi di laboratorio senza dover gestire tu la produzione.",
-
     "spec.part": "Cod.",
     "spec.steel": "Acciaio",
     "spec.length": "Lunghezza",
@@ -71,17 +66,14 @@
     "spec.privateLabel": "Private label",
     "spec.fromPcs": "Da {n} pz",
     "spec.requestQuote": "Richiedi un preventivo",
-
     "tier.qty": "Quantità",
     "tier.price": "Prezzo al pezzo",
     "tier.saving": "Sconto",
     "card.bulk": "{price} al pezzo da {n}",
-
     "finish.satin": "Satinata",
     "finish.mirror": "Lucidata a specchio",
     "finish.black": "Rivestimento nero opaco",
     "finish.titanium": "Rivestimento in titanio nero",
-
     "shop.title": "Catalogo",
     "shop.lede": "Tutti gli strumenti, con i prezzi a scaglioni indicati per ogni prodotto.",
     "shop.instruments": "Strumenti",
@@ -94,7 +86,6 @@
     "shop.priceDesc": "Prezzo decrescente",
     "shop.noMatch": "Nessun prodotto corrisponde alla ricerca.",
     "shop.clear": "Cancella ricerca",
-
     "pdp.part": "Cod. {sku}",
     "pdp.perPiece": "al pezzo, IVA esclusa",
     "pdp.finish": "Finitura",
@@ -112,7 +103,6 @@
     "pdp.dimensions": "Dimensioni",
     "pdp.photo": "Foto {n}",
     "pdp.gallery": "Immagini del prodotto",
-
     "cart.title": "Carrello",
     "cart.emptyH": "Il carrello è vuoto",
     "cart.emptyP": "Aggiungi strumenti dal catalogo o con l'ordine rapido. Gli sconti per quantità si applicano qui automaticamente.",
@@ -131,7 +121,6 @@
     "cart.loading": "Caricamento del carrello…",
     "cart.noscript": "Il carrello richiede JavaScript. Puoi anche inviare l'ordine a {email}.",
     "cart.import": "Gli ordini partono dal Pakistan. Il corriere addebita l'IVA all'importazione ed eventuali dazi alla consegna. Le imprese soggette a IVA di solito possono detrarre l'IVA all'importazione.",
-
     "co.h": "Dati aziendali",
     "co.name": "Nome e cognome",
     "co.company": "Azienda o salone",
@@ -152,13 +141,11 @@
     "co.submit": "Invia richiesta d'ordine",
     "co.sending": "Invio in corso…",
     "co.help": "Rispondiamo con la fattura entro un giorno lavorativo.",
-
     "err.required": "Compila questo campo.",
     "err.email": "Inserisci un indirizzo e-mail come nome@esempio.it.",
     "err.vat": "Controlla la partita IVA. Dovrebbe essere simile a {example}.",
     "err.b2b": "Conferma che stai ordinando per un'azienda.",
     "err.send": "Non è stato possibile inviare il modulo. Si aprirà invece il tuo programma di posta con il messaggio.",
-
     "sent.title": "Richiesta d'ordine inviata",
     "sent.p": "Abbiamo ricevuto la richiesta d'ordine {ref}. Risponderemo a {email} con la fattura entro un giorno lavorativo.",
     "sent.titleEmail": "Invia l'e-mail per effettuare l'ordine",
@@ -170,7 +157,6 @@
     "sent.back": "Torna al catalogo",
     "sent.none": "Nessun ordine recente",
     "sent.noneP": "Qui compaiono le richieste d'ordine inviate da questo browser.",
-
     "qo.title": "Ordine rapido",
     "qo.lede": "Inserisci le quantità di tutto ciò che ti serve e aggiungi tutto al carrello in una volta. I prezzi a scaglioni valgono per ogni prodotto.",
     "qo.product": "Prodotto",
@@ -183,13 +169,11 @@
     "qo.none": "Inserisci una quantità per almeno un prodotto.",
     "qo.sum": "Prodotti selezionati: {n}. Totale: {total}",
     "qo.noscript": "L'ordine rapido richiede JavaScript.",
-
     "pl.title": "Listino prezzi",
     "pl.lede": "Prezzi in EUR al pezzo, IVA esclusa, per la finitura standard. Altre finiture: {finishes}.",
     "pl.print": "Stampa o salva in PDF",
     "pl.valid": "Prezzi validi dal {date}.",
     "pl.contact": "Ordini e domande: {email}",
-
     "plp.title": "Private label",
     "plp.h1": "Il tuo marchio su strumenti professionali",
     "plp.lede": "Per fornitori di saloni, accademie di onicotecnica, marchi per barbieri e negozi online. Tu scegli strumenti, finitura e confezione. Noi realizziamo i campioni, poi produciamo e controlliamo il tuo ordine.",
@@ -220,10 +204,8 @@
     "plp.branding": "Personalizzazione e confezione",
     "plp.brandingPh": "Logo sullo strumento, scatola stampata, astuccio in pelle…",
     "plp.submit": "Invia richiesta di preventivo",
-
     "form.sent": "Inviato. Rispondiamo entro un giorno lavorativo.",
     "form.email": "Il tuo programma di posta dovrebbe aprirsi con il messaggio pronto da inviare.",
-
     "about.title": "Chi siamo",
     "about.h1": "Chi è {brand}",
     "about.lede": "Vendiamo strumenti professionali per estetica, barbieri e toelettatura prodotti a Sialkot, in Pakistan, a saloni e rivenditori in Europa.",
@@ -235,7 +217,6 @@
     "about.qc4": "Gli ordini possono essere ispezionati da terzi prima della spedizione",
     "about.notH": "Cosa non vendiamo",
     "about.notP": "Vendiamo solo strumenti per uso cosmetico, da salone e toelettatura, e solo ad aziende. Non vendiamo strumenti chirurgici né dispositivi medici.",
-
     "contact.title": "Contatti",
     "contact.lede": "Domande su prodotti, campioni o account all'ingrosso. Rispondiamo entro un giorno lavorativo.",
     "contact.email": "E-mail",
@@ -244,17 +225,13 @@
     "contact.formH": "Invia un messaggio",
     "contact.message": "Messaggio",
     "contact.submit": "Invia messaggio",
-
     "faq.title": "Domande frequenti",
     "faq.more": "Hai un'altra domanda?",
     "faq.contact": "Contattaci",
-
     "nf.title": "Pagina non trovata",
     "nf.lede": "Il link potrebbe essere vecchio o errato.",
     "nf.cta": "Vai al catalogo",
-
     "legal.draft": "Bozza. Completa le parti tra [parentesi] e fai verificare il testo prima di farvi affidamento.",
-
     "nav.main": "Menu principale",
     "nav.whatsapp": "WhatsApp",
     "wa.label": "Scrivici su WhatsApp",
@@ -296,86 +273,345 @@
     "shop.linePro": "Tronchesine a doppia molla affilate a mano, forbici in acciaio 440C e strumenti di precisione per il lavoro quotidiano in salone e in barberia.",
     "shop.lineEssential": "Strumenti più semplici a un prezzo inferiore, per i kit degli allievi, la vendita al dettaglio e le scorte di riserva.",
     "meta.productTrial": "{summary} Cod. {sku}. {price} al kit, IVA esclusa.",
-    "footer.credits": "Crediti fotografici"
+    "footer.credits": "Crediti fotografici",
+    "stock.in": "Disponibile",
+    "stock.low": "Solo {n} disponibili",
+    "stock.out": "Esaurito",
+    "cart.capped": "Solo {n} disponibili.",
+    "err.stock": "Disponibili solo {n} pezzi di {name}. Riduci la quantità per continuare.",
+    "err.unavailable": "{name} non è più disponibile. Rimuovilo per continuare.",
+    "err.order": "Non è stato possibile inviare l'ordine. Controlla i dati e riprova, oppure contattaci."
   },
   "faq": [
-    ["Chi può ordinare?", "Vendiamo solo ad aziende: saloni, barbieri, centri unghie, accademie, grossisti e negozi. Indica il nome dell'azienda e la partita IVA quando ordini."],
-    ["I prezzi includono l'IVA?", "No. I prezzi sono IVA e dazi esclusi. Gli ordini partono dal Pakistan, quindi il corriere addebita l'IVA all'importazione, ed eventuali dazi, quando il pacco entra nel tuo Paese. Le imprese soggette a IVA di solito possono detrarre l'IVA all'importazione."],
-    ["Come si paga?", "Dopo la richiesta d'ordine ti inviamo una fattura via e-mail. Paghi con bonifico bancario e spediamo al ricevimento del pagamento."],
-    ["Quanto dura la consegna?", "Gli articoli disponibili partono da Sialkot con corriere espresso e di solito arrivano nell'UE in 4–7 giorni lavorativi."],
-    ["Pagherò dazi doganali?", "Dipende dal Paese e dal prodotto. Molti strumenti dal Pakistan entrano nell'UE senza dazi grazie al regime SPG+ se in fattura c'è la corretta dichiarazione di origine, che includiamo."],
-    ["Posso ordinare prima un campione?", "Sì. Ordina un singolo pezzo al prezzo normale. Se entro 60 giorni ordini 50 o più pezzi dello stesso prodotto, ti accreditiamo il prezzo del campione."],
-    ["E se uno strumento è difettoso?", "Segnalacelo entro 30 giorni dalla consegna con una foto: lo sostituiamo o ti emettiamo una nota di credito."],
-    ["Fate l'affilatura?", "Le forbici da barbiere e da toelettatura possono essere rispedite per l'affilatura. Chiedici il prezzo attuale."]
+    [
+      "Chi può ordinare?",
+      "Vendiamo solo ad aziende: saloni, barbieri, centri unghie, accademie, grossisti e negozi. Indica il nome dell'azienda e la partita IVA quando ordini."
+    ],
+    [
+      "I prezzi includono l'IVA?",
+      "No. I prezzi sono IVA e dazi esclusi. Gli ordini partono dal Pakistan, quindi il corriere addebita l'IVA all'importazione, ed eventuali dazi, quando il pacco entra nel tuo Paese. Le imprese soggette a IVA di solito possono detrarre l'IVA all'importazione."
+    ],
+    [
+      "Come si paga?",
+      "Dopo la richiesta d'ordine ti inviamo una fattura via e-mail. Paghi con bonifico bancario e spediamo al ricevimento del pagamento."
+    ],
+    [
+      "Quanto dura la consegna?",
+      "Gli articoli disponibili partono da Sialkot con corriere espresso e di solito arrivano nell'UE in 4–7 giorni lavorativi."
+    ],
+    [
+      "Pagherò dazi doganali?",
+      "Dipende dal Paese e dal prodotto. Molti strumenti dal Pakistan entrano nell'UE senza dazi grazie al regime SPG+ se in fattura c'è la corretta dichiarazione di origine, che includiamo."
+    ],
+    [
+      "Posso ordinare prima un campione?",
+      "Sì. Ordina un singolo pezzo al prezzo normale. Se entro 60 giorni ordini 50 o più pezzi dello stesso prodotto, ti accreditiamo il prezzo del campione."
+    ],
+    [
+      "E se uno strumento è difettoso?",
+      "Segnalacelo entro 30 giorni dalla consegna con una foto: lo sostituiamo o ti emettiamo una nota di credito."
+    ],
+    [
+      "Fate l'affilatura?",
+      "Le forbici da barbiere e da toelettatura possono essere rispedite per l'affilatura. Chiedici il prezzo attuale."
+    ]
   ],
   "categories": {
-    "cuticle-nippers": { "name": "Tronchesine per cuticole", "blurb": "Tronchesine con snodo chiuso e doppia molla, affilate e testate su pellicola per cuticole prima dell'imballaggio." },
-    "nail-nippers": { "name": "Tronchesi per unghie", "blurb": "Becchi più robusti per unghie delle mani e unghie spesse dei piedi, con molla a lamina o a spirale." },
-    "manicure-scissors": { "name": "Forbicine da manicure", "blurb": "Forbicine sottili curve e dritte per cuticole e unghie, regolate a mano sulla vite." },
-    "pushers-files": { "name": "Spingipelle e lime", "blurb": "Spingipelle doppi con impugnatura zigrinata e lime in acciaio con superficie tagliata al laser." },
-    "tweezers": { "name": "Pinzette", "blurb": "Punte allineate a mano che si chiudono su tutto il bordo. Oblique, a punta, piatte e per ciglia." },
-    "barber": { "name": "Forbici da barbiere e rasoi", "blurb": "Forbici in acciaio 440C con lama convessa, più sfoltitrici, forbici per texture e rasoi." },
-    "grooming": { "name": "Forbici da toelettatura", "blurb": "Forbici lunghe dritte, curve e chunker per saloni di toelettatura." },
-    "sets": { "name": "Set e astucci", "blurb": "Kit pronti per la vendita in astucci in pelle o con zip. Molto richiesti in private label." }
+    "cuticle-nippers": {
+      "name": "Tronchesine per cuticole",
+      "blurb": "Tronchesine con snodo chiuso e doppia molla, affilate e testate su pellicola per cuticole prima dell'imballaggio."
+    },
+    "nail-nippers": {
+      "name": "Tronchesi per unghie",
+      "blurb": "Becchi più robusti per unghie delle mani e unghie spesse dei piedi, con molla a lamina o a spirale."
+    },
+    "manicure-scissors": {
+      "name": "Forbicine da manicure",
+      "blurb": "Forbicine sottili curve e dritte per cuticole e unghie, regolate a mano sulla vite."
+    },
+    "pushers-files": {
+      "name": "Spingipelle e lime",
+      "blurb": "Spingipelle doppi con impugnatura zigrinata e lime in acciaio con superficie tagliata al laser."
+    },
+    "tweezers": {
+      "name": "Pinzette",
+      "blurb": "Punte allineate a mano che si chiudono su tutto il bordo. Oblique, a punta, piatte e per ciglia."
+    },
+    "barber": {
+      "name": "Forbici da barbiere e rasoi",
+      "blurb": "Forbici in acciaio 440C con lama convessa, più sfoltitrici, forbici per texture e rasoi."
+    },
+    "grooming": {
+      "name": "Forbici da toelettatura",
+      "blurb": "Forbici lunghe dritte, curve e chunker per saloni di toelettatura."
+    },
+    "sets": {
+      "name": "Set e astucci",
+      "blurb": "Kit pronti per la vendita in astucci in pelle o con zip. Molto richiesti in private label."
+    }
   },
   "products": {
-    "cuticle-nipper-full-jaw": { "name": "Tronchesina per cuticole, becco intero 5 mm", "summary": "La tronchesina da salone di tutti i giorni. Il becco da 5 mm rimuove le cuticole con meno tagli.",
-      "details": ["Doppia molla con ritorno fluido e uniforme", "Snodo chiuso, rivettato e regolato a mano", "Becco testato su pellicola per cuticole prima dell'imballaggio", "Con cappuccio in silicone"] },
-    "cuticle-nipper-half-jaw": { "name": "Tronchesina per cuticole, mezzo becco 3 mm", "summary": "Un becco più corto per maggiore controllo lungo i bordi laterali.",
-      "details": ["Doppia molla", "Snodo chiuso, rivettato e regolato a mano", "Becco testato su pellicola per cuticole", "Cappuccio in silicone"] },
-    "cuticle-nipper-quarter-jaw": { "name": "Tronchesina per cuticole, quarto di becco 2 mm", "summary": "Becco di precisione per manicure russa e a secco.",
-      "details": ["Punte sottili e affusolate", "Doppia molla", "Lame affilate a mano", "Cappuccio in silicone"] },
-    "cuticle-nipper-single-spring": { "name": "Tronchesina per cuticole, molla singola 7 mm", "summary": "Una tronchesina economica per kit formativi e rivendita.",
-      "details": ["Molla a lamina singola", "Snodo sovrapposto", "Ideale per i kit degli allievi"] },
-    "nail-nipper-straight": { "name": "Tronchese per unghie, dritto 12 mm", "summary": "Lama dritta per unghie nette e squadrate.",
-      "details": ["Doppia molla", "Snodo chiuso", "Becco dritto, 12 mm"] },
-    "nail-nipper-barrel-spring": { "name": "Tronchese per unghie, curvo, molla a spirale", "summary": "Becco curvo con molla a spirale per un'azione più morbida e stabile.",
-      "details": ["Molla a spirale", "Snodo chiuso", "Becco curvo, 13 mm"] },
-    "toenail-nipper-thick": { "name": "Tronchese per unghie spesse dei piedi 14 mm", "summary": "Manici lunghi e becco robusto per unghie spesse in pedicure.",
-      "details": ["Doppia molla", "Snodo chiuso rinforzato", "Becco dritto, 14 mm", "Per pedicure estetica"] },
-    "cuticle-scissors-curved": { "name": "Forbicine per cuticole, curve 9 cm", "summary": "Lame sottili e curve che seguono la linea delle cuticole.",
-      "details": ["Lame sottili e curve", "Tensione della vite regolata a mano", "Punte a freccia"] },
-    "nail-scissors-straight": { "name": "Forbicine per unghie, dritte 9 cm", "summary": "Lame dritte per accorciare e modellare le unghie.",
-      "details": ["Lame dritte", "Tensione della vite regolata a mano"] },
-    "combination-scissors": { "name": "Forbicine combinate unghie e cuticole", "summary": "Una lama per le unghie, una per le cuticole. Ottime per il viaggio e la vendita al dettaglio.",
-      "details": ["Lame a doppio uso", "Tensione della vite regolata a mano"] },
-    "pusher-spoon-hatchet": { "name": "Spingipelle, cucchiaio e ascia", "summary": "Il cucchiaio arrotondato spinge indietro la cuticola, l'ascia la solleva dalla lamina.",
-      "details": ["Impugnatura zigrinata antiscivolo", "Bordi lucidati e arrotondati", "Autoclavabile"] },
-    "pusher-spoon-pterygium": { "name": "Spingipelle, cucchiaio e pterigio", "summary": "Un'estremità per pterigio affilata per rimuovere la pelle morta dalla lamina.",
-      "details": ["Impugnatura zigrinata", "Estremità per pterigio affilata", "Autoclavabile"] },
-    "nail-file-double": { "name": "Lima per unghie in acciaio, doppia 15 cm", "summary": "Superficie tagliata al laser che non si consuma come le lime di carta.",
-      "details": ["Superficie limante tagliata al laser", "Punta per la pulizia", "Lavabile e autoclavabile"] },
-    "tweezers-slant": { "name": "Pinzetta obliqua, allineata a mano", "summary": "Le punte si chiudono su tutto il bordo, così i peli sottili si prendono al primo colpo.",
-      "details": ["Punte allineate a mano", "Zona di presa satinata", "Cappuccio protettivo"] },
-    "tweezers-point": { "name": "Pinzetta a punta, sottile", "summary": "Punte sottilissime per peli incarniti e molto corti.",
-      "details": ["Punte allineate a mano", "Cappuccio protettivo"] },
-    "tweezers-lash": { "name": "Pinzetta per ciglia, curva", "summary": "Punte curve per isolare e applicare le extension ciglia.",
-      "details": ["Acciaio antimagnetico", "Punte sottili e curve", "Cappuccio"] },
-    "tweezers-flat": { "name": "Pinzetta a punta piatta", "summary": "Una presa ampia per sopracciglia e uso generale in salone.",
-      "details": ["Punte larghe e piatte", "Cappuccio protettivo"] },
-    "barber-shears-6-offset": { "name": "Forbici da barbiere 6,0\", impugnatura offset", "summary": "Forbici a lama convessa con impugnatura offset per tenere il polso rilassato.",
-      "details": ["Lama convessa, rifinita a mano", "Vite di tensione regolabile", "Poggiadito rimovibile", "Astuccio in pelle e olio inclusi"] },
-    "barber-shears-7-straight": { "name": "Forbici da barbiere 7,0\", impugnatura dritta", "summary": "Lame più lunghe per il taglio forbice su pettine e le sezioni ampie.",
-      "details": ["Lama convessa", "Vite di tensione regolabile", "Astuccio in pelle e olio inclusi"] },
-    "thinning-shears-30": { "name": "Forbici sfoltitrici 6,0\", 30 denti", "summary": "Rimuovono circa il 25–30% dei capelli a ogni taglio, per sfumare.",
-      "details": ["30 denti a V", "Vite di tensione regolabile", "Astuccio in pelle incluso"] },
-    "texturizing-shears-14": { "name": "Forbici per texture 6,0\", 14 denti", "summary": "Denti distanziati per una texture decisa e per togliere volume.",
-      "details": ["14 denti larghi", "Vite di tensione regolabile", "Astuccio in pelle incluso"] },
-    "barber-shears-left": { "name": "Forbici da barbiere per mancini 6,0\"", "summary": "Sono invertite le lame, non solo l'impugnatura, così i mancini vedono la linea di taglio.",
-      "details": ["Vere lame per mancini", "Impugnatura offset", "Astuccio in pelle e olio inclusi"] },
-    "shavette-razor": { "name": "Rasoio shavette, pieghevole", "summary": "Usa mezze lamette standard. Per nuca, sfumature e contorni della barba.",
-      "details": ["Per mezze lamette a doppio filo", "Manico pieghevole", "Lamette non incluse"] },
-    "grooming-shears-8-straight": { "name": "Forbici da toelettatura 8,0\", dritte", "summary": "Lame lunghe per il corpo e le rifiniture su razze medie e grandi.",
-      "details": ["Lama convessa", "Impugnatura offset", "Tensione regolabile"] },
-    "grooming-shears-7-curved": { "name": "Forbici da toelettatura 7,0\", curve", "summary": "Una lama curva per teste arrotondate, zampe e code.",
-      "details": ["Lame curve convesse", "Impugnatura offset", "Tensione regolabile"] },
-    "grooming-chunker-42": { "name": "Forbici chunker 7,5\", 42 denti", "summary": "Sfumano e ammorbidiscono le linee senza lasciare segni di forbice.",
-      "details": ["42 denti a T", "Impugnatura offset", "Tensione regolabile"] },
-    "manicure-set-leather-7": { "name": "Set manicure in astuccio di pelle, 7 pezzi", "summary": "Tronchesina per cuticole, tagliaunghie, forbicine per cuticole, pinzetta obliqua, spingipelle, lima e pulisci-unghie in un astuccio di vera pelle.",
-      "details": ["Astuccio in vera pelle con bottone a pressione", "7 strumenti", "Logo goffrato disponibile in private label"] },
-    "nail-tech-starter-kit": { "name": "Kit base per onicotecniche, 5 pezzi", "summary": "Tronchesina a becco intero, forbicine curve per cuticole, spingipelle a cucchiaio, pinzetta obliqua e lima in un astuccio con zip. Pensato per le accademie di onicotecnica.",
-      "details": ["Astuccio con zip ed elastici", "5 strumenti da salone", "Prezzi per accademie da 20 kit"] },
-    "sample-kit": { "name": "Kit di prova, 5 più venduti", "summary": "Un pezzo per ciascuno dei nostri cinque strumenti più venduti, da provare nel tuo salone o nella tua barberia prima di ordinare a cartoni.",
-      "details": ["Tronchesina per cuticole a becco intero, forbicine curve per cuticole, spingipelle a cucchiaio e ascia, pinzetta obliqua e forbici da barbiere 6,0\" con impugnatura offset", "Ogni strumento con finitura satinata", "Un kit per cliente"] }
+    "cuticle-nipper-full-jaw": {
+      "name": "Tronchesina per cuticole, becco intero 5 mm",
+      "summary": "La tronchesina da salone di tutti i giorni. Il becco da 5 mm rimuove le cuticole con meno tagli.",
+      "details": [
+        "Doppia molla con ritorno fluido e uniforme",
+        "Snodo chiuso, rivettato e regolato a mano",
+        "Becco testato su pellicola per cuticole prima dell'imballaggio",
+        "Con cappuccio in silicone"
+      ]
+    },
+    "cuticle-nipper-half-jaw": {
+      "name": "Tronchesina per cuticole, mezzo becco 3 mm",
+      "summary": "Un becco più corto per maggiore controllo lungo i bordi laterali.",
+      "details": [
+        "Doppia molla",
+        "Snodo chiuso, rivettato e regolato a mano",
+        "Becco testato su pellicola per cuticole",
+        "Cappuccio in silicone"
+      ]
+    },
+    "cuticle-nipper-quarter-jaw": {
+      "name": "Tronchesina per cuticole, quarto di becco 2 mm",
+      "summary": "Becco di precisione per manicure russa e a secco.",
+      "details": [
+        "Punte sottili e affusolate",
+        "Doppia molla",
+        "Lame affilate a mano",
+        "Cappuccio in silicone"
+      ]
+    },
+    "cuticle-nipper-single-spring": {
+      "name": "Tronchesina per cuticole, molla singola 7 mm",
+      "summary": "Una tronchesina economica per kit formativi e rivendita.",
+      "details": [
+        "Molla a lamina singola",
+        "Snodo sovrapposto",
+        "Ideale per i kit degli allievi"
+      ]
+    },
+    "nail-nipper-straight": {
+      "name": "Tronchese per unghie, dritto 12 mm",
+      "summary": "Lama dritta per unghie nette e squadrate.",
+      "details": [
+        "Doppia molla",
+        "Snodo chiuso",
+        "Becco dritto, 12 mm"
+      ]
+    },
+    "nail-nipper-barrel-spring": {
+      "name": "Tronchese per unghie, curvo, molla a spirale",
+      "summary": "Becco curvo con molla a spirale per un'azione più morbida e stabile.",
+      "details": [
+        "Molla a spirale",
+        "Snodo chiuso",
+        "Becco curvo, 13 mm"
+      ]
+    },
+    "toenail-nipper-thick": {
+      "name": "Tronchese per unghie spesse dei piedi 14 mm",
+      "summary": "Manici lunghi e becco robusto per unghie spesse in pedicure.",
+      "details": [
+        "Doppia molla",
+        "Snodo chiuso rinforzato",
+        "Becco dritto, 14 mm",
+        "Per pedicure estetica"
+      ]
+    },
+    "cuticle-scissors-curved": {
+      "name": "Forbicine per cuticole, curve 9 cm",
+      "summary": "Lame sottili e curve che seguono la linea delle cuticole.",
+      "details": [
+        "Lame sottili e curve",
+        "Tensione della vite regolata a mano",
+        "Punte a freccia"
+      ]
+    },
+    "nail-scissors-straight": {
+      "name": "Forbicine per unghie, dritte 9 cm",
+      "summary": "Lame dritte per accorciare e modellare le unghie.",
+      "details": [
+        "Lame dritte",
+        "Tensione della vite regolata a mano"
+      ]
+    },
+    "combination-scissors": {
+      "name": "Forbicine combinate unghie e cuticole",
+      "summary": "Una lama per le unghie, una per le cuticole. Ottime per il viaggio e la vendita al dettaglio.",
+      "details": [
+        "Lame a doppio uso",
+        "Tensione della vite regolata a mano"
+      ]
+    },
+    "pusher-spoon-hatchet": {
+      "name": "Spingipelle, cucchiaio e ascia",
+      "summary": "Il cucchiaio arrotondato spinge indietro la cuticola, l'ascia la solleva dalla lamina.",
+      "details": [
+        "Impugnatura zigrinata antiscivolo",
+        "Bordi lucidati e arrotondati",
+        "Autoclavabile"
+      ]
+    },
+    "pusher-spoon-pterygium": {
+      "name": "Spingipelle, cucchiaio e pterigio",
+      "summary": "Un'estremità per pterigio affilata per rimuovere la pelle morta dalla lamina.",
+      "details": [
+        "Impugnatura zigrinata",
+        "Estremità per pterigio affilata",
+        "Autoclavabile"
+      ]
+    },
+    "nail-file-double": {
+      "name": "Lima per unghie in acciaio, doppia 15 cm",
+      "summary": "Superficie tagliata al laser che non si consuma come le lime di carta.",
+      "details": [
+        "Superficie limante tagliata al laser",
+        "Punta per la pulizia",
+        "Lavabile e autoclavabile"
+      ]
+    },
+    "tweezers-slant": {
+      "name": "Pinzetta obliqua, allineata a mano",
+      "summary": "Le punte si chiudono su tutto il bordo, così i peli sottili si prendono al primo colpo.",
+      "details": [
+        "Punte allineate a mano",
+        "Zona di presa satinata",
+        "Cappuccio protettivo"
+      ]
+    },
+    "tweezers-point": {
+      "name": "Pinzetta a punta, sottile",
+      "summary": "Punte sottilissime per peli incarniti e molto corti.",
+      "details": [
+        "Punte allineate a mano",
+        "Cappuccio protettivo"
+      ]
+    },
+    "tweezers-lash": {
+      "name": "Pinzetta per ciglia, curva",
+      "summary": "Punte curve per isolare e applicare le extension ciglia.",
+      "details": [
+        "Acciaio antimagnetico",
+        "Punte sottili e curve",
+        "Cappuccio"
+      ]
+    },
+    "tweezers-flat": {
+      "name": "Pinzetta a punta piatta",
+      "summary": "Una presa ampia per sopracciglia e uso generale in salone.",
+      "details": [
+        "Punte larghe e piatte",
+        "Cappuccio protettivo"
+      ]
+    },
+    "barber-shears-6-offset": {
+      "name": "Forbici da barbiere 6,0\", impugnatura offset",
+      "summary": "Forbici a lama convessa con impugnatura offset per tenere il polso rilassato.",
+      "details": [
+        "Lama convessa, rifinita a mano",
+        "Vite di tensione regolabile",
+        "Poggiadito rimovibile",
+        "Astuccio in pelle e olio inclusi"
+      ]
+    },
+    "barber-shears-7-straight": {
+      "name": "Forbici da barbiere 7,0\", impugnatura dritta",
+      "summary": "Lame più lunghe per il taglio forbice su pettine e le sezioni ampie.",
+      "details": [
+        "Lama convessa",
+        "Vite di tensione regolabile",
+        "Astuccio in pelle e olio inclusi"
+      ]
+    },
+    "thinning-shears-30": {
+      "name": "Forbici sfoltitrici 6,0\", 30 denti",
+      "summary": "Rimuovono circa il 25–30% dei capelli a ogni taglio, per sfumare.",
+      "details": [
+        "30 denti a V",
+        "Vite di tensione regolabile",
+        "Astuccio in pelle incluso"
+      ]
+    },
+    "texturizing-shears-14": {
+      "name": "Forbici per texture 6,0\", 14 denti",
+      "summary": "Denti distanziati per una texture decisa e per togliere volume.",
+      "details": [
+        "14 denti larghi",
+        "Vite di tensione regolabile",
+        "Astuccio in pelle incluso"
+      ]
+    },
+    "barber-shears-left": {
+      "name": "Forbici da barbiere per mancini 6,0\"",
+      "summary": "Sono invertite le lame, non solo l'impugnatura, così i mancini vedono la linea di taglio.",
+      "details": [
+        "Vere lame per mancini",
+        "Impugnatura offset",
+        "Astuccio in pelle e olio inclusi"
+      ]
+    },
+    "shavette-razor": {
+      "name": "Rasoio shavette, pieghevole",
+      "summary": "Usa mezze lamette standard. Per nuca, sfumature e contorni della barba.",
+      "details": [
+        "Per mezze lamette a doppio filo",
+        "Manico pieghevole",
+        "Lamette non incluse"
+      ]
+    },
+    "grooming-shears-8-straight": {
+      "name": "Forbici da toelettatura 8,0\", dritte",
+      "summary": "Lame lunghe per il corpo e le rifiniture su razze medie e grandi.",
+      "details": [
+        "Lama convessa",
+        "Impugnatura offset",
+        "Tensione regolabile"
+      ]
+    },
+    "grooming-shears-7-curved": {
+      "name": "Forbici da toelettatura 7,0\", curve",
+      "summary": "Una lama curva per teste arrotondate, zampe e code.",
+      "details": [
+        "Lame curve convesse",
+        "Impugnatura offset",
+        "Tensione regolabile"
+      ]
+    },
+    "grooming-chunker-42": {
+      "name": "Forbici chunker 7,5\", 42 denti",
+      "summary": "Sfumano e ammorbidiscono le linee senza lasciare segni di forbice.",
+      "details": [
+        "42 denti a T",
+        "Impugnatura offset",
+        "Tensione regolabile"
+      ]
+    },
+    "manicure-set-leather-7": {
+      "name": "Set manicure in astuccio di pelle, 7 pezzi",
+      "summary": "Tronchesina per cuticole, tagliaunghie, forbicine per cuticole, pinzetta obliqua, spingipelle, lima e pulisci-unghie in un astuccio di vera pelle.",
+      "details": [
+        "Astuccio in vera pelle con bottone a pressione",
+        "7 strumenti",
+        "Logo goffrato disponibile in private label"
+      ]
+    },
+    "nail-tech-starter-kit": {
+      "name": "Kit base per onicotecniche, 5 pezzi",
+      "summary": "Tronchesina a becco intero, forbicine curve per cuticole, spingipelle a cucchiaio, pinzetta obliqua e lima in un astuccio con zip. Pensato per le accademie di onicotecnica.",
+      "details": [
+        "Astuccio con zip ed elastici",
+        "5 strumenti da salone",
+        "Prezzi per accademie da 20 kit"
+      ]
+    },
+    "sample-kit": {
+      "name": "Kit di prova, 5 più venduti",
+      "summary": "Un pezzo per ciascuno dei nostri cinque strumenti più venduti, da provare nel tuo salone o nella tua barberia prima di ordinare a cartoni.",
+      "details": [
+        "Tronchesina per cuticole a becco intero, forbicine curve per cuticole, spingipelle a cucchiaio e ascia, pinzetta obliqua e forbici da barbiere 6,0\" con impugnatura offset",
+        "Ogni strumento con finitura satinata",
+        "Un kit per cliente"
+      ]
+    }
   }
 }

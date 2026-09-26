@@ -1,0 +1,67 @@
+# Production: PostgreSQL, the app, a Cloudflare Tunnel and daily backups, on one private Docker network.
+# Nothing is published to the network except the app on 127.0.0.1 (for debugging over SSH).
+#   cd deploy && docker compose -f docker-compose.prod.yml up -d --build
+name: ferrin
+services:
+  db:
+    image: postgres:17
+    restart: unless-stopped
+    env_file: .env
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  app:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    image: ferrin-app
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      NODE_ENV: production
+      HOST: 0.0.0.0
+      PORT: "3000"
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "127.0.0.1:18300:3000"
+    deploy:
+      resources:
+        limits:
+          cpus: "2"
+          memory: 1g
+
+  # Without TUNNEL_TOKEN: a free temporary https://<random>.trycloudflare.com address (changes on restart).
+  # With your own domain: set TUNNEL_TOKEN and TUNNEL_COMMAND="tunnel --no-autoupdate run" in .env.
+  tunnel:
+    image: cloudflare/cloudflared:latest
+    restart: unless-stopped
+    command: ${TUNNEL_COMMAND:-tunnel --no-autoupdate --url http://app:3000}
+    environment:
+      TUNNEL_TOKEN: ${TUNNEL_TOKEN:-}
+    depends_on:
+      app:
+        condition: service_healthy
+
+  # Daily compressed pg_dump into ./backups, keeping 14 days.
+  backup:
+    image: postgres:17
+    restart: unless-stopped
+    env_file: .env
+    user: "${HOST_UID:-1000}:${HOST_GID:-1000}"
+    entrypoint: ["/bin/sh", "/scripts/backup.sh"]
+    volumes:
+      - ./backup.sh:/scripts/backup.sh:ro
+      - ./backups:/backups
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  pgdata:

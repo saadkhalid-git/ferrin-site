@@ -8,17 +8,32 @@ export const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;"
 // ---------- parts ----------
 
 export function steelLabel(ctx, p, short) {
+  if (!p.steel) return "";
   if (short) return p.steel;
   return `${p.steel} ${ctx.t("spec.stainless")}${p.hrc ? `, ${p.hrc}` : ""}`;
+}
+
+// Stock status. Only shown when stock is known (pages rendered by the server from the database).
+export const LOW_STOCK = 10;
+export function availability(ctx, p) {
+  if (typeof p.quantity !== "number") return "";
+  if (p.quantity <= 0) return `<span class="stock is-out">${ctx.t("stock.out")}</span>`;
+  if (p.quantity <= LOW_STOCK) return `<span class="stock is-low">${ctx.t("stock.low", { n: p.quantity })}</span>`;
+  return `<span class="stock is-in">${ctx.t("stock.in")}</span>`;
+}
+
+// A product image set in the admin panel (an external URL). Takes priority over local photos.
+export function externalImage(p, alt, eager) {
+  return `<img src="${esc(p.imageUrl)}" alt="${esc(alt)}" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async" referrerpolicy="no-referrer">`;
 }
 
 // Technical drawing with a title block. Used as the "Dimensions" view and when a product has no photo.
 export function sheet(ctx, p, big) {
   return `<div class="sheet${big ? " sheet-big" : ""}">
-    ${drawTool(p.draw, p.length, p.name)}
+    ${drawTool(p.length ? p.draw : Object.assign({ nodim: true }, p.draw), p.length, p.name)}
     <dl class="titleblock">
       <div><dt>${ctx.t("spec.part")}</dt><dd>${esc(p.sku)}</dd></div>
-      <div><dt>${ctx.t("spec.steel")}</dt><dd>${esc(steelLabel(ctx, p, true))}</dd></div>
+      ${p.steel ? `<div><dt>${ctx.t("spec.steel")}</dt><dd>${esc(steelLabel(ctx, p, true))}</dd></div>` : ""}
       ${p.length ? `<div><dt>${ctx.t("spec.length")}</dt><dd>${p.length} mm</dd></div>` : ""}
     </dl>
   </div>`;
@@ -51,6 +66,7 @@ export function lineBadge(ctx, p) {
 }
 
 export function cardMedia(ctx, p) {
+  if (p.imageUrl) return `<div class="card-media is-external">${externalImage(p, p.name)}</div>`;
   const photos = ctx.photos[p.sku];
   if (!photos || !photos.length) return `<div class="card-media is-drawing">${drawTool(Object.assign({ nodim: true }, p.draw), 0, false)}</div>`;
   return `<div class="card-media">${picture(ctx, photos[0], p.name, "(max-width: 560px) 50vw, (max-width: 1000px) 33vw, 280px")}</div>`;
@@ -65,6 +81,7 @@ export function card(ctx, p) {
       ${lineBadge(ctx, p)}
       <h3>${esc(p.name)}</h3>
       <p class="price"><strong>${ctx.money(p.price)}</strong> <span class="muted">${sub}</span></p>
+      ${availability(ctx, p)}
     </div>
   </a>`;
 }
@@ -154,7 +171,7 @@ export function layout(ctx, page) {
   const og = ctx.abs(page.ogImage || (heroImg ? heroImg.srcs[heroImg.srcs.length - 1].jpg : ctx.asset("og/default.png")));
   const nav = [["catalogue", "shop"], ["quickOrder", "quick-order"], ["privateLabel", "private-label"], ["about", "about"], ["faq", "faq"], ["contact", "contact"]];
   const legalBase = cfg.defaultLanguage;
-  const site = { lang, base: cfg.basePath, catalog: ctx.asset(`catalog-${lang}.json`) + `?v=${ctx.version}`,
+  const site = { lang, base: cfg.basePath, catalog: ctx.catalogUrl || ctx.asset(`catalog-${lang}.json`) + `?v=${ctx.version}`, ordersApi: ctx.ordersApi || "",
     urls: { cart: ctx.url("cart"), sent: ctx.url("order-sent"), shop: ctx.url("shop"), terms: ctx.url("terms", legalBase) } };
   const credits = ctx.credits?.length
     ? `<p class="credits">${t("footer.credits")}: ${ctx.credits.map(c => `<a href="${esc(c.url)}" rel="noopener">${esc(c.photographer)}</a> (${esc(c.source)}${c.license ? `, ${esc(c.license)}` : ""})`).join(", ")}</p>` : "";

@@ -5,7 +5,6 @@
     "meta.home": "Professionelle Hautzangen, Maniküreschere, Pinzetten, Friseur- und Groomingscheren, in Sialkot von Hand veredelt. Staffelpreise und Private Label für Salons und Händler in Europa.",
     "meta.shop": "Alle {n} Instrumente mit Staffelpreisen: Haut- und Nagelzangen, Maniküreschere, Pinzetten, Friseur- und Hundescheren.",
     "meta.product": "{summary} Artikel {sku}. Ab {price} pro Stück ab {min} Stück, zzgl. MwSt.",
-
     "nav.skip": "Zum Inhalt springen",
     "nav.home": "Startseite",
     "nav.catalogue": "Katalog",
@@ -19,7 +18,6 @@
     "nav.language": "Sprache",
     "nav.priceList": "Preisliste",
     "trade.strip": "Nur für Gewerbekunden. Alle Preise zzgl. MwSt.",
-
     "footer.tagline": "Professionelle Beauty-, Barber- und Grooming-Instrumente, hergestellt in Sialkot, Pakistan.",
     "footer.shop": "Shop",
     "footer.company": "Unternehmen",
@@ -29,12 +27,10 @@
     "footer.notice": "Impressum",
     "footer.fine": "Für kosmetische Anwendung, Salon und Tierpflege. Keine Medizinprodukte.",
     "footer.legalLang": "Die rechtlichen Seiten sind auf Englisch.",
-
     "unit.pcs": "{n} Stück",
     "unit.range": "{from}–{to} Stück",
     "unit.plus": "ab {from} Stück",
     "unit.count": "{n} Produkte",
-
     "home.h1": "Salon-Instrumente, in Sialkot von Hand veredelt",
     "home.lede": "Zangen, Scheren, Pinzetten und Friseurscheren aus Sialkot, einem der weltweit wichtigsten Zentren für Handinstrumente aus Stahl. Bestellen Sie einige Stücke zum Testen, dann kartonweise zu Staffelpreisen oder mit Ihrer eigenen Marke.",
     "home.ctaShop": "Katalog ansehen",
@@ -56,7 +52,6 @@
     "home.whyH": "Warum Sialkot",
     "home.why1": "In Sialkot werden seit über hundert Jahren Handinstrumente aus Stahl gefertigt. Tausende Werkstätten schleifen, polieren, justieren und schärfen dort Instrumente für Salons, Kliniken und Marken in aller Welt.",
     "home.why2": "Wir arbeiten mit wenigen dieser Werkstätten, legen den Stahl für jedes Produkt fest und prüfen jede Zange, Schere und Pinzette vor dem Verpacken. Sie erhalten Werkstattpreise, ohne die Fertigung selbst steuern zu müssen.",
-
     "spec.part": "Artikel",
     "spec.steel": "Stahl",
     "spec.length": "Länge",
@@ -71,17 +66,14 @@
     "spec.privateLabel": "Private Label",
     "spec.fromPcs": "Ab {n} Stück",
     "spec.requestQuote": "Angebot anfragen",
-
     "tier.qty": "Menge",
     "tier.price": "Preis pro Stück",
     "tier.saving": "Ersparnis",
     "card.bulk": "{price} pro Stück ab {n}",
-
     "finish.satin": "Satiniert",
     "finish.mirror": "Hochglanzpoliert",
     "finish.black": "Mattschwarz beschichtet",
     "finish.titanium": "Schwarze Titanbeschichtung",
-
     "shop.title": "Katalog",
     "shop.lede": "Alle Instrumente, mit Staffelpreisen bei jedem Produkt.",
     "shop.instruments": "Instrumente",
@@ -94,7 +86,6 @@
     "shop.priceDesc": "Preis absteigend",
     "shop.noMatch": "Keine Produkte gefunden.",
     "shop.clear": "Suche löschen",
-
     "pdp.part": "Artikel {sku}",
     "pdp.perPiece": "pro Stück, zzgl. MwSt.",
     "pdp.finish": "Oberfläche",
@@ -112,7 +103,6 @@
     "pdp.dimensions": "Maße",
     "pdp.photo": "Foto {n}",
     "pdp.gallery": "Produktbilder",
-
     "cart.title": "Warenkorb",
     "cart.emptyH": "Ihr Warenkorb ist leer",
     "cart.emptyP": "Legen Sie Instrumente aus dem Katalog oder über die Schnellbestellung in den Warenkorb. Staffelrabatte werden hier automatisch abgezogen.",
@@ -131,7 +121,6 @@
     "cart.loading": "Warenkorb wird geladen…",
     "cart.noscript": "Der Warenkorb benötigt JavaScript. Sie können Ihre Bestellung auch an {email} senden.",
     "cart.import": "Der Versand erfolgt aus Pakistan. Der Paketdienst erhebt bei der Zustellung Einfuhrumsatzsteuer und ggf. Zoll. Umsatzsteuerpflichtige Unternehmen können die Einfuhrumsatzsteuer in der Regel als Vorsteuer abziehen.",
-
     "co.h": "Ihre Firmendaten",
     "co.name": "Vollständiger Name",
     "co.company": "Firma oder Salon",
@@ -152,13 +141,11 @@
     "co.submit": "Bestellanfrage senden",
     "co.sending": "Wird gesendet…",
     "co.help": "Wir antworten innerhalb eines Werktags mit einer Rechnung.",
-
     "err.required": "Bitte füllen Sie dieses Feld aus.",
     "err.email": "Geben Sie eine E-Mail-Adresse wie name@beispiel.de ein.",
     "err.vat": "Bitte prüfen Sie die USt-IdNr. Sie sollte so aussehen: {example}.",
     "err.b2b": "Bitte bestätigen Sie, dass Sie für ein Unternehmen bestellen.",
     "err.send": "Das Formular konnte nicht gesendet werden. Stattdessen öffnet sich Ihr E-Mail-Programm mit der Nachricht.",
-
     "sent.title": "Bestellanfrage gesendet",
     "sent.p": "Wir haben die Bestellanfrage {ref} erhalten. Wir antworten innerhalb eines Werktags an {email} mit einer Rechnung.",
     "sent.titleEmail": "Senden Sie die E-Mail, um zu bestellen",
@@ -170,7 +157,6 @@
     "sent.back": "Zurück zum Katalog",
     "sent.none": "Keine aktuelle Bestellung",
     "sent.noneP": "Bestellanfragen, die Sie in diesem Browser senden, erscheinen hier.",
-
     "qo.title": "Schnellbestellung",
     "qo.lede": "Tragen Sie die Mengen für alles ein, was Sie brauchen, und legen Sie alles auf einmal in den Warenkorb. Staffelpreise gelten pro Produkt.",
     "qo.product": "Produkt",
@@ -183,13 +169,11 @@
     "qo.none": "Geben Sie für mindestens ein Produkt eine Menge ein.",
     "qo.sum": "Ausgewählte Produkte: {n}. Summe: {total}",
     "qo.noscript": "Die Schnellbestellung benötigt JavaScript.",
-
     "pl.title": "Preisliste",
     "pl.lede": "Preise in EUR pro Stück, zzgl. MwSt., für die Standardoberfläche. Andere Oberflächen: {finishes}.",
     "pl.print": "Drucken oder als PDF speichern",
     "pl.valid": "Preise gültig ab {date}.",
     "pl.contact": "Bestellungen und Fragen: {email}",
-
     "plp.title": "Private Label",
     "plp.h1": "Ihre Marke auf professionellen Instrumenten",
     "plp.lede": "Für Salonausstatter, Nagelakademien, Barber-Marken und Onlineshops. Sie wählen Instrumente, Oberfläche und Verpackung. Wir fertigen Muster, dann produzieren und prüfen wir Ihre Bestellung.",
@@ -220,10 +204,8 @@
     "plp.branding": "Branding und Verpackung",
     "plp.brandingPh": "Logo auf dem Instrument, bedruckte Schachtel, Lederetui…",
     "plp.submit": "Angebotsanfrage senden",
-
     "form.sent": "Gesendet. Wir antworten innerhalb eines Werktags.",
     "form.email": "Ihr E-Mail-Programm sollte sich mit der fertigen Nachricht öffnen.",
-
     "about.title": "Über uns",
     "about.h1": "Über {brand}",
     "about.lede": "Wir verkaufen professionelle Beauty-, Barber- und Grooming-Instrumente aus Sialkot, Pakistan, an Salons und Händler in Europa.",
@@ -235,7 +217,6 @@
     "about.qc4": "Bestellungen können vor dem Versand unabhängig geprüft werden",
     "about.notH": "Was wir nicht verkaufen",
     "about.notP": "Wir verkaufen Instrumente ausschließlich für Kosmetik, Salon und Tierpflege, und nur an Unternehmen. Chirurgische Instrumente oder Medizinprodukte verkaufen wir nicht.",
-
     "contact.title": "Kontakt",
     "contact.lede": "Fragen zu Produkten, Mustern oder Händlerkonten. Wir antworten innerhalb eines Werktags.",
     "contact.email": "E-Mail",
@@ -244,17 +225,13 @@
     "contact.formH": "Nachricht senden",
     "contact.message": "Nachricht",
     "contact.submit": "Nachricht senden",
-
     "faq.title": "Häufige Fragen",
     "faq.more": "Noch Fragen?",
     "faq.contact": "Kontaktieren Sie uns",
-
     "nf.title": "Seite nicht gefunden",
     "nf.lede": "Der Link ist möglicherweise veraltet oder falsch geschrieben.",
     "nf.cta": "Zum Katalog",
-
     "legal.draft": "Entwurf. Füllen Sie die Angaben in [Klammern] aus und lassen Sie den Text prüfen, bevor Sie sich darauf verlassen.",
-
     "nav.main": "Hauptmenü",
     "nav.whatsapp": "WhatsApp",
     "wa.label": "Schreiben Sie uns auf WhatsApp",
@@ -296,86 +273,345 @@
     "shop.linePro": "Von Hand geschärfte Zangen mit Doppelfeder, Scheren aus 440C-Stahl und Präzisionsinstrumente für den täglichen Einsatz im Salon und Barbershop.",
     "shop.lineEssential": "Einfachere Instrumente zu einem günstigeren Preis, für Schülersets, den Einzelhandel und als Reservebestand.",
     "meta.productTrial": "{summary} Artikel {sku}. {price} pro Set, zzgl. MwSt.",
-    "footer.credits": "Bildnachweis"
+    "footer.credits": "Bildnachweis",
+    "stock.in": "Auf Lager",
+    "stock.low": "Nur noch {n} Stück",
+    "stock.out": "Ausverkauft",
+    "cart.capped": "Nur {n} auf Lager.",
+    "err.stock": "Von {name} sind nur {n} Stück verfügbar. Bitte verringern Sie die Menge.",
+    "err.unavailable": "{name} ist nicht mehr verfügbar. Bitte entfernen Sie den Artikel.",
+    "err.order": "Die Bestellung konnte nicht gesendet werden. Prüfen Sie Ihre Angaben und versuchen Sie es erneut, oder kontaktieren Sie uns."
   },
   "faq": [
-    ["Wer kann bestellen?", "Wir verkaufen nur an Unternehmen: Salons, Barbershops, Nagelstudios, Akademien, Großhändler und Geschäfte. Bitte geben Sie bei der Bestellung Ihren Firmennamen und Ihre USt-IdNr. an."],
-    ["Sind die Preise inklusive MwSt.?", "Nein. Die Preise verstehen sich zzgl. MwSt. und Zoll. Der Versand erfolgt aus Pakistan, daher erhebt der Paketdienst bei der Einfuhr Einfuhrumsatzsteuer und ggf. Zoll. Umsatzsteuerpflichtige Unternehmen können die Einfuhrumsatzsteuer in der Regel als Vorsteuer abziehen."],
-    ["Wie bezahle ich?", "Nach Ihrer Bestellanfrage senden wir Ihnen eine Rechnung per E-Mail. Sie zahlen per Banküberweisung, und wir versenden nach Zahlungseingang."],
-    ["Wie lange dauert die Lieferung?", "Lagerware wird per Express aus Sialkot versendet und ist in der EU meist nach 4–7 Werktagen da."],
-    ["Muss ich Zoll zahlen?", "Der Zoll hängt von Ihrem Land und dem Produkt ab. Viele Instrumente aus Pakistan sind im Rahmen des APS+ (GSP+) zollfrei, wenn die richtige Ursprungserklärung auf der Rechnung steht. Diese fügen wir bei."],
-    ["Kann ich zuerst ein Muster bestellen?", "Ja. Bestellen Sie ein einzelnes Stück zum normalen Preis. Wenn Sie innerhalb von 60 Tagen 50 oder mehr Stück desselben Produkts bestellen, schreiben wir Ihnen den Musterpreis gut."],
-    ["Was ist, wenn ein Instrument fehlerhaft ist?", "Melden Sie es uns innerhalb von 30 Tagen nach Lieferung mit einem Foto, und wir ersetzen es oder schreiben es Ihnen gut."],
-    ["Schleifen Sie nach?", "Friseur- und Groomingscheren können zum Nachschleifen zurückgeschickt werden. Fragen Sie uns nach dem aktuellen Preis."]
+    [
+      "Wer kann bestellen?",
+      "Wir verkaufen nur an Unternehmen: Salons, Barbershops, Nagelstudios, Akademien, Großhändler und Geschäfte. Bitte geben Sie bei der Bestellung Ihren Firmennamen und Ihre USt-IdNr. an."
+    ],
+    [
+      "Sind die Preise inklusive MwSt.?",
+      "Nein. Die Preise verstehen sich zzgl. MwSt. und Zoll. Der Versand erfolgt aus Pakistan, daher erhebt der Paketdienst bei der Einfuhr Einfuhrumsatzsteuer und ggf. Zoll. Umsatzsteuerpflichtige Unternehmen können die Einfuhrumsatzsteuer in der Regel als Vorsteuer abziehen."
+    ],
+    [
+      "Wie bezahle ich?",
+      "Nach Ihrer Bestellanfrage senden wir Ihnen eine Rechnung per E-Mail. Sie zahlen per Banküberweisung, und wir versenden nach Zahlungseingang."
+    ],
+    [
+      "Wie lange dauert die Lieferung?",
+      "Lagerware wird per Express aus Sialkot versendet und ist in der EU meist nach 4–7 Werktagen da."
+    ],
+    [
+      "Muss ich Zoll zahlen?",
+      "Der Zoll hängt von Ihrem Land und dem Produkt ab. Viele Instrumente aus Pakistan sind im Rahmen des APS+ (GSP+) zollfrei, wenn die richtige Ursprungserklärung auf der Rechnung steht. Diese fügen wir bei."
+    ],
+    [
+      "Kann ich zuerst ein Muster bestellen?",
+      "Ja. Bestellen Sie ein einzelnes Stück zum normalen Preis. Wenn Sie innerhalb von 60 Tagen 50 oder mehr Stück desselben Produkts bestellen, schreiben wir Ihnen den Musterpreis gut."
+    ],
+    [
+      "Was ist, wenn ein Instrument fehlerhaft ist?",
+      "Melden Sie es uns innerhalb von 30 Tagen nach Lieferung mit einem Foto, und wir ersetzen es oder schreiben es Ihnen gut."
+    ],
+    [
+      "Schleifen Sie nach?",
+      "Friseur- und Groomingscheren können zum Nachschleifen zurückgeschickt werden. Fragen Sie uns nach dem aktuellen Preis."
+    ]
   ],
   "categories": {
-    "cuticle-nippers": { "name": "Hautzangen", "blurb": "Zangen mit Kastengelenk und Doppelfeder, vor dem Verpacken geschärft und an Nagelhautfolie getestet." },
-    "nail-nippers": { "name": "Nagelzangen", "blurb": "Kräftigere Backen für Fingernägel und dicke Fußnägel, mit Blatt- oder Spiralfeder." },
-    "manicure-scissors": { "name": "Maniküreschere", "blurb": "Feine gebogene und gerade Scheren für Nagelhaut und Nägel, an der Schraube von Hand justiert." },
-    "pushers-files": { "name": "Hautschieber und Feilen", "blurb": "Doppelseitige Hautschieber mit gerändeltem Griff und Edelstahlfeilen mit lasergeschnittener Oberfläche." },
-    "tweezers": { "name": "Pinzetten", "blurb": "Von Hand ausgerichtete Spitzen, die auf der ganzen Kante schließen. Schräg, spitz, flach und für Wimpern." },
-    "barber": { "name": "Friseurscheren und Rasiermesser", "blurb": "Haarscheren aus 440C-Stahl mit Konvexschliff, dazu Effilier-, Modellierscheren und Rasiermesser." },
-    "grooming": { "name": "Hundescheren", "blurb": "Lange gerade, gebogene und Chunker-Scheren für Hundesalons." },
-    "sets": { "name": "Sets und Etuis", "blurb": "Verkaufsfertige Sets in Leder- oder Reißverschlussetuis. Beliebt für Private Label." }
+    "cuticle-nippers": {
+      "name": "Hautzangen",
+      "blurb": "Zangen mit Kastengelenk und Doppelfeder, vor dem Verpacken geschärft und an Nagelhautfolie getestet."
+    },
+    "nail-nippers": {
+      "name": "Nagelzangen",
+      "blurb": "Kräftigere Backen für Fingernägel und dicke Fußnägel, mit Blatt- oder Spiralfeder."
+    },
+    "manicure-scissors": {
+      "name": "Maniküreschere",
+      "blurb": "Feine gebogene und gerade Scheren für Nagelhaut und Nägel, an der Schraube von Hand justiert."
+    },
+    "pushers-files": {
+      "name": "Hautschieber und Feilen",
+      "blurb": "Doppelseitige Hautschieber mit gerändeltem Griff und Edelstahlfeilen mit lasergeschnittener Oberfläche."
+    },
+    "tweezers": {
+      "name": "Pinzetten",
+      "blurb": "Von Hand ausgerichtete Spitzen, die auf der ganzen Kante schließen. Schräg, spitz, flach und für Wimpern."
+    },
+    "barber": {
+      "name": "Friseurscheren und Rasiermesser",
+      "blurb": "Haarscheren aus 440C-Stahl mit Konvexschliff, dazu Effilier-, Modellierscheren und Rasiermesser."
+    },
+    "grooming": {
+      "name": "Hundescheren",
+      "blurb": "Lange gerade, gebogene und Chunker-Scheren für Hundesalons."
+    },
+    "sets": {
+      "name": "Sets und Etuis",
+      "blurb": "Verkaufsfertige Sets in Leder- oder Reißverschlussetuis. Beliebt für Private Label."
+    }
   },
   "products": {
-    "cuticle-nipper-full-jaw": { "name": "Hautzange, volle Backe 5 mm", "summary": "Die Salonzange für jeden Tag. Die 5-mm-Backe entfernt Nagelhaut mit weniger Schnitten.",
-      "details": ["Doppelfeder mit gleichmäßiger Rückstellung", "Kastengelenk, vernietet und von Hand justiert", "Backe vor dem Verpacken an Nagelhautfolie getestet", "Mit Silikon-Schutzkappe"] },
-    "cuticle-nipper-half-jaw": { "name": "Hautzange, halbe Backe 3 mm", "summary": "Eine kürzere Backe für mehr Kontrolle an den Seitenwällen.",
-      "details": ["Doppelfeder", "Kastengelenk, vernietet und von Hand justiert", "Backe an Nagelhautfolie getestet", "Silikon-Schutzkappe"] },
-    "cuticle-nipper-quarter-jaw": { "name": "Hautzange, Viertelbacke 2 mm", "summary": "Präzisionsbacke für Russian und Dry Manicure.",
-      "details": ["Fein zulaufende Spitzen", "Doppelfeder", "Von Hand geschärfte Schneiden", "Silikon-Schutzkappe"] },
-    "cuticle-nipper-single-spring": { "name": "Hautzange, Einzelfeder 7 mm", "summary": "Eine günstige Zange für Schulungssets und den Wiederverkauf.",
-      "details": ["Einzelne Blattfeder", "Überlappendes Gelenk", "Gut geeignet für Schülersets"] },
-    "nail-nipper-straight": { "name": "Nagelzange, gerade 12 mm", "summary": "Gerade Schneide für saubere, eckige Fingernagelformen.",
-      "details": ["Doppelfeder", "Kastengelenk", "Gerade Backe, 12 mm"] },
-    "nail-nipper-barrel-spring": { "name": "Nagelzange, gebogen, Spiralfeder", "summary": "Gebogene Backe mit Spiralfeder für einen weicheren, ruhigeren Schnitt.",
-      "details": ["Spiralfeder", "Kastengelenk", "Gebogene Backe, 13 mm"] },
-    "toenail-nipper-thick": { "name": "Fußnagelzange, dicke Nägel 14 mm", "summary": "Lange Griffe und eine kräftige Backe für dicke Fußnägel in der Pediküre.",
-      "details": ["Doppelfeder", "Verstärktes Kastengelenk", "Gerade Backe, 14 mm", "Für die kosmetische Pediküre"] },
-    "cuticle-scissors-curved": { "name": "Hautschere, gebogen 9 cm", "summary": "Dünne, gebogene Klingen, die der Nagelhautlinie folgen.",
-      "details": ["Feine, gebogene Klingen", "Schraube von Hand eingestellt", "Pfeilspitzen"] },
-    "nail-scissors-straight": { "name": "Nagelschere, gerade 9 cm", "summary": "Gerade Klingen zum Kürzen und Formen der Nägel.",
-      "details": ["Gerade Klingen", "Schraube von Hand eingestellt"] },
-    "combination-scissors": { "name": "Kombischere für Nägel und Nagelhaut", "summary": "Eine Klinge für Nägel, eine für Nagelhaut. Gut für die Reise und den Einzelhandel.",
-      "details": ["Zwei Klingen für zwei Aufgaben", "Schraube von Hand eingestellt"] },
-    "pusher-spoon-hatchet": { "name": "Hautschieber, Löffel und Beil", "summary": "Der runde Löffel schiebt die Nagelhaut zurück, das Beil löst sie von der Nagelplatte.",
-      "details": ["Gerändelter, rutschfester Griff", "Polierte, abgerundete Kanten", "Autoklavierbar"] },
-    "pusher-spoon-pterygium": { "name": "Hautschieber, Löffel und Pterygium", "summary": "Ein geschärftes Pterygium-Ende entfernt abgestorbene Haut von der Nagelplatte.",
-      "details": ["Gerändelter Griff", "Geschärftes Pterygium-Ende", "Autoklavierbar"] },
-    "nail-file-double": { "name": "Edelstahl-Nagelfeile, doppelseitig 15 cm", "summary": "Eine lasergeschnittene Feilfläche, die sich nicht abnutzt wie Papierfeilen.",
-      "details": ["Lasergeschnittene Feilfläche", "Spitzer Nagelreiniger", "Waschbar und autoklavierbar"] },
-    "tweezers-slant": { "name": "Pinzette, schräg, von Hand ausgerichtet", "summary": "Die Spitzen schließen auf der ganzen Kante, so greifen feine Härchen beim ersten Versuch.",
-      "details": ["Von Hand ausgerichtete Spitzen", "Satinierter Griffbereich", "Schutzkappe"] },
-    "tweezers-point": { "name": "Pinzette, spitz, fein", "summary": "Nadelfeine Spitzen für eingewachsene und sehr kurze Haare.",
-      "details": ["Von Hand ausgerichtete Spitzen", "Schutzkappe"] },
-    "tweezers-lash": { "name": "Wimpernpinzette, gebogen", "summary": "Gebogene Spitzen zum Isolieren und Setzen von Wimpernextensions.",
-      "details": ["Antimagnetischer Stahl", "Gebogene, feine Spitzen", "Schutzkappe"] },
-    "tweezers-flat": { "name": "Pinzette, flache Spitze", "summary": "Breiter Griff für Augenbrauen und den allgemeinen Salongebrauch.",
-      "details": ["Breite, flache Spitzen", "Schutzkappe"] },
-    "barber-shears-6-offset": { "name": "Friseurschere 6,0\", Offset-Griff", "summary": "Schere mit Konvexschliff und Offset-Griff für ein entspanntes Handgelenk.",
-      "details": ["Konvexschliff, von Hand abgezogen", "Verstellbare Spannschraube", "Abnehmbare Fingerstütze", "Mit Lederetui und Öl"] },
-    "barber-shears-7-straight": { "name": "Friseurschere 7,0\", gerader Griff", "summary": "Längere Klingen für Schere-über-Kamm und breite Partien.",
-      "details": ["Konvexschliff", "Verstellbare Spannschraube", "Mit Lederetui und Öl"] },
-    "thinning-shears-30": { "name": "Effilierschere 6,0\", 30 Zähne", "summary": "Nimmt pro Schnitt etwa 25–30% des Haars weg, zum Übergänge-Schneiden.",
-      "details": ["30 V-Zähne", "Verstellbare Spannschraube", "Mit Lederetui"] },
-    "texturizing-shears-14": { "name": "Modellierschere 6,0\", 14 Zähne", "summary": "Weit gesetzte Zähne für kräftige Textur und zum Ausdünnen von Volumen.",
-      "details": ["14 breite Zähne", "Verstellbare Spannschraube", "Mit Lederetui"] },
-    "barber-shears-left": { "name": "Linkshänder-Friseurschere 6,0\"", "summary": "Die Klingen sind vertauscht, nicht nur der Griff, damit Linkshänder die Schnittlinie sehen.",
-      "details": ["Echter Linkshänder-Klingensatz", "Offset-Griff", "Mit Lederetui und Öl"] },
-    "shavette-razor": { "name": "Shavette-Rasiermesser, klappbar", "summary": "Für halbe Standard-Rasierklingen. Für Nacken, Fades und Bartlinien.",
-      "details": ["Für halbe Doppelklingen", "Klappgriff", "Klingen nicht enthalten"] },
-    "grooming-shears-8-straight": { "name": "Hundeschere 8,0\", gerade", "summary": "Lange Klingen für Körperarbeit und Finish bei mittelgroßen und großen Rassen.",
-      "details": ["Konvexschliff", "Offset-Griff", "Verstellbare Spannung"] },
-    "grooming-shears-7-curved": { "name": "Hundeschere 7,0\", gebogen", "summary": "Eine gebogene Klinge für runde Köpfe, Pfoten und Ruten.",
-      "details": ["Gebogene Klingen mit Konvexschliff", "Offset-Griff", "Verstellbare Spannung"] },
-    "grooming-chunker-42": { "name": "Chunker-Schere 7,5\", 42 Zähne", "summary": "Verblendet und glättet Linien, ohne Scherenspuren zu hinterlassen.",
-      "details": ["42 T-Zähne", "Offset-Griff", "Verstellbare Spannung"] },
-    "manicure-set-leather-7": { "name": "Maniküre-Set im Lederetui, 7-teilig", "summary": "Hautzange, Nagelknipser, Hautschere, schräge Pinzette, Hautschieber, Feile und Nagelreiniger in einem Echtlederetui.",
-      "details": ["Echtlederetui mit Druckknopf", "7 Instrumente", "Logoprägung für Private Label möglich"] },
-    "nail-tech-starter-kit": { "name": "Starterset für Nageldesigner, 5-teilig", "summary": "Hautzange mit voller Backe, gebogene Hautschere, Löffel-Hautschieber, schräge Pinzette und Feile im Reißverschlussetui. Für Nagelakademien gemacht.",
-      "details": ["Reißverschlussetui mit Gummihalterungen", "5 Salon-Instrumente", "Akademiepreise ab 20 Sets"] },
-    "sample-kit": { "name": "Musterset, 5 Bestseller", "summary": "Je ein Stück unserer fünf meistverkauften Instrumente, zum Testen in Ihrem Salon oder Barbershop, bevor Sie kartonweise bestellen.",
-      "details": ["Hautzange mit voller Backe, gebogene Hautschere, Hautschieber mit Löffel und Beil, schräge Pinzette und Friseurschere 6,0\" mit Offset-Griff", "Jedes Instrument satiniert", "Ein Set pro Kunde"] }
+    "cuticle-nipper-full-jaw": {
+      "name": "Hautzange, volle Backe 5 mm",
+      "summary": "Die Salonzange für jeden Tag. Die 5-mm-Backe entfernt Nagelhaut mit weniger Schnitten.",
+      "details": [
+        "Doppelfeder mit gleichmäßiger Rückstellung",
+        "Kastengelenk, vernietet und von Hand justiert",
+        "Backe vor dem Verpacken an Nagelhautfolie getestet",
+        "Mit Silikon-Schutzkappe"
+      ]
+    },
+    "cuticle-nipper-half-jaw": {
+      "name": "Hautzange, halbe Backe 3 mm",
+      "summary": "Eine kürzere Backe für mehr Kontrolle an den Seitenwällen.",
+      "details": [
+        "Doppelfeder",
+        "Kastengelenk, vernietet und von Hand justiert",
+        "Backe an Nagelhautfolie getestet",
+        "Silikon-Schutzkappe"
+      ]
+    },
+    "cuticle-nipper-quarter-jaw": {
+      "name": "Hautzange, Viertelbacke 2 mm",
+      "summary": "Präzisionsbacke für Russian und Dry Manicure.",
+      "details": [
+        "Fein zulaufende Spitzen",
+        "Doppelfeder",
+        "Von Hand geschärfte Schneiden",
+        "Silikon-Schutzkappe"
+      ]
+    },
+    "cuticle-nipper-single-spring": {
+      "name": "Hautzange, Einzelfeder 7 mm",
+      "summary": "Eine günstige Zange für Schulungssets und den Wiederverkauf.",
+      "details": [
+        "Einzelne Blattfeder",
+        "Überlappendes Gelenk",
+        "Gut geeignet für Schülersets"
+      ]
+    },
+    "nail-nipper-straight": {
+      "name": "Nagelzange, gerade 12 mm",
+      "summary": "Gerade Schneide für saubere, eckige Fingernagelformen.",
+      "details": [
+        "Doppelfeder",
+        "Kastengelenk",
+        "Gerade Backe, 12 mm"
+      ]
+    },
+    "nail-nipper-barrel-spring": {
+      "name": "Nagelzange, gebogen, Spiralfeder",
+      "summary": "Gebogene Backe mit Spiralfeder für einen weicheren, ruhigeren Schnitt.",
+      "details": [
+        "Spiralfeder",
+        "Kastengelenk",
+        "Gebogene Backe, 13 mm"
+      ]
+    },
+    "toenail-nipper-thick": {
+      "name": "Fußnagelzange, dicke Nägel 14 mm",
+      "summary": "Lange Griffe und eine kräftige Backe für dicke Fußnägel in der Pediküre.",
+      "details": [
+        "Doppelfeder",
+        "Verstärktes Kastengelenk",
+        "Gerade Backe, 14 mm",
+        "Für die kosmetische Pediküre"
+      ]
+    },
+    "cuticle-scissors-curved": {
+      "name": "Hautschere, gebogen 9 cm",
+      "summary": "Dünne, gebogene Klingen, die der Nagelhautlinie folgen.",
+      "details": [
+        "Feine, gebogene Klingen",
+        "Schraube von Hand eingestellt",
+        "Pfeilspitzen"
+      ]
+    },
+    "nail-scissors-straight": {
+      "name": "Nagelschere, gerade 9 cm",
+      "summary": "Gerade Klingen zum Kürzen und Formen der Nägel.",
+      "details": [
+        "Gerade Klingen",
+        "Schraube von Hand eingestellt"
+      ]
+    },
+    "combination-scissors": {
+      "name": "Kombischere für Nägel und Nagelhaut",
+      "summary": "Eine Klinge für Nägel, eine für Nagelhaut. Gut für die Reise und den Einzelhandel.",
+      "details": [
+        "Zwei Klingen für zwei Aufgaben",
+        "Schraube von Hand eingestellt"
+      ]
+    },
+    "pusher-spoon-hatchet": {
+      "name": "Hautschieber, Löffel und Beil",
+      "summary": "Der runde Löffel schiebt die Nagelhaut zurück, das Beil löst sie von der Nagelplatte.",
+      "details": [
+        "Gerändelter, rutschfester Griff",
+        "Polierte, abgerundete Kanten",
+        "Autoklavierbar"
+      ]
+    },
+    "pusher-spoon-pterygium": {
+      "name": "Hautschieber, Löffel und Pterygium",
+      "summary": "Ein geschärftes Pterygium-Ende entfernt abgestorbene Haut von der Nagelplatte.",
+      "details": [
+        "Gerändelter Griff",
+        "Geschärftes Pterygium-Ende",
+        "Autoklavierbar"
+      ]
+    },
+    "nail-file-double": {
+      "name": "Edelstahl-Nagelfeile, doppelseitig 15 cm",
+      "summary": "Eine lasergeschnittene Feilfläche, die sich nicht abnutzt wie Papierfeilen.",
+      "details": [
+        "Lasergeschnittene Feilfläche",
+        "Spitzer Nagelreiniger",
+        "Waschbar und autoklavierbar"
+      ]
+    },
+    "tweezers-slant": {
+      "name": "Pinzette, schräg, von Hand ausgerichtet",
+      "summary": "Die Spitzen schließen auf der ganzen Kante, so greifen feine Härchen beim ersten Versuch.",
+      "details": [
+        "Von Hand ausgerichtete Spitzen",
+        "Satinierter Griffbereich",
+        "Schutzkappe"
+      ]
+    },
+    "tweezers-point": {
+      "name": "Pinzette, spitz, fein",
+      "summary": "Nadelfeine Spitzen für eingewachsene und sehr kurze Haare.",
+      "details": [
+        "Von Hand ausgerichtete Spitzen",
+        "Schutzkappe"
+      ]
+    },
+    "tweezers-lash": {
+      "name": "Wimpernpinzette, gebogen",
+      "summary": "Gebogene Spitzen zum Isolieren und Setzen von Wimpernextensions.",
+      "details": [
+        "Antimagnetischer Stahl",
+        "Gebogene, feine Spitzen",
+        "Schutzkappe"
+      ]
+    },
+    "tweezers-flat": {
+      "name": "Pinzette, flache Spitze",
+      "summary": "Breiter Griff für Augenbrauen und den allgemeinen Salongebrauch.",
+      "details": [
+        "Breite, flache Spitzen",
+        "Schutzkappe"
+      ]
+    },
+    "barber-shears-6-offset": {
+      "name": "Friseurschere 6,0\", Offset-Griff",
+      "summary": "Schere mit Konvexschliff und Offset-Griff für ein entspanntes Handgelenk.",
+      "details": [
+        "Konvexschliff, von Hand abgezogen",
+        "Verstellbare Spannschraube",
+        "Abnehmbare Fingerstütze",
+        "Mit Lederetui und Öl"
+      ]
+    },
+    "barber-shears-7-straight": {
+      "name": "Friseurschere 7,0\", gerader Griff",
+      "summary": "Längere Klingen für Schere-über-Kamm und breite Partien.",
+      "details": [
+        "Konvexschliff",
+        "Verstellbare Spannschraube",
+        "Mit Lederetui und Öl"
+      ]
+    },
+    "thinning-shears-30": {
+      "name": "Effilierschere 6,0\", 30 Zähne",
+      "summary": "Nimmt pro Schnitt etwa 25–30% des Haars weg, zum Übergänge-Schneiden.",
+      "details": [
+        "30 V-Zähne",
+        "Verstellbare Spannschraube",
+        "Mit Lederetui"
+      ]
+    },
+    "texturizing-shears-14": {
+      "name": "Modellierschere 6,0\", 14 Zähne",
+      "summary": "Weit gesetzte Zähne für kräftige Textur und zum Ausdünnen von Volumen.",
+      "details": [
+        "14 breite Zähne",
+        "Verstellbare Spannschraube",
+        "Mit Lederetui"
+      ]
+    },
+    "barber-shears-left": {
+      "name": "Linkshänder-Friseurschere 6,0\"",
+      "summary": "Die Klingen sind vertauscht, nicht nur der Griff, damit Linkshänder die Schnittlinie sehen.",
+      "details": [
+        "Echter Linkshänder-Klingensatz",
+        "Offset-Griff",
+        "Mit Lederetui und Öl"
+      ]
+    },
+    "shavette-razor": {
+      "name": "Shavette-Rasiermesser, klappbar",
+      "summary": "Für halbe Standard-Rasierklingen. Für Nacken, Fades und Bartlinien.",
+      "details": [
+        "Für halbe Doppelklingen",
+        "Klappgriff",
+        "Klingen nicht enthalten"
+      ]
+    },
+    "grooming-shears-8-straight": {
+      "name": "Hundeschere 8,0\", gerade",
+      "summary": "Lange Klingen für Körperarbeit und Finish bei mittelgroßen und großen Rassen.",
+      "details": [
+        "Konvexschliff",
+        "Offset-Griff",
+        "Verstellbare Spannung"
+      ]
+    },
+    "grooming-shears-7-curved": {
+      "name": "Hundeschere 7,0\", gebogen",
+      "summary": "Eine gebogene Klinge für runde Köpfe, Pfoten und Ruten.",
+      "details": [
+        "Gebogene Klingen mit Konvexschliff",
+        "Offset-Griff",
+        "Verstellbare Spannung"
+      ]
+    },
+    "grooming-chunker-42": {
+      "name": "Chunker-Schere 7,5\", 42 Zähne",
+      "summary": "Verblendet und glättet Linien, ohne Scherenspuren zu hinterlassen.",
+      "details": [
+        "42 T-Zähne",
+        "Offset-Griff",
+        "Verstellbare Spannung"
+      ]
+    },
+    "manicure-set-leather-7": {
+      "name": "Maniküre-Set im Lederetui, 7-teilig",
+      "summary": "Hautzange, Nagelknipser, Hautschere, schräge Pinzette, Hautschieber, Feile und Nagelreiniger in einem Echtlederetui.",
+      "details": [
+        "Echtlederetui mit Druckknopf",
+        "7 Instrumente",
+        "Logoprägung für Private Label möglich"
+      ]
+    },
+    "nail-tech-starter-kit": {
+      "name": "Starterset für Nageldesigner, 5-teilig",
+      "summary": "Hautzange mit voller Backe, gebogene Hautschere, Löffel-Hautschieber, schräge Pinzette und Feile im Reißverschlussetui. Für Nagelakademien gemacht.",
+      "details": [
+        "Reißverschlussetui mit Gummihalterungen",
+        "5 Salon-Instrumente",
+        "Akademiepreise ab 20 Sets"
+      ]
+    },
+    "sample-kit": {
+      "name": "Musterset, 5 Bestseller",
+      "summary": "Je ein Stück unserer fünf meistverkauften Instrumente, zum Testen in Ihrem Salon oder Barbershop, bevor Sie kartonweise bestellen.",
+      "details": [
+        "Hautzange mit voller Backe, gebogene Hautschere, Hautschieber mit Löffel und Beil, schräge Pinzette und Friseurschere 6,0\" mit Offset-Griff",
+        "Jedes Instrument satiniert",
+        "Ein Set pro Kunde"
+      ]
+    }
   }
 }

@@ -5,7 +5,6 @@
     "meta.home": "Profesjonalne cążki do skórek, nożyczki do manicure, pęsety, nożyczki fryzjerskie i groomerskie, ręcznie wykańczane w Sialkocie. Ceny hurtowe i private label dla salonów i dystrybutorów w Europie.",
     "meta.shop": "Wszystkie {n} narzędzia z cenami hurtowymi: cążki do skórek i paznokci, nożyczki do manicure, pęsety, nożyczki fryzjerskie i groomerskie.",
     "meta.product": "{summary} Nr kat. {sku}. Od {price} za sztukę przy {min}+ szt., netto.",
-
     "nav.skip": "Przejdź do treści",
     "nav.home": "Strona główna",
     "nav.catalogue": "Katalog",
@@ -19,7 +18,6 @@
     "nav.language": "Język",
     "nav.priceList": "Cennik",
     "trade.strip": "Tylko dla firm. Wszystkie ceny są cenami netto.",
-
     "footer.tagline": "Profesjonalne narzędzia kosmetyczne, barberskie i groomerskie, produkowane w Sialkocie w Pakistanie.",
     "footer.shop": "Sklep",
     "footer.company": "Firma",
@@ -29,12 +27,10 @@
     "footer.notice": "Nota prawna",
     "footer.fine": "Do zastosowań kosmetycznych, salonowych i groomerskich. Nie są to wyroby medyczne.",
     "footer.legalLang": "Strony prawne są w języku angielskim.",
-
     "unit.pcs": "{n} szt.",
     "unit.range": "{from}–{to} szt.",
     "unit.plus": "{from}+ szt.",
     "unit.count": "Produkty: {n}",
-
     "home.h1": "Narzędzia salonowe, ręcznie wykańczane w Sialkocie",
     "home.lede": "Cążki, nożyczki, pęsety i nożyczki fryzjerskie z Sialkotu, jednego z najważniejszych na świecie ośrodków produkcji stalowych narzędzi ręcznych. Zamów kilka sztuk na próbę, a potem kartony w cenach hurtowych albo z własną marką.",
     "home.ctaShop": "Przeglądaj katalog",
@@ -56,7 +52,6 @@
     "home.whyH": "Dlaczego Sialkot",
     "home.why1": "W Sialkocie od ponad stu lat powstają stalowe narzędzia ręczne. Tysiące warsztatów szlifuje, poleruje, reguluje i ostrzy tam narzędzia dla salonów, klinik i marek na całym świecie.",
     "home.why2": "Współpracujemy z kilkoma z tych warsztatów, określamy stal dla każdego produktu i sprawdzamy każde cążki, nożyczki i pęsetę przed zapakowaniem. Masz ceny warsztatowe bez konieczności zarządzania produkcją.",
-
     "spec.part": "Nr kat.",
     "spec.steel": "Stal",
     "spec.length": "Długość",
@@ -71,17 +66,14 @@
     "spec.privateLabel": "Private label",
     "spec.fromPcs": "Od {n} szt.",
     "spec.requestQuote": "Zapytaj o ofertę",
-
     "tier.qty": "Ilość",
     "tier.price": "Cena za sztukę",
     "tier.saving": "Rabat",
     "card.bulk": "{price}/szt. przy {n}+",
-
     "finish.satin": "Satynowe",
     "finish.mirror": "Polerowane na lustro",
     "finish.black": "Czarna matowa powłoka",
     "finish.titanium": "Czarna powłoka tytanowa",
-
     "shop.title": "Katalog",
     "shop.lede": "Wszystkie narzędzia z cenami hurtowymi przy każdym produkcie.",
     "shop.instruments": "Narzędzia",
@@ -94,7 +86,6 @@
     "shop.priceDesc": "Cena malejąco",
     "shop.noMatch": "Brak produktów pasujących do wyszukiwania.",
     "shop.clear": "Wyczyść wyszukiwanie",
-
     "pdp.part": "Nr kat. {sku}",
     "pdp.perPiece": "za sztukę, netto",
     "pdp.finish": "Wykończenie",
@@ -112,7 +103,6 @@
     "pdp.dimensions": "Wymiary",
     "pdp.photo": "Zdjęcie {n}",
     "pdp.gallery": "Zdjęcia produktu",
-
     "cart.title": "Koszyk",
     "cart.emptyH": "Twój koszyk jest pusty",
     "cart.emptyP": "Dodaj narzędzia z katalogu lub przez szybkie zamówienie. Rabaty ilościowe naliczają się tutaj automatycznie.",
@@ -131,7 +121,6 @@
     "cart.loading": "Ładowanie koszyka…",
     "cart.noscript": "Koszyk wymaga JavaScriptu. Możesz też wysłać zamówienie na adres {email}.",
     "cart.import": "Zamówienia są wysyłane z Pakistanu. Przewoźnik pobiera przy doręczeniu VAT z tytułu importu i ewentualne cło. Czynni podatnicy VAT zwykle mogą odliczyć VAT z tytułu importu.",
-
     "co.h": "Dane firmy",
     "co.name": "Imię i nazwisko",
     "co.company": "Firma lub salon",
@@ -152,13 +141,11 @@
     "co.submit": "Wyślij zapytanie o zamówienie",
     "co.sending": "Wysyłanie…",
     "co.help": "Odpowiadamy fakturą w ciągu jednego dnia roboczego.",
-
     "err.required": "Wypełnij to pole.",
     "err.email": "Wpisz adres e-mail, np. nazwa@przyklad.pl.",
     "err.vat": "Sprawdź numer VAT. Powinien wyglądać tak: {example}.",
     "err.b2b": "Potwierdź, że zamawiasz dla firmy.",
     "err.send": "Nie udało się wysłać formularza. Zamiast tego otworzy się Twój program pocztowy z wiadomością.",
-
     "sent.title": "Zapytanie o zamówienie wysłane",
     "sent.p": "Otrzymaliśmy zapytanie o zamówienie {ref}. W ciągu jednego dnia roboczego wyślemy fakturę na adres {email}.",
     "sent.titleEmail": "Wyślij e-mail, aby złożyć zamówienie",
@@ -170,7 +157,6 @@
     "sent.back": "Wróć do katalogu",
     "sent.none": "Brak ostatniego zamówienia",
     "sent.noneP": "Tutaj pojawiają się zapytania o zamówienie wysłane z tej przeglądarki.",
-
     "qo.title": "Szybkie zamówienie",
     "qo.lede": "Wpisz ilości wszystkiego, czego potrzebujesz, i dodaj wszystko do koszyka za jednym razem. Ceny hurtowe obowiązują dla każdego produktu.",
     "qo.product": "Produkt",
@@ -183,13 +169,11 @@
     "qo.none": "Wpisz ilość dla co najmniej jednego produktu.",
     "qo.sum": "Wybrane produkty: {n}. Razem: {total}",
     "qo.noscript": "Szybkie zamówienie wymaga JavaScriptu.",
-
     "pl.title": "Cennik",
     "pl.lede": "Ceny w EUR za sztukę, netto, dla wykończenia standardowego. Inne wykończenia: {finishes}.",
     "pl.print": "Drukuj lub zapisz jako PDF",
     "pl.valid": "Ceny obowiązują od {date}.",
     "pl.contact": "Zamówienia i pytania: {email}",
-
     "plp.title": "Private label",
     "plp.h1": "Twoja marka na profesjonalnych narzędziach",
     "plp.lede": "Dla dystrybutorów salonowych, akademii stylizacji paznokci, marek barberskich i sklepów internetowych. Ty wybierasz narzędzia, wykończenie i opakowanie. My wykonujemy próbki, a potem produkujemy i kontrolujemy Twoje zamówienie.",
@@ -220,10 +204,8 @@
     "plp.branding": "Branding i opakowanie",
     "plp.brandingPh": "Logo na narzędziu, drukowane pudełko, skórzane etui…",
     "plp.submit": "Wyślij zapytanie ofertowe",
-
     "form.sent": "Wysłano. Odpowiadamy w ciągu jednego dnia roboczego.",
     "form.email": "Twój program pocztowy powinien otworzyć się z gotową wiadomością.",
-
     "about.title": "O nas",
     "about.h1": "O firmie {brand}",
     "about.lede": "Sprzedajemy profesjonalne narzędzia kosmetyczne, barberskie i groomerskie z Sialkotu w Pakistanie salonom i dystrybutorom w Europie.",
@@ -235,7 +217,6 @@
     "about.qc4": "Zamówienia mogą być niezależnie skontrolowane przed wysyłką",
     "about.notH": "Czego nie sprzedajemy",
     "about.notP": "Sprzedajemy wyłącznie narzędzia do zastosowań kosmetycznych, salonowych i groomerskich, i tylko firmom. Nie sprzedajemy narzędzi chirurgicznych ani wyrobów medycznych.",
-
     "contact.title": "Kontakt",
     "contact.lede": "Pytania o produkty, próbki lub konta hurtowe. Odpowiadamy w ciągu jednego dnia roboczego.",
     "contact.email": "E-mail",
@@ -244,17 +225,13 @@
     "contact.formH": "Wyślij wiadomość",
     "contact.message": "Wiadomość",
     "contact.submit": "Wyślij wiadomość",
-
     "faq.title": "Najczęstsze pytania",
     "faq.more": "Masz inne pytanie?",
     "faq.contact": "Skontaktuj się z nami",
-
     "nf.title": "Nie znaleziono strony",
     "nf.lede": "Link może być nieaktualny lub zawierać błąd.",
     "nf.cta": "Przejdź do katalogu",
-
     "legal.draft": "Wersja robocza. Uzupełnij fragmenty w [nawiasach] i zleć sprawdzenie tekstu, zanim zaczniesz na nim polegać.",
-
     "nav.main": "Menu główne",
     "nav.whatsapp": "WhatsApp",
     "wa.label": "Napisz do nas na WhatsAppie",
@@ -296,86 +273,345 @@
     "shop.linePro": "Ręcznie ostrzone cążki z podwójną sprężyną, nożyczki ze stali 440C i precyzyjne narzędzia do codziennej pracy w salonie i barbershopie.",
     "shop.lineEssential": "Prostsze narzędzia w niższej cenie, do zestawów dla kursantów, sprzedaży detalicznej i jako zapas.",
     "meta.productTrial": "{summary} Nr kat. {sku}. {price} za zestaw, netto.",
-    "footer.credits": "Autorzy zdjęć"
+    "footer.credits": "Autorzy zdjęć",
+    "stock.in": "Dostępny",
+    "stock.low": "Zostało tylko {n} szt.",
+    "stock.out": "Brak w magazynie",
+    "cart.capped": "Tylko {n} szt. w magazynie.",
+    "err.stock": "Dostępne tylko {n} szt.: {name}. Zmniejsz ilość, aby kontynuować.",
+    "err.unavailable": "{name} nie jest już dostępny. Usuń go, aby kontynuować.",
+    "err.order": "Nie udało się wysłać zamówienia. Sprawdź dane i spróbuj ponownie lub skontaktuj się z nami."
   },
   "faq": [
-    ["Kto może zamawiać?", "Sprzedajemy wyłącznie firmom: salonom, barberom, studiom paznokci, akademiom, hurtowniom i sklepom. Przy zamówieniu podaj nazwę firmy i numer VAT."],
-    ["Czy ceny zawierają VAT?", "Nie. Ceny nie zawierają VAT ani cła. Zamówienia są wysyłane z Pakistanu, więc przewoźnik pobiera VAT z tytułu importu i ewentualne cło, gdy paczka wjeżdża do Twojego kraju. Czynni podatnicy VAT zwykle mogą odliczyć VAT z tytułu importu."],
-    ["Jak zapłacić?", "Po wysłaniu zapytania o zamówienie wysyłamy fakturę e-mailem. Płacisz przelewem bankowym, a my wysyłamy towar po otrzymaniu płatności."],
-    ["Ile trwa dostawa?", "Produkty z magazynu wysyłamy z Sialkotu kurierem ekspresowym. Do UE docierają zwykle w 4–7 dni roboczych."],
-    ["Czy zapłacę cło?", "Cło zależy od kraju i produktu. Wiele narzędzi z Pakistanu wjeżdża do UE bez cła w ramach GSP+, jeśli na fakturze jest właściwa deklaracja pochodzenia. Dołączamy ją."],
-    ["Czy mogę najpierw zamówić próbkę?", "Tak. Zamów jedną sztukę w normalnej cenie. Jeśli w ciągu 60 dni zamówisz 50 lub więcej sztuk tego samego produktu, zaliczymy cenę próbki."],
-    ["Co, jeśli narzędzie jest wadliwe?", "Zgłoś to w ciągu 30 dni od dostawy, dołączając zdjęcie. Wymienimy produkt lub wystawimy korektę."],
-    ["Czy ostrzycie narzędzia?", "Nożyczki fryzjerskie i groomerskie można odesłać do ostrzenia. Zapytaj nas o aktualną cenę."]
+    [
+      "Kto może zamawiać?",
+      "Sprzedajemy wyłącznie firmom: salonom, barberom, studiom paznokci, akademiom, hurtowniom i sklepom. Przy zamówieniu podaj nazwę firmy i numer VAT."
+    ],
+    [
+      "Czy ceny zawierają VAT?",
+      "Nie. Ceny nie zawierają VAT ani cła. Zamówienia są wysyłane z Pakistanu, więc przewoźnik pobiera VAT z tytułu importu i ewentualne cło, gdy paczka wjeżdża do Twojego kraju. Czynni podatnicy VAT zwykle mogą odliczyć VAT z tytułu importu."
+    ],
+    [
+      "Jak zapłacić?",
+      "Po wysłaniu zapytania o zamówienie wysyłamy fakturę e-mailem. Płacisz przelewem bankowym, a my wysyłamy towar po otrzymaniu płatności."
+    ],
+    [
+      "Ile trwa dostawa?",
+      "Produkty z magazynu wysyłamy z Sialkotu kurierem ekspresowym. Do UE docierają zwykle w 4–7 dni roboczych."
+    ],
+    [
+      "Czy zapłacę cło?",
+      "Cło zależy od kraju i produktu. Wiele narzędzi z Pakistanu wjeżdża do UE bez cła w ramach GSP+, jeśli na fakturze jest właściwa deklaracja pochodzenia. Dołączamy ją."
+    ],
+    [
+      "Czy mogę najpierw zamówić próbkę?",
+      "Tak. Zamów jedną sztukę w normalnej cenie. Jeśli w ciągu 60 dni zamówisz 50 lub więcej sztuk tego samego produktu, zaliczymy cenę próbki."
+    ],
+    [
+      "Co, jeśli narzędzie jest wadliwe?",
+      "Zgłoś to w ciągu 30 dni od dostawy, dołączając zdjęcie. Wymienimy produkt lub wystawimy korektę."
+    ],
+    [
+      "Czy ostrzycie narzędzia?",
+      "Nożyczki fryzjerskie i groomerskie można odesłać do ostrzenia. Zapytaj nas o aktualną cenę."
+    ]
   ],
   "categories": {
-    "cuticle-nippers": { "name": "Cążki do skórek", "blurb": "Cążki z zamkniętym przegubem i podwójną sprężyną, naostrzone i przetestowane na folii do skórek przed pakowaniem." },
-    "nail-nippers": { "name": "Cążki do paznokci", "blurb": "Mocniejsze ostrza do paznokci dłoni i grubych paznokci stóp, ze sprężyną płaską lub spiralną." },
-    "manicure-scissors": { "name": "Nożyczki do manicure", "blurb": "Delikatne zakrzywione i proste nożyczki do skórek i paznokci, ręcznie regulowane na śrubie." },
-    "pushers-files": { "name": "Radełka i pilniki", "blurb": "Dwustronne radełka z radełkowanym uchwytem i stalowe pilniki z powierzchnią ciętą laserowo." },
-    "tweezers": { "name": "Pęsety", "blurb": "Ręcznie wyrównane końcówki, które stykają się na całej długości. Skośne, szpiczaste, płaskie i do rzęs." },
-    "barber": { "name": "Nożyczki fryzjerskie i brzytwy", "blurb": "Nożyczki ze stali 440C z ostrzem konwex, a także degażówki, nożyczki do teksturyzacji i brzytwy." },
-    "grooming": { "name": "Nożyczki groomerskie", "blurb": "Długie proste, gięte i chunkery dla salonów groomerskich." },
-    "sets": { "name": "Zestawy i etui", "blurb": "Gotowe do sprzedaży zestawy w etui skórzanym lub na zamek. Popularne w private label." }
+    "cuticle-nippers": {
+      "name": "Cążki do skórek",
+      "blurb": "Cążki z zamkniętym przegubem i podwójną sprężyną, naostrzone i przetestowane na folii do skórek przed pakowaniem."
+    },
+    "nail-nippers": {
+      "name": "Cążki do paznokci",
+      "blurb": "Mocniejsze ostrza do paznokci dłoni i grubych paznokci stóp, ze sprężyną płaską lub spiralną."
+    },
+    "manicure-scissors": {
+      "name": "Nożyczki do manicure",
+      "blurb": "Delikatne zakrzywione i proste nożyczki do skórek i paznokci, ręcznie regulowane na śrubie."
+    },
+    "pushers-files": {
+      "name": "Radełka i pilniki",
+      "blurb": "Dwustronne radełka z radełkowanym uchwytem i stalowe pilniki z powierzchnią ciętą laserowo."
+    },
+    "tweezers": {
+      "name": "Pęsety",
+      "blurb": "Ręcznie wyrównane końcówki, które stykają się na całej długości. Skośne, szpiczaste, płaskie i do rzęs."
+    },
+    "barber": {
+      "name": "Nożyczki fryzjerskie i brzytwy",
+      "blurb": "Nożyczki ze stali 440C z ostrzem konwex, a także degażówki, nożyczki do teksturyzacji i brzytwy."
+    },
+    "grooming": {
+      "name": "Nożyczki groomerskie",
+      "blurb": "Długie proste, gięte i chunkery dla salonów groomerskich."
+    },
+    "sets": {
+      "name": "Zestawy i etui",
+      "blurb": "Gotowe do sprzedaży zestawy w etui skórzanym lub na zamek. Popularne w private label."
+    }
   },
   "products": {
-    "cuticle-nipper-full-jaw": { "name": "Cążki do skórek, pełne ostrze 5 mm", "summary": "Codzienne cążki salonowe. Ostrze 5 mm usuwa skórki mniejszą liczbą cięć.",
-      "details": ["Podwójna sprężyna o płynnym powrocie", "Zamknięty przegub, nitowany i regulowany ręcznie", "Ostrze testowane na folii do skórek przed pakowaniem", "W zestawie silikonowa nasadka"] },
-    "cuticle-nipper-half-jaw": { "name": "Cążki do skórek, połowa ostrza 3 mm", "summary": "Krótsze ostrze dla lepszej kontroli przy wałach bocznych.",
-      "details": ["Podwójna sprężyna", "Zamknięty przegub, nitowany i regulowany ręcznie", "Ostrze testowane na folii do skórek", "Silikonowa nasadka"] },
-    "cuticle-nipper-quarter-jaw": { "name": "Cążki do skórek, ćwierć ostrza 2 mm", "summary": "Precyzyjne ostrze do manicure rosyjskiego i na sucho.",
-      "details": ["Cienkie, zwężające się końcówki", "Podwójna sprężyna", "Ostrza ostrzone ręcznie", "Silikonowa nasadka"] },
-    "cuticle-nipper-single-spring": { "name": "Cążki do skórek, pojedyncza sprężyna 7 mm", "summary": "Przystępne cenowo cążki do zestawów szkoleniowych i odsprzedaży.",
-      "details": ["Pojedyncza sprężyna płaska", "Przegub nakładany", "Dobre do zestawów dla kursantów"] },
-    "nail-nipper-straight": { "name": "Cążki do paznokci, proste 12 mm", "summary": "Prosta krawędź tnąca do czystego, kwadratowego kształtu paznokci.",
-      "details": ["Podwójna sprężyna", "Zamknięty przegub", "Proste ostrze, 12 mm"] },
-    "nail-nipper-barrel-spring": { "name": "Cążki do paznokci, zakrzywione, sprężyna spiralna", "summary": "Zakrzywione ostrze ze sprężyną spiralną dla łagodniejszej, stabilniejszej pracy.",
-      "details": ["Sprężyna spiralna", "Zamknięty przegub", "Zakrzywione ostrze, 13 mm"] },
-    "toenail-nipper-thick": { "name": "Cążki do grubych paznokci stóp 14 mm", "summary": "Długie rękojeści i mocne ostrze do grubych paznokci w pedicure.",
-      "details": ["Podwójna sprężyna", "Wzmocniony zamknięty przegub", "Proste ostrze, 14 mm", "Do pedicure kosmetycznego"] },
-    "cuticle-scissors-curved": { "name": "Nożyczki do skórek, zakrzywione 9 cm", "summary": "Cienkie, zakrzywione ostrza, które podążają za linią skórek.",
-      "details": ["Delikatne, zakrzywione ostrza", "Napięcie śruby regulowane ręcznie", "Końcówki w kształcie strzałki"] },
-    "nail-scissors-straight": { "name": "Nożyczki do paznokci, proste 9 cm", "summary": "Proste ostrza do skracania i kształtowania paznokci.",
-      "details": ["Proste ostrza", "Napięcie śruby regulowane ręcznie"] },
-    "combination-scissors": { "name": "Nożyczki uniwersalne do paznokci i skórek", "summary": "Jedno ostrze do paznokci, drugie do skórek. Dobre w podróży i do sprzedaży detalicznej.",
-      "details": ["Ostrza o podwójnym przeznaczeniu", "Napięcie śruby regulowane ręcznie"] },
-    "pusher-spoon-hatchet": { "name": "Radełko do skórek, łyżeczka i toporek", "summary": "Zaokrąglona łyżeczka odsuwa skórki, a toporek odrywa je od płytki paznokcia.",
-      "details": ["Radełkowany, antypoślizgowy uchwyt", "Polerowane, zaokrąglone krawędzie", "Można autoklawować"] },
-    "pusher-spoon-pterygium": { "name": "Radełko do skórek, łyżeczka i pterygium", "summary": "Naostrzona końcówka pterygium do usuwania martwego naskórka z płytki paznokcia.",
-      "details": ["Radełkowany uchwyt", "Naostrzona końcówka pterygium", "Można autoklawować"] },
-    "nail-file-double": { "name": "Stalowy pilnik do paznokci, dwustronny 15 cm", "summary": "Powierzchnia cięta laserowo, która nie zużywa się jak pilniki papierowe.",
-      "details": ["Powierzchnia pilnika cięta laserowo", "Szpiczasta końcówka do czyszczenia", "Można myć i autoklawować"] },
-    "tweezers-slant": { "name": "Pęseta skośna, wyrównywana ręcznie", "summary": "Końcówki stykają się na całej krawędzi, więc chwytają cienkie włoski za pierwszym razem.",
-      "details": ["Końcówki wyrównywane ręcznie", "Satynowa strefa chwytu", "Nasadka ochronna"] },
-    "tweezers-point": { "name": "Pęseta szpiczasta, cienka", "summary": "Igłowe końcówki do wrastających i bardzo krótkich włosków.",
-      "details": ["Końcówki wyrównywane ręcznie", "Nasadka ochronna"] },
-    "tweezers-lash": { "name": "Pęseta do rzęs, zakrzywiona", "summary": "Zakrzywione końcówki do izolowania i aplikacji przedłużanych rzęs.",
-      "details": ["Stal antymagnetyczna", "Cienkie, zakrzywione końcówki", "Nasadka"] },
-    "tweezers-flat": { "name": "Pęseta z płaską końcówką", "summary": "Szeroki chwyt do brwi i codziennej pracy w salonie.",
-      "details": ["Szerokie, płaskie końcówki", "Nasadka ochronna"] },
-    "barber-shears-6-offset": { "name": "Nożyczki fryzjerskie 6,0\", uchwyt offset", "summary": "Nożyczki z ostrzem konwex i uchwytem offset, który odciąża nadgarstek.",
-      "details": ["Ostrze konwex, ręcznie wykończone", "Regulowana śruba napięcia", "Zdejmowana podpórka na palec", "W zestawie skórzane etui i oliwka"] },
-    "barber-shears-7-straight": { "name": "Nożyczki fryzjerskie 7,0\", uchwyt prosty", "summary": "Dłuższe ostrza do strzyżenia na grzebieniu i szerokich partii.",
-      "details": ["Ostrze konwex", "Regulowana śruba napięcia", "W zestawie skórzane etui i oliwka"] },
-    "thinning-shears-30": { "name": "Degażówki 6,0\", 30 zębów", "summary": "Usuwają około 25–30% włosów przy każdym cięciu, do cieniowania przejść.",
-      "details": ["30 zębów w kształcie V", "Regulowana śruba napięcia", "W zestawie skórzane etui"] },
-    "texturizing-shears-14": { "name": "Nożyczki do teksturyzacji 6,0\", 14 zębów", "summary": "Szeroko rozstawione zęby do wyraźnej tekstury i usuwania objętości.",
-      "details": ["14 szerokich zębów", "Regulowana śruba napięcia", "W zestawie skórzane etui"] },
-    "barber-shears-left": { "name": "Nożyczki fryzjerskie dla leworęcznych 6,0\"", "summary": "Odwrócone są ostrza, a nie tylko uchwyt, dzięki czemu leworęczni widzą linię cięcia.",
-      "details": ["Prawdziwy zestaw ostrzy dla leworęcznych", "Uchwyt offset", "W zestawie skórzane etui i oliwka"] },
-    "shavette-razor": { "name": "Brzytwa shavette, składana", "summary": "Na standardowe połówki żyletek. Do karku, fade'ów i linii brody.",
-      "details": ["Na połówki żyletek dwustronnych", "Składana rękojeść", "Żyletki nie są dołączone"] },
-    "grooming-shears-8-straight": { "name": "Nożyczki groomerskie 8,0\", proste", "summary": "Długie ostrza do pracy na tułowiu i wykańczania średnich i dużych ras.",
-      "details": ["Ostrze konwex", "Uchwyt offset", "Regulowane napięcie"] },
-    "grooming-shears-7-curved": { "name": "Nożyczki groomerskie 7,0\", gięte", "summary": "Gięte ostrze do zaokrąglonych głów, łap i ogonów.",
-      "details": ["Gięte ostrza konwex", "Uchwyt offset", "Regulowane napięcie"] },
-    "grooming-chunker-42": { "name": "Chunker 7,5\", 42 zęby", "summary": "Stapia i zmiękcza linie bez śladów nożyczek.",
-      "details": ["42 zęby typu T", "Uchwyt offset", "Regulowane napięcie"] },
-    "manicure-set-leather-7": { "name": "Zestaw do manicure w skórzanym etui, 7 elementów", "summary": "Cążki do skórek, cążki do paznokci, nożyczki do skórek, pęseta skośna, radełko, pilnik i czyścik w etui z naturalnej skóry.",
-      "details": ["Etui z naturalnej skóry zapinane na zatrzask", "7 narzędzi", "Możliwe tłoczenie logo w private label"] },
-    "nail-tech-starter-kit": { "name": "Zestaw startowy dla stylistki paznokci, 5 elementów", "summary": "Cążki do skórek z pełnym ostrzem, zakrzywione nożyczki do skórek, radełko z łyżeczką, pęseta skośna i pilnik w etui na zamek. Stworzony dla akademii stylizacji paznokci.",
-      "details": ["Etui na zamek z gumkami", "5 narzędzi salonowych", "Ceny dla akademii od 20 zestawów"] },
-    "sample-kit": { "name": "Zestaw próbny, 5 bestsellerów", "summary": "Po jednej sztuce każdego z naszych pięciu najlepiej sprzedających się narzędzi, do przetestowania w salonie lub barbershopie, zanim zamówisz całe kartony.",
-      "details": ["Cążki do skórek z pełnym ostrzem, zakrzywione nożyczki do skórek, radełko z łyżeczką i toporkiem, pęseta skośna i nożyczki fryzjerskie 6,0\" z uchwytem offset", "Każde narzędzie w wykończeniu satynowym", "Jeden zestaw na klienta"] }
+    "cuticle-nipper-full-jaw": {
+      "name": "Cążki do skórek, pełne ostrze 5 mm",
+      "summary": "Codzienne cążki salonowe. Ostrze 5 mm usuwa skórki mniejszą liczbą cięć.",
+      "details": [
+        "Podwójna sprężyna o płynnym powrocie",
+        "Zamknięty przegub, nitowany i regulowany ręcznie",
+        "Ostrze testowane na folii do skórek przed pakowaniem",
+        "W zestawie silikonowa nasadka"
+      ]
+    },
+    "cuticle-nipper-half-jaw": {
+      "name": "Cążki do skórek, połowa ostrza 3 mm",
+      "summary": "Krótsze ostrze dla lepszej kontroli przy wałach bocznych.",
+      "details": [
+        "Podwójna sprężyna",
+        "Zamknięty przegub, nitowany i regulowany ręcznie",
+        "Ostrze testowane na folii do skórek",
+        "Silikonowa nasadka"
+      ]
+    },
+    "cuticle-nipper-quarter-jaw": {
+      "name": "Cążki do skórek, ćwierć ostrza 2 mm",
+      "summary": "Precyzyjne ostrze do manicure rosyjskiego i na sucho.",
+      "details": [
+        "Cienkie, zwężające się końcówki",
+        "Podwójna sprężyna",
+        "Ostrza ostrzone ręcznie",
+        "Silikonowa nasadka"
+      ]
+    },
+    "cuticle-nipper-single-spring": {
+      "name": "Cążki do skórek, pojedyncza sprężyna 7 mm",
+      "summary": "Przystępne cenowo cążki do zestawów szkoleniowych i odsprzedaży.",
+      "details": [
+        "Pojedyncza sprężyna płaska",
+        "Przegub nakładany",
+        "Dobre do zestawów dla kursantów"
+      ]
+    },
+    "nail-nipper-straight": {
+      "name": "Cążki do paznokci, proste 12 mm",
+      "summary": "Prosta krawędź tnąca do czystego, kwadratowego kształtu paznokci.",
+      "details": [
+        "Podwójna sprężyna",
+        "Zamknięty przegub",
+        "Proste ostrze, 12 mm"
+      ]
+    },
+    "nail-nipper-barrel-spring": {
+      "name": "Cążki do paznokci, zakrzywione, sprężyna spiralna",
+      "summary": "Zakrzywione ostrze ze sprężyną spiralną dla łagodniejszej, stabilniejszej pracy.",
+      "details": [
+        "Sprężyna spiralna",
+        "Zamknięty przegub",
+        "Zakrzywione ostrze, 13 mm"
+      ]
+    },
+    "toenail-nipper-thick": {
+      "name": "Cążki do grubych paznokci stóp 14 mm",
+      "summary": "Długie rękojeści i mocne ostrze do grubych paznokci w pedicure.",
+      "details": [
+        "Podwójna sprężyna",
+        "Wzmocniony zamknięty przegub",
+        "Proste ostrze, 14 mm",
+        "Do pedicure kosmetycznego"
+      ]
+    },
+    "cuticle-scissors-curved": {
+      "name": "Nożyczki do skórek, zakrzywione 9 cm",
+      "summary": "Cienkie, zakrzywione ostrza, które podążają za linią skórek.",
+      "details": [
+        "Delikatne, zakrzywione ostrza",
+        "Napięcie śruby regulowane ręcznie",
+        "Końcówki w kształcie strzałki"
+      ]
+    },
+    "nail-scissors-straight": {
+      "name": "Nożyczki do paznokci, proste 9 cm",
+      "summary": "Proste ostrza do skracania i kształtowania paznokci.",
+      "details": [
+        "Proste ostrza",
+        "Napięcie śruby regulowane ręcznie"
+      ]
+    },
+    "combination-scissors": {
+      "name": "Nożyczki uniwersalne do paznokci i skórek",
+      "summary": "Jedno ostrze do paznokci, drugie do skórek. Dobre w podróży i do sprzedaży detalicznej.",
+      "details": [
+        "Ostrza o podwójnym przeznaczeniu",
+        "Napięcie śruby regulowane ręcznie"
+      ]
+    },
+    "pusher-spoon-hatchet": {
+      "name": "Radełko do skórek, łyżeczka i toporek",
+      "summary": "Zaokrąglona łyżeczka odsuwa skórki, a toporek odrywa je od płytki paznokcia.",
+      "details": [
+        "Radełkowany, antypoślizgowy uchwyt",
+        "Polerowane, zaokrąglone krawędzie",
+        "Można autoklawować"
+      ]
+    },
+    "pusher-spoon-pterygium": {
+      "name": "Radełko do skórek, łyżeczka i pterygium",
+      "summary": "Naostrzona końcówka pterygium do usuwania martwego naskórka z płytki paznokcia.",
+      "details": [
+        "Radełkowany uchwyt",
+        "Naostrzona końcówka pterygium",
+        "Można autoklawować"
+      ]
+    },
+    "nail-file-double": {
+      "name": "Stalowy pilnik do paznokci, dwustronny 15 cm",
+      "summary": "Powierzchnia cięta laserowo, która nie zużywa się jak pilniki papierowe.",
+      "details": [
+        "Powierzchnia pilnika cięta laserowo",
+        "Szpiczasta końcówka do czyszczenia",
+        "Można myć i autoklawować"
+      ]
+    },
+    "tweezers-slant": {
+      "name": "Pęseta skośna, wyrównywana ręcznie",
+      "summary": "Końcówki stykają się na całej krawędzi, więc chwytają cienkie włoski za pierwszym razem.",
+      "details": [
+        "Końcówki wyrównywane ręcznie",
+        "Satynowa strefa chwytu",
+        "Nasadka ochronna"
+      ]
+    },
+    "tweezers-point": {
+      "name": "Pęseta szpiczasta, cienka",
+      "summary": "Igłowe końcówki do wrastających i bardzo krótkich włosków.",
+      "details": [
+        "Końcówki wyrównywane ręcznie",
+        "Nasadka ochronna"
+      ]
+    },
+    "tweezers-lash": {
+      "name": "Pęseta do rzęs, zakrzywiona",
+      "summary": "Zakrzywione końcówki do izolowania i aplikacji przedłużanych rzęs.",
+      "details": [
+        "Stal antymagnetyczna",
+        "Cienkie, zakrzywione końcówki",
+        "Nasadka"
+      ]
+    },
+    "tweezers-flat": {
+      "name": "Pęseta z płaską końcówką",
+      "summary": "Szeroki chwyt do brwi i codziennej pracy w salonie.",
+      "details": [
+        "Szerokie, płaskie końcówki",
+        "Nasadka ochronna"
+      ]
+    },
+    "barber-shears-6-offset": {
+      "name": "Nożyczki fryzjerskie 6,0\", uchwyt offset",
+      "summary": "Nożyczki z ostrzem konwex i uchwytem offset, który odciąża nadgarstek.",
+      "details": [
+        "Ostrze konwex, ręcznie wykończone",
+        "Regulowana śruba napięcia",
+        "Zdejmowana podpórka na palec",
+        "W zestawie skórzane etui i oliwka"
+      ]
+    },
+    "barber-shears-7-straight": {
+      "name": "Nożyczki fryzjerskie 7,0\", uchwyt prosty",
+      "summary": "Dłuższe ostrza do strzyżenia na grzebieniu i szerokich partii.",
+      "details": [
+        "Ostrze konwex",
+        "Regulowana śruba napięcia",
+        "W zestawie skórzane etui i oliwka"
+      ]
+    },
+    "thinning-shears-30": {
+      "name": "Degażówki 6,0\", 30 zębów",
+      "summary": "Usuwają około 25–30% włosów przy każdym cięciu, do cieniowania przejść.",
+      "details": [
+        "30 zębów w kształcie V",
+        "Regulowana śruba napięcia",
+        "W zestawie skórzane etui"
+      ]
+    },
+    "texturizing-shears-14": {
+      "name": "Nożyczki do teksturyzacji 6,0\", 14 zębów",
+      "summary": "Szeroko rozstawione zęby do wyraźnej tekstury i usuwania objętości.",
+      "details": [
+        "14 szerokich zębów",
+        "Regulowana śruba napięcia",
+        "W zestawie skórzane etui"
+      ]
+    },
+    "barber-shears-left": {
+      "name": "Nożyczki fryzjerskie dla leworęcznych 6,0\"",
+      "summary": "Odwrócone są ostrza, a nie tylko uchwyt, dzięki czemu leworęczni widzą linię cięcia.",
+      "details": [
+        "Prawdziwy zestaw ostrzy dla leworęcznych",
+        "Uchwyt offset",
+        "W zestawie skórzane etui i oliwka"
+      ]
+    },
+    "shavette-razor": {
+      "name": "Brzytwa shavette, składana",
+      "summary": "Na standardowe połówki żyletek. Do karku, fade'ów i linii brody.",
+      "details": [
+        "Na połówki żyletek dwustronnych",
+        "Składana rękojeść",
+        "Żyletki nie są dołączone"
+      ]
+    },
+    "grooming-shears-8-straight": {
+      "name": "Nożyczki groomerskie 8,0\", proste",
+      "summary": "Długie ostrza do pracy na tułowiu i wykańczania średnich i dużych ras.",
+      "details": [
+        "Ostrze konwex",
+        "Uchwyt offset",
+        "Regulowane napięcie"
+      ]
+    },
+    "grooming-shears-7-curved": {
+      "name": "Nożyczki groomerskie 7,0\", gięte",
+      "summary": "Gięte ostrze do zaokrąglonych głów, łap i ogonów.",
+      "details": [
+        "Gięte ostrza konwex",
+        "Uchwyt offset",
+        "Regulowane napięcie"
+      ]
+    },
+    "grooming-chunker-42": {
+      "name": "Chunker 7,5\", 42 zęby",
+      "summary": "Stapia i zmiękcza linie bez śladów nożyczek.",
+      "details": [
+        "42 zęby typu T",
+        "Uchwyt offset",
+        "Regulowane napięcie"
+      ]
+    },
+    "manicure-set-leather-7": {
+      "name": "Zestaw do manicure w skórzanym etui, 7 elementów",
+      "summary": "Cążki do skórek, cążki do paznokci, nożyczki do skórek, pęseta skośna, radełko, pilnik i czyścik w etui z naturalnej skóry.",
+      "details": [
+        "Etui z naturalnej skóry zapinane na zatrzask",
+        "7 narzędzi",
+        "Możliwe tłoczenie logo w private label"
+      ]
+    },
+    "nail-tech-starter-kit": {
+      "name": "Zestaw startowy dla stylistki paznokci, 5 elementów",
+      "summary": "Cążki do skórek z pełnym ostrzem, zakrzywione nożyczki do skórek, radełko z łyżeczką, pęseta skośna i pilnik w etui na zamek. Stworzony dla akademii stylizacji paznokci.",
+      "details": [
+        "Etui na zamek z gumkami",
+        "5 narzędzi salonowych",
+        "Ceny dla akademii od 20 zestawów"
+      ]
+    },
+    "sample-kit": {
+      "name": "Zestaw próbny, 5 bestsellerów",
+      "summary": "Po jednej sztuce każdego z naszych pięciu najlepiej sprzedających się narzędzi, do przetestowania w salonie lub barbershopie, zanim zamówisz całe kartony.",
+      "details": [
+        "Cążki do skórek z pełnym ostrzem, zakrzywione nożyczki do skórek, radełko z łyżeczką i toporkiem, pęseta skośna i nożyczki fryzjerskie 6,0\" z uchwytem offset",
+        "Każde narzędzie w wykończeniu satynowym",
+        "Jeden zestaw na klienta"
+      ]
+    }
   }
 }

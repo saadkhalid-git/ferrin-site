@@ -3,3 +3,6 @@
 node_modules/
 dist/
 .serve/
+.env
+deploy/.env
+deploy/backups/

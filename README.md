@@ -27,6 +27,39 @@ Useful options:
 - `BASE_PATH="" npm run build` builds for a custom domain (site at `/`).
 - `npm run check` checks translations, links, images, page titles and structured data.
 
+## Server, database and admin panel (Phase 1)
+
+Besides the static GitHub Pages build, the site can run as a Node server (Fastify) with a PostgreSQL database
+(Prisma ORM). The server renders the same pages from the database, takes orders and has an admin panel.
+
+**First-time setup** (needs Docker Desktop and Node 20+):
+
+```bash
+cp .env.example .env              # then fill in POSTGRES_PASSWORD, DATABASE_URL, AUTH_SECRET, ADMIN_*
+npm install
+npm run db:up                     # PostgreSQL 17 in Docker, on 127.0.0.1:5432
+npm run db:migrate                # create the tables (prisma/migrations)
+npm run db:seed                   # import the 29 products and their translations, 100 in stock each
+npm run admin:create              # create the first admin from ADMIN_NAME / ADMIN_EMAIL / ADMIN_PASSWORD
+npm run build:assets              # fonts, CSS, scripts, images into dist/assets
+npm run dev                       # http://localhost:3000 and http://localhost:3000/admin
+```
+
+- **Admin panel:** `/admin` (dashboard, products, orders). There is no sign-up; admins are created only with `npm run admin:create`. Change a password with `npm run admin:create -- --reset-password`.
+- **Orders:** the cart sends product ids, finishes and quantities to `POST /api/orders`. The server prices everything from the database (volume tiers, finish surcharges, shipping), checks stock, and saves the order and its lines in one transaction. Each order line keeps the name and price it was sold at.
+- **Products:** edited in the admin panel (English text). German, French, Polish and Italian text comes from the seed and isn't editable yet; new products show English on other-language pages. `src/data/products.json` is now only seed data and the source for the static build.
+- **Test the whole flow:** with the server running, `npm run test:e2e` (47 checks: login, products, prices, orders, stock, status, security).
+- **Production:** set `NODE_ENV=production`, a real `APPLICATION_URL` (https), run `npm run db:deploy` instead of `db:migrate`, then `npm start`.
+
+| Variable | Purpose |
+|---|---|
+| `DATABASE_URL` | PostgreSQL connection string |
+| `AUTH_SECRET` | 32+ random characters for signing admin sessions (`openssl rand -base64 48`) |
+| `APPLICATION_URL` | Public address of the app (CSRF check, absolute links) |
+| `PORT`, `HOST`, `NODE_ENV` | Server settings (defaults 3000, 127.0.0.1, development) |
+| `POSTGRES_USER/PASSWORD/DB` | Used by `docker-compose.yml` |
+| `ADMIN_NAME/EMAIL/PASSWORD` | Only for `npm run admin:create` and `npm run test:e2e` |
+
 ## What to edit
 
 | What | Where |

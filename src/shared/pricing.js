@@ -1,16 +1,31 @@
-// Pricing, shipping and VAT-number rules. Imported by build.mjs and by the browser,
-// so the prices printed on pages and the prices in the cart always match.
+// Pricing, shipping and VAT-number rules. Imported by the server (which prices every order), by the
+// page templates and by the browser, so the price a customer sees is exactly the price that is saved.
+// Everything is calculated in whole cents to avoid floating-point errors.
 
 export const round = n => Math.round(n * 100) / 100;
 
 export const tierFor = (tiers, qty) => [...tiers].reverse().find(t => qty >= t.min);
 export const nextTier = (tiers, qty) => tiers.find(t => t.min > qty);
 
-// finishes: { satin: 0, mirror: 0.05, ... } — surcharge as a fraction of the base price
-export const unitPrice = (product, finishes, tiers, finish, qty) =>
-  round(product.price * (1 + (finishes[finish] || 0)) * (1 - tierFor(tiers, qty).off));
+export const toCents = amount => Math.round(Number(amount) * 100);
 
-export const lowestPrice = (product, tiers) => round(product.price * (1 - tiers[tiers.length - 1].off));
+// finishes: { satin: 0, mirror: 0.05, ... } — surcharge as a fraction of the base price
+export const unitPriceCents = (priceCents, finishes, tiers, finish, qty) =>
+  Math.round(priceCents * (1 + (finishes[finish] || 0)) * (1 - tierFor(tiers, qty).off));
+
+export const unitPrice = (product, finishes, tiers, finish, qty) =>
+  unitPriceCents(toCents(product.price), finishes, tiers, finish, qty) / 100;
+
+export const lowestPrice = (product, tiers) => Math.round(toCents(product.price) * (1 - tiers[tiers.length - 1].off)) / 100;
+
+// Shipping in cents for a subtotal in cents; null when the country isn't served.
+export function shippingCents(shipping, country, subtotalCents) {
+  const zone = zoneFor(shipping, country);
+  if (!zone) return null;
+  if (subtotalCents === 0) return 0;
+  if (zone.freeAbove && subtotalCents >= toCents(shipping.freeFrom)) return 0;
+  return toCents(zone.price);
+}
 
 export const baseFinish = (product, finishes) =>
   product.finishes.reduce((a, f) => ((finishes[f] || 0) < (finishes[a] || 0) ? f : a));

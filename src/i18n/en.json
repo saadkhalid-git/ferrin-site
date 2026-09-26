@@ -273,7 +273,14 @@
     "shop.linePro": "Hand-sharpened double-spring nippers, 440C steel shears and precision instruments for daily salon and barber work.",
     "shop.lineEssential": "Simpler instruments at a lower price, for student kits, retail and spare stock.",
     "meta.productTrial": "{summary} Part {sku}. {price} per kit, excl. VAT.",
-    "footer.credits": "Photo credits"
+    "footer.credits": "Photo credits",
+    "stock.in": "In stock",
+    "stock.low": "Only {n} left",
+    "stock.out": "Out of stock",
+    "cart.capped": "Only {n} in stock.",
+    "err.stock": "Only {n} of {name} available. Lower the quantity to continue.",
+    "err.unavailable": "{name} is no longer available. Remove it to continue.",
+    "err.order": "The order couldn't be sent. Check your details and try again, or contact us."
   },
   "faq": [
     [
